@@ -1,0 +1,68 @@
+county,station_id,sensor_id,pollutant,unit
+Sacramento,678,1548,o3,ppm
+Sacramento,678,1555,pm10,µg/m³
+Sacramento,678,1556,pm25,µg/m³
+San Benito,1041,1875,o3,ppm
+San Bernardino,230,2637,o3,ppm
+San Bernardino,230,374,pm10,µg/m³
+San Diego,237,401,pm25,µg/m³
+San Francisco,2009,25672,co,ppm
+San Francisco,2009,4272468,no,ppm
+San Francisco,2009,25673,no2,ppm
+San Francisco,2009,4272198,nox,ppm
+San Francisco,2009,3570,o3,ppm
+San Francisco,2009,3569,pm25,µg/m³
+San Joaquin,793,4272735,no,ppm
+San Joaquin,793,24429,no2,ppm
+San Joaquin,793,4273047,nox,ppm
+San Joaquin,793,1371,o3,ppm
+San Joaquin,793,24432,pm10,µg/m³
+San Joaquin,793,24433,pm25,µg/m³
+San Luis Obispo,276,460,no2,ppm
+San Luis Obispo,276,3246,o3,ppm
+San Luis Obispo,276,25272,pm25,µg/m³
+San Mateo,2152,25565,co,ppm
+San Mateo,2152,4272483,no,ppm
+San Mateo,2152,25566,no2,ppm
+San Mateo,2152,4272375,nox,ppm
+San Mateo,2152,3869,o3,ppm
+San Mateo,2152,3868,pm25,µg/m³
+Santa Barbara,871,1573,co,ppm
+Santa Barbara,871,1574,no2,ppm
+Santa Barbara,871,1576,o3,ppm
+Santa Barbara,871,19805,pm10,µg/m³
+Santa Barbara,871,19806,pm25,µg/m³
+Santa Clara,1208,2167,o3,ppm
+Santa Clara,1208,2166,pm25,µg/m³
+Santa Cruz,211,354,pm25,µg/m³
+Shasta,799,1396,o3,ppm
+Siskiyou,2624,5477,pm25,µg/m³
+Solano,635,1111,o3,ppm
+Solano,635,1114,pm25,µg/m³
+Sonoma,1935,3422,co,ppm
+Sonoma,1935,4272102,no,ppm
+Sonoma,1935,3421,no2,ppm
+Sonoma,1935,4272334,nox,ppm
+Sonoma,1935,3420,o3,ppm
+Sonoma,1935,3419,pm25,µg/m³
+Stanislaus,791,4272096,no,ppm
+Stanislaus,791,24849,no2,ppm
+Stanislaus,791,4272228,nox,ppm
+Stanislaus,791,1368,o3,ppm
+Stanislaus,791,1662593,pm10,µg/m³
+Stanislaus,791,24850,pm25,µg/m³
+Sutter,873,1578,o3,ppm
+Tehama,373,650,o3,ppm
+Tehama,373,6844520,pm10,µg/m³
+Tehama,373,651,pm25,µg/m³
+Trinity,8903,25975,pm25,µg/m³
+Tulare,877,1592,no2,ppm
+Tulare,877,1593,o3,ppm
+Tulare,877,1594,pm10,µg/m³
+Tulare,877,1595,pm25,µg/m³
+Tuolumne,864,1551,o3,ppm
+Ventura,1042,1876,o3,ppm
+Ventura,1042,22301,pm25,µg/m³
+Yolo,627,1101,o3,ppm
+Yolo,627,1100,pm25,µg/m³
+Yuba,207,350,pm25,µg/m³
