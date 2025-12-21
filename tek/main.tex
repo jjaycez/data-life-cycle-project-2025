@@ -1,0 +1,90 @@
+\documentclass[12pt, letterpaper]{report}
+
+% --- Paquetes de Idioma y Formato ---
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{setspace}
+\onehalfspacing
+
+% --- Paquetes Técnicos ---
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+% --- Información del Proyecto ---
+\title{\textbf{Impacto de la Contaminación Atmosférica en los Casos de Asma en California}}
+\author{Tu Nombre / Nombre del Grupo}
+\date{Curso 2024-2025}
+
+\begin{document}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	% --- CAPÍTULO 1: INTRODUCCIÓN ---
+	\chapter{Introducción}
+\section{Descripción del Problema}
+
+En las últimas décadas, el modelo de éxito de las sociedades modernas se ha vinculado frecuentemente a la expansión económica y al crecimiento industrial. Sin embargo, este enfoque genera consecuencias adversas en ocasiones dificilmente apreciables a primera vista: la omisión sistemática de las consecuencias ambientales en favor de la productividad. A medida que las ciudades se expanden y las actividades comerciales se intensifican, el impacto sobre el entorno natural se desplaza a un segundo plano, considerándose a menudo como un efecto secundario inevitable del desarrollo.
+
+Este descuido del entorno tiene usualmente una repercusión directa y alarmante en la salud de la población. La prioridad por sostener una economía de alto rendimiento ha derivado en una degradación de la calidad del aire que respiramos. Al no prestar debidamente atención a las emisiones derivadas de estos sistemas, se han creado condiciones ambientales que no solo facilitan la aparición de nuevas enfermedades respiratorias, sino que agravan seriamente las ya existentes, como es el caso del asma.
+
+En regiones con un alto desarrollo logístico e industrial, como California, el aire se carga de contaminantes que actúan como detonantes de crisis respiratorias.
+	
+	% --- CAPÍTULO 2: DESCRIPCIÓN DEL PROYECTO ---
+	\chapter{Descripción del proyecto}
+	\section{Objetivos del proyecto}
+	El objetivo principal del proyecto será instaurar una monitorización de los contaminantes a lo largo del Estado de California, EEUU, y con ello aumentar el control estricto del impacto negativo de estos en la salud de la población, de acuerdo a los estándares propios de la OMS. Así mismo, se busca aumentar la concienciación de la sociedad hacia las consecuencias de la industrialización en la salud.
+	\begin{enumerate}
+		\item Obtener datos de niveles de $NO_{2}$, $O_{3}$ y $PM_{2.5}$.
+		\item Analizar la correlación con ingresos hospitalarios.
+		\item Identificar áreas que requieren medidas de mitigación urgentes.
+	\end{enumerate}
+	
+	\section{Marco teórico}
+	\subsection{Calidad del aire y contaminantes}
+	Se monitorean gases como el dióxido de nitrógeno ($NO_{2}$) y ozono ($O_{3}$), los cuales son tóxicos y causan problemas como asma y bronquitis[cite: 57, 72].
+	
+	% --- CAPÍTULO 3: GESTIÓN DEL PROYECTO ---
+	\chapter{Gestión del proyecto}
+	\section{Planificación y Paquetes de Trabajo}
+	Siguiendo la metodología de división lógica de actividades, el proyecto se organiza en 5 paquetes de trabajo (WP)[cite: 150, 156]:
+	\begin{itemize}
+		\item \textbf{WP1:} Concepción y desarrollo del proyecto[cite: 158].
+		\item \textbf{WP2:} Gestión y redacción del informe[cite: 161, 174].
+		\item \textbf{WP3:} Obtención y procesado de datos clínicos y ambientales[cite: 163].
+		\item \textbf{WP4:} Análisis estadístico y conclusiones[cite: 164, 179].
+		\item \textbf{WP5:} Promoción y presentación[cite: 166].
+	\end{itemize}
+	
+	\section{Plan de gestión de datos (DMP)}
+	Se aplican los principios FAIR (Findable, Accessible, Interoperable, Reusable) para asegurar una gestión efectiva y transparente de la información[cite: 187, 191]. El cumplimiento de HIPAA asegura que no se utilice material sensible que identifique pacientes[cite: 212].
+	
+	% --- CAPÍTULO 4: PROCESAMIENTO DE DATOS ---
+	\chapter{Procesamiento de datos}
+	\section{Limpieza y curación}
+	Se utiliza el lenguaje R para la limpieza de valores nulos (NaNs) e inconsistencias[cite: 284, 285]. La integración geográfica se realiza mediante sistemas SIG como ArcGIS Pro[cite: 287].
+	
+	\section{Preservación}
+	Los datasets se preservarán en repositorios abiertos como Zenodo, asignando un DOI para facilitar su citación[cite: 327, 328].
+	
+	% --- CAPÍTULO 5: ANÁLISIS DE DATOS ---
+	\chapter{Análisis de datos}
+	\section{Análisis gráfico}
+	Se observarán mapas de calor de contaminantes en relación con núcleos urbanos de California[cite: 347, 365].
+	
+	\section{Análisis estadístico}
+	Se emplearán árboles de regresión y ajustes lineales para determinar la capacidad explicativa del modelo ambiental sobre los casos de asma[cite: 425, 428].
+	
+	% --- CAPÍTULO 6: CONCLUSIONES ---
+	\chapter{Conclusiones}
+	Se discutirán los resultados obtenidos, reconociendo limitaciones como el número de estaciones de medida o variables socioeconómicas no consideradas[cite: 550, 560]. Se propondrán recomendaciones para futuras estrategias de salud pública[cite: 577].
+	
+\end{document}
