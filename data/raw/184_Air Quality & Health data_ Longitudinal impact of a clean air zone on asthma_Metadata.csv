@@ -1,0 +1,63 @@
+Section,Value,Field
+Dataset,Name,"Air Quality & Health data: Longitudinal impact of a clean air zone on asthma"
+Dataset,"Gateway URL",https://healthdatagateway.org//dataset/184?version=1.0.0
+Dataset,"Dataset Type","Health and disease;,;Measurements/Tests"
+Dataset,"Dataset Sub-type",Respiratory
+Dataset,"Collection Sources","Secondary care - Accident and Emergency;,;Secondary care - In-patients;,;Secondary care - Outpatients"
+"Summary Demographics","Population Size",72445
+"Summary Demographics",Years,2016-05-31T23:00:00.000Z
+"Summary Demographics","Associate BioSamples",
+"Summary Demographics","Geographic coverage","United Kingdom,England,West Midlands"
+"Summary Demographics","Lead time","1-2 months"
+Summary,Abstract,"This dataset comprises 181,207 acute asthma admissions and geographically linked DEFRA air pollution data over 6-years including a clean air zone in 2021. Demographics, admissions, serial physiology, diagnostic codes, symptoms, medications and outcomes."
+Summary,"DOI for dataset",
+Documentation,Description,
+Documentation,"Dataset type",
+Documentation,"Dataset sub-type",
+Documentation,"Dataset population size",72445
+Documentation,"Associated media",
+Documentation,"Synthetic data web link",
+Keywords,Keywords,"Clean Air Zones;,;CAZ;,;Air pollution control;,;asthma;,;hospitalisations;,;Environmental health;,;Urban air quality;,;Respiratory conditions;,;Emission reduction;,;Public health policy;,;Airborne pollutants impact;,;Acute asthma management;,;acute;,;respiratory;,;DEFRA;,;air pollution;,;acuity;,;emergency admissions;,;acute asthma;,;deprivation"
+Provenance,"Purpose of dataset collection",Care
+Provenance,"Source of dataset extraction",EPR
+Provenance,"Collection source setting",
+Provenance,"Patient pathway description","Data is representative of the multi-ethnicity population within the West Midlands (42% non white). Data includes all patients admitted during this timeframe, with National data Opt Outs applied, and therefore is representative of admissions to secondary care. Data focuses on in-patient stay in hospital during the acute episode but can be supplemented on request to include previous and subsequent hospital contacts (including outpatient appointments) and ambulance, 111, 999 data."
+Provenance,"Image contrast","Not stated"
+Provenance,"Biological sample availability",
+Details,"Publishing frequency",
+Details,Version,
+Details,Modified,
+Details,"Distribution release date",
+Details,"Citation Requirements","This publication uses data from PIONEER, an ethically approved database and analytical environment (East Midlands Derby Research Ethics 20/EM/0158),,"
+Coverage,"Start date",2016-05-31T23:00:00.000Z
+Coverage,"End date",2022-05-30T23:00:00.000Z
+Coverage,"Time lag","Less than 1 week"
+Coverage,"Geographic coverage","United Kingdom,England,West Midlands"
+Coverage,"Minimum age range",
+Coverage,"Maximum age range",
+Coverage,Follow-up,"0 - 6 Months"
+Coverage,"Dataset completeness",
+Omics,Assay,
+Omics,Platform,
+Accessibility,Language,
+Accessibility,"Alignment with standardised data models",LOCAL
+Accessibility,"Controlled vocabulary",
+Accessibility,Format,
+"Data Access Request","Dataset pipeline status",
+"Data Access Request","Access rights",https://www.pioneerdatahub.co.uk/data/data-request-process/
+"Data Access Request","Time to dataset access","1-2 months"
+"Data Access Request","Access request cost",www.pioneerdatahub.co.uk/data/data-services-costs/
+"Data Access Request","Access method category",TRE/SDE
+"Data Access Request","Access mode",
+"Data Access Request","Access service description","Trusted Research Environments (TRE) are built using Microsoft Azure services and hosted in the UK to provide research teams a safe, secure and agile environment which allows users to quickly analyse, interpret and form an enriched view of primary care information through a range of integrated datasets.
+
+Health data collated from multiple sources is ingested into a secure data lake which will then allow subsets of data to be made available to research teams on approval of a data request. Once approved a customer specific TRE is made available with a standard set of leading analytical tools from Microsoft including Azure Databricks, Azure Machine Learning, Azure SQL and Azure Synapse (for large-scale data warehouses). Specific tools can be provided at an additional cost over the standard platform data access charge and the PIONEER team will work with you to determine your exact needs.
+
+Access to the TRE is managed using the latest virtual desktop technology to provide a safe and secure end-user experience.  By utilising leading edge design PIONEER are able to create TREs rapidly to enable us to service any customer requirement."
+"Data Access Request",Jurisdiction,GB-ENG
+"Data Access Request","Data use limitation","General research use"
+"Data Access Request","Data use requirements",
+"Data Access Request","Data Controller","University Hospitals Birmingham NHS Foundation Trust"
+"Data Access Request","Data Processor",
+"Data Access Request",Investigations,
+Demographics,"Demographic Frequency",

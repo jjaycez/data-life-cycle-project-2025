@@ -1,0 +1,181 @@
+"Table Name","Table Description","Column Name","Column Description","Data Type",Sensitive
+Admissions,"Table of patients admission details",care_spell_id,"Care spell identifier",varchar,false
+Admissions,"Table of patients admission details",patient_pseudo_id,"Patient pseudonymised identifier",varchar,false
+Admissions,"Table of patients admission details",admission_detail_id,"Unique admission detail identifier",varchar,false
+Admissions,"Table of patients admission details",arrival_datetime,"Episode Arrival datetime",datetime,false
+Admissions,"Table of patients admission details",discharge_datetime,"Episode Discharge datetime",datetime,false
+Admissions,"Table of patients admission details",weekday_type,"Weekday type, Weekend or Weekday",varchar,false
+Admissions,"Table of patients admission details",hospital_site,"Hospital Site",varchar,false
+Admissions,"Table of patients admission details",hospital_department,"Hospital department, IP or A&E",varchar,false
+Admissions,"Table of patients admission details",admission_type,"Admission type, Emergency or Elective",varchar,false
+Admissions,"Table of patients admission details",referral_source,"Referral source",varchar,false
+Admissions,"Table of patients admission details",admission_from,"Admission from location",varchar,false
+Admissions,"Table of patients admission details",discharge_destination,"Discharge location",varchar,false
+Assessment,"Patient assessment results",care_spell_id,"Care spell identifier",varchar,false
+Assessment,"Patient assessment results",patient_pseudo_id,"Patient pseudonymised identifier",varchar,false
+Assessment,"Patient assessment results",assessment_id,"Unique assessment identifier",varchar,false
+Assessment,"Patient assessment results",assessment_source,"Assessment code",varchar,false
+Assessment,"Patient assessment results",assessment,"Assessment description",varchar,false
+Assessment,"Patient assessment results",form_set_id,"Assessment set identifier - What group of assessments this belongs with",varchar,false
+Assessment,"Patient assessment results",form_name,"Assessment form name",varchar,false
+Assessment,"Patient assessment results",field_description,"Assessment description",varchar,false
+Assessment,"Patient assessment results",assessment_recorded,"Assessment recorded datetime",datetime,false
+Assessment,"Patient assessment results",assessment_displayed,"Assessment displayed datetime",datetime,false
+Assessment,"Patient assessment results",source_value,"Assessment result",varchar,false
+Assessment,"Patient assessment results",source_value_expn,"Assessment result description",varchar,false
+Diagnosis,"Patient diagnoses table",care_spell_id,"Care spell identifier",varchar,false
+Diagnosis,"Patient diagnoses table",patient_pseudo_id,"Patient pseudonymised identifier",varchar,false
+Diagnosis,"Patient diagnoses table",diagnosis_id,"Unique Diagnosis identifier",varchar,false
+Diagnosis,"Patient diagnoses table",set_id,"Diagnosis Set identifier - Groups diagnosis episodes together",varchar,false
+Diagnosis,"Patient diagnoses table",diagnosis_source_code,"Diagnosis source code",varchar,false
+Diagnosis,"Patient diagnoses table",diagnosis_source_code_expn,"diagnosis description",varchar,false
+Diagnosis,"Patient diagnoses table",diagnosis,"Diagnosis code",varchar,false
+Diagnosis,"Patient diagnoses table",diagnosis_name,"diagnosis description",varchar,false
+Diagnosis,"Patient diagnoses table",coding_system,"Coding System",varchar,false
+Diagnosis,"Patient diagnoses table",diagnosis_type,"Diagnosis type - Final diagnosis (done at the end of each episode), clinical diagnosis (done by nurses/doctors), Presenting complaint (Main complaint in A&E) , Admitting diagnosis (done by nurses/doctors)",varchar,false
+Diagnosis,"Patient diagnoses table",diagnosis_recorded,"diagnosis recorded datetime",datetime,false
+Diagnosis,"Patient diagnoses table",diagnosis_order,"diagnosis order",int,false
+Diagnosis,"Patient diagnoses table",recorded_diagnosis_start,"when the diagnosis started",datetime,false
+Diagnosis,"Patient diagnoses table",recorded_diagnosis_end,"when the diagnosis ended",datetime,false
+Diagnosis,"Patient diagnoses table",hospital_site,"hospital site",varchar,false
+Diagnosis,"Patient diagnoses table",source_system,"the system that this is recorded from",varchar,false
+Event,"Patient Events",patient_pseudo_id,"Patient pseudonymised identifier",varchar,false
+Event,"Patient Events",event_id,"Unique event identifier",varchar,false
+Event,"Patient Events",event,"Event description",varchar,false
+Event,"Patient Events",event_date,"Event date",datetime,false
+Event,"Patient Events",event_date_coarsened,"Event date coarsened to MM/YYYY",varchar,false
+Observation,"Patient observation results",care_spell_id,"Care spell identifier",varchar,false
+Observation,"Patient observation results",patient_pseudo_id,"Patient pseudonymised identifier",varchar,false
+Observation,"Patient observation results",observation_id,"Unique observation identifier",varchar,false
+Observation,"Patient observation results",set_id,"Set of observations identifier - What observations are done together",varchar,false
+Observation,"Patient observation results",observation_code,"Observation code",varchar,false
+Observation,"Patient observation results",observation,"Observation description",varchar,false
+Observation,"Patient observation results",time_performed,"Time performed",datetime,false
+Observation,"Patient observation results",time_completed,"Time completed",datetime,false
+Observation,"Patient observation results",result,Result,varchar,false
+Observation,"Patient observation results",unit,Units,varchar,false
+Spell,"Hospital Spell",care_spell_id,"Care spell identifier",varchar,false
+Spell,"Hospital Spell",patient_pseudo_id,"Patient pseudonymised identifier",varchar,false
+Spell,"Hospital Spell",arrival_datetime,"Hospital Arrival datetime",datetime,false
+Spell,"Hospital Spell",discharge_datetime,"Hospital Discharge datetime",datetime,false
+Spell,"Hospital Spell",starting_hospital,"Starting hospital name",varchar,false
+Spell,"Hospital Spell",ending_hospital,"Ending hospital name",varchar,false
+Spell,"Hospital Spell",weekday_type,"Weekday type, Weekend or Weekday",varchar,false
+Spell,"Hospital Spell",postcode_local_authority_district_name,"Postcode local authority district name",varchar,false
+Spell,"Hospital Spell",presenting_complaint_diagnosis,"Presenting complaint diagnosis list",varchar,false
+Spell,"Hospital Spell",presenting_complaint_datetime,"Presenting complaint recorded datetime list",varchar,false
+Spell,"Hospital Spell",admitting_diagnosis,"admitting diagnosis list",varchar,false
+Spell,"Hospital Spell",admitting_diagnosis_datetime,"admitting diagnosis recorded datetime list",varchar,false
+Spell,"Hospital Spell",ae_diagnosis_code,"A&E diagnosis code list",varchar,false
+Spell,"Hospital Spell",ae_diagnosis_name,"A&E diagnosis description list",varchar,false
+Spell,"Hospital Spell",ae_diagnosis_datetime,"A&E diagnosis recorded datetime list",varchar,false
+Spell,"Hospital Spell",ae_primary_diagnosis,"A&E primary diagnosis list",varchar,false
+Spell,"Hospital Spell",ae_secondary_diagnosis,"A&E secondary diagnosis list",varchar,false
+Spell,"Hospital Spell",ip_diagnosis_code,"Inpatient diagnosis code list",varchar,false
+Spell,"Hospital Spell",ip_diagnosis_name,"Inpatient diagnosis description list",varchar,false
+Spell,"Hospital Spell",ip_diagnosis_datetime,"Inpatient diagnosis recorded datetime list",varchar,false
+Spell,"Hospital Spell",ip_primary_diagnosis,"Inpatient primary diagnosis list",varchar,false
+Spell,"Hospital Spell",ip_secondary_diagnosis,"Inpatient secondary diagnosis list",varchar,false
+Spell,"Hospital Spell",clinical_diagnosis,"Clinical diagnosis list",varchar,false
+Spell,"Hospital Spell",clinical_diagnosis_datetime,"Clinical diagnosis recorded datetime list",varchar,false
+Spell,"Hospital Spell",first_asthma_datetime,"First asthma datetime",datetime,false
+Spell,"Hospital Spell",first_asthma_diagnosis,"First asthma diagnosis description",varchar,false
+Spell,"Hospital Spell",admission_type,"Admission type, Emergency or Elective",varchar,false
+Spell,"Hospital Spell",sex,Sex,varchar,false
+Spell,"Hospital Spell",ethnicity,Ethnicity,varchar,false
+Spell,"Hospital Spell",age,Age,varchar,false
+Spell,"Hospital Spell",imd_income_decile,"Index of multiple deprivation income decile",int,false
+Spell,"Hospital Spell",imd_employment_decile,"Index of multiple deprivation employment decile",int,false
+Spell,"Hospital Spell",imd_health_and_disability_decile,"Index of multiple deprivation health and disability decile",int,false
+Spell,"Hospital Spell",imd_education_skills_and_training_decile,"Index of multiple deprivation education skills and training decile",int,false
+Spell,"Hospital Spell",imd_barriers_to_housing_and_services_decile,"Index of multiple deprivation barriers to housing and services decile",int,false
+Spell,"Hospital Spell",imd_crime_decile,"Index of multiple deprivation crime decile",int,false
+Spell,"Hospital Spell",imd_living_environment_decile,"Index of multiple deprivation living environment decile",int,false
+Spell,"Hospital Spell",imd_decile,"Index of multiple deprivation decile",int,false
+Spell,"Hospital Spell",imd_quintile,"Index of multiple deprivation quintile",int,false
+Spell,"Hospital Spell",smoking_status,"Smoking status",varchar,false
+Spell,"Hospital Spell",cigarettes_per_day,"Number of cigarettes per day",varchar,false
+Spell,"Hospital Spell",pack_years,"Number of packs per year",varchar,false
+Spell,"Hospital Spell",covid19_positive,"Covid positive flag",bit,false
+Spell,"Hospital Spell",first_NEWS2_score,"first NEWS2 score",varchar,false
+Spell,"Hospital Spell",first_SEWS_score,"first SEWS score",varchar,false
+Spell,"Hospital Spell",first_CFS,"first CFS",varchar,false
+Spell,"Hospital Spell",first_respiratory_rate,"first respiratory rate",varchar,false
+Spell,"Hospital Spell",first_systolic_bp,"first systolic bp",varchar,false
+Spell,"Hospital Spell",first_diastolic_bp,"first diastolic bp",varchar,false
+Spell,"Hospital Spell",first_temperature,"first temperature",varchar,false
+Spell,"Hospital Spell",first_bmi,"first bmi",varchar,false
+Spell,"Hospital Spell",first_MUST_score,"first MUST score",varchar,false
+Spell,"Hospital Spell",first_FEV1_FVC,"first FEV1 FVC",varchar,false
+Spell,"Hospital Spell",first_AVPU_score,"first AVPU score",varchar,false
+Spell,"Hospital Spell",first_heart_rate,"first heart rate",varchar,false
+Spell,"Hospital Spell",first_O2_sats,"first O2 sats",varchar,false
+Spell,"Hospital Spell",first_peak_flow_rate,"first peak flow rate",varchar,false
+Spell,"Hospital Spell",discharge_destination,"Discharge location",varchar,false
+Spell,"Hospital Spell",died_in_hospital,"Died in hospital flag - 1 or 0",bit,false
+Spell,"Hospital Spell",died_within_7_days_of_discharge,"died within 7 days of discharge flag - 1 or 0",bit,false
+Spell,"Hospital Spell",died_within_14_days_of_discharge,"died within 14 days of discharge flag - 1 or 0",bit,false
+Spell,"Hospital Spell",died_within_30_days_of_discharge,"died within 30 days of discharge flag - 1 or 0",bit,false
+Spell,"Hospital Spell",died_within_90_days_of_discharge,"died within 90 days of discharge flag - 1 or 0",bit,false
+Spell,"Hospital Spell",died_within_180_days_of_discharge,"died within 180 days of discharge flag - 1 or 0",bit,false
+Spell,"Hospital Spell",died_within_365_days_of_discharge,"died within 365 days of discharge flag - 1 or 0",bit,false
+Spell,"Hospital Spell",postcode_flag,"Flag whether postcode was valid to be mapped to a closest weather station. 1= valid , 0 = invalid",bit,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",care_spell_id,"Care spell identifier",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",patient_pseudo_id,"Patient pseudo identifier",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",airpollution_id,"Air pollution identifier",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",site,"Site name",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",code,Code,varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",monitoring_datetime,datetime,datetime,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",O3,Ozone,varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",NO,"Nitric oxide",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",NO2,"Nitrogen dioxide",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",NOXasNO2,"Nitrogen oxides as nitrogen dioxide",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",SO2,"Sulphur dioxide",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",CO,"Carbon monoxide",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",PM10,"PM10 particulate matter (Hourly measured)",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",NV10,"Non-volatile PM10 (Hourly measured)",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",V10,"Volatile PM10 (Hourly measured)",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission","PM2 5","PM2.5 particulate matter (Hourly measured)",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission","NV2 5","Non-volatile PM2.5 (Hourly measured)",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission","V2 5","Volatile PM2.5 (Hourly measured)",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",wd,"Modelled Wind Direction",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",ws,"Modelled Wind Speed",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",temp,"Modelled Temperature",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",GR10,"PM10 particulate matter (Daily measured)",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission","GR2 5","PM2.5 particulate matter (Daily measured)",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",ETHANE,ethane,varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",ETHENE,ethene,varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",ETHYNE,ethyne,varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",PROPANE,propane,varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",PROPENE,propene,varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",iBUTANE,iso-butane,varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",nBUTANE,n-butane,varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",1BUTENE,1-butene,varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",t2BUTENE,trans-2-butene,varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",c2BUTENE,cis-2-butene,varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",iPENTANE,iso-pentane,varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",nPENTANE,n-pentane,varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",13BDIENE,"1,3-butadiene",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",t2PENTEN,trans-2-pentene,varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",1PENTEN,1-pentene,varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",2MEPENT,2-methylpentane,varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",ISOPRENE,isoprene,varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",nHEXANE,n-hexane,varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",nHEPTANE,n-heptane,varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",iOCTANE,iso-octane,varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",nOCTANE,n-octane,varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",BENZENE,benzene,varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",TOLUENE,toluene,varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",ETHBENZ,ethylbenzene,varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",mpXYLENE,m+p-xylene,varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",oXYLENE,o-xylene,varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",123TMB,"1,2,3-trimethylbenzene",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",124TMB,"1,2,4-trimethylbenzene",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",135TMB,"1,3,5-trimethylbenzene",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",c2PENTEN,"cis-2-pentene (VOC-AIR only)",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",MEPENT,"2+3-methylpentane (VOC-AIR only)",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",3MEPENT,"3-methylpentane (VOC-AIR only)",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",AT10,AT10,varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission","AT2 5","AT2 5",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission","AP2 5","AP2 5",varchar,false
+DefraAirPollution,"Defra air pollution data. Closest station to the patient. 7 days prior to admission",AP10,AP10,varchar,false
