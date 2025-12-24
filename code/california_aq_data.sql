@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS sensors(
 );
 
 CREATE TABLE IF NOT EXISTS measurements(
-    measurement_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    measurement_id INTEGER PRIMARY KEY,
     sensor_id INTEGER,
     measurement_value DECIMAL(10,4) NOT NULL,
     start_time DATETIME NOT NULL,
