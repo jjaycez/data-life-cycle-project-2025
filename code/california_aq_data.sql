@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS stations(
     county_id INTEGER,
     latitude DECIMAL(9,6),
     longitude DECIMAL(9,6),
-    FOREIGN KEY (county_id) REFERENCES county(county_id)
+    FOREIGN KEY (county_id) REFERENCES counties(county_id)
 );
 
 CREATE TABLE IF NOT EXISTS counties(
