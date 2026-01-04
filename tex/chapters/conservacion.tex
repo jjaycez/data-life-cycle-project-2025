@@ -1,0 +1,160 @@
+\documentclass[12pt, letterpaper]{report}
+
+% --- Paquetes de Idioma y Formato ---
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{setspace}
+\onehalfspacing
+
+% --- Paquetes Técnicos ---
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+% --- Información del Proyecto ---
+\title{\textbf{Impacto de la Contaminación Atmosférica en los Casos de Asma en California}}
+\author{Tu Nombre / Nombre del Grupo}
+\date{Curso 2024-2025}
+
+\begin{document}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	% --- CAPÍTULO 1: INTRODUCCIÓN ---
+	\chapter{Introducción}
+\section{Descripción del Problema}
+
+En las últimas décadas, el modelo de éxito de las sociedades modernas se ha vinculado frecuentemente a la expansión económica y al crecimiento industrial. Sin embargo, este enfoque genera consecuencias adversas en ocasiones dificilmente apreciables a primera vista: la omisión sistemática de las consecuencias ambientales en favor de la productividad. A medida que las ciudades se expanden y las actividades comerciales se intensifican, el impacto sobre el entorno natural se desplaza a un segundo plano, considerándose a menudo como un efecto secundario inevitable del desarrollo.
+
+Este descuido del entorno tiene usualmente una repercusión directa y alarmante en la salud de la población. La prioridad por sostener una economía de alto rendimiento ha derivado en una degradación de la calidad del aire que respiramos. Al no prestar debidamente atención a las emisiones derivadas de estos sistemas, se han creado condiciones ambientales que no solo facilitan la aparición de nuevas enfermedades respiratorias, sino que agravan seriamente las ya existentes, como es el caso del asma.
+
+En regiones con un alto desarrollo logístico e industrial, como California, el aire se carga de contaminantes que actúan como detonantes de crisis respiratorias.
+	
+	% --- CAPÍTULO 2: DESCRIPCIÓN DEL PROYECTO ---
+	\chapter{Descripción del proyecto}
+	\section{Objetivos del proyecto}
+	El objetivo principal del proyecto será instaurar una monitorización de los contaminantes a lo largo del Estado de California, EEUU, y con ello aumentar el control estricto del impacto negativo de estos en la salud de la población, de acuerdo a los estándares propios de la OMS. Así mismo, se busca aumentar la concienciación de la sociedad hacia las consecuencias de la industrialización en la salud.
+	\begin{enumerate}
+		\item Obtener datos de niveles de $NO_{2}$, $O_{3}$ y $PM_{2.5}$.
+		\item Analizar la correlación con ingresos hospitalarios.
+		\item Identificar áreas que requieren medidas de mitigación urgentes.
+	\end{enumerate}
+	
+	\section{Marco teórico}
+	\subsection{Calidad del aire y contaminantes}
+	Se monitorean gases como el dióxido de nitrógeno ($NO_{2}$) y ozono ($O_{3}$), los cuales son tóxicos y causan problemas como asma y bronquitis[cite: 57, 72].
+	
+	% --- CAPÍTULO 3: GESTIÓN DEL PROYECTO ---
+	\chapter{Gestión del proyecto}
+	\section{Planificación y Paquetes de Trabajo}
+	Siguiendo la metodología de división lógica de actividades, el proyecto se organiza en 5 paquetes de trabajo (WP)[cite: 150, 156]:
+	\begin{itemize}
+		\item \textbf{WP1:} Concepción y desarrollo del proyecto[cite: 158].
+		\item \textbf{WP2:} Gestión y redacción del informe[cite: 161, 174].
+		\item \textbf{WP3:} Obtención y procesado de datos clínicos y ambientales[cite: 163].
+		\item \textbf{WP4:} Análisis estadístico y conclusiones[cite: 164, 179].
+		\item \textbf{WP5:} Promoción y presentación[cite: 166].
+	\end{itemize}
+	
+	\section{Plan de gestión de datos (DMP)}
+	Se aplican los principios FAIR (Findable, Accessible, Interoperable, Reusable) para asegurar una gestión efectiva y transparente de la información[cite: 187, 191]. El cumplimiento de HIPAA asegura que no se utilice material sensible que identifique pacientes[cite: 212].
+	
+	% --- CAPÍTULO 4: PLAN DE PRESERVACIÓN ---
+	\chapter{Plan de Preservación}
+
+	El presente Plan de Preservación tiene como objetivo garantizar la integridad, disponibilidad y reutilización a largo plazo de los activos digitales generados en el proyecto \textit{Impacto de la Contaminación Atmosférica en los Casos de Asma en California}. Dado que el estudio maneja series temporales críticas y datos de salud pública, se ha diseñado una estrategia que cubre desde el almacenamiento físico hasta la gestión de derechos de acceso, alineándose con los principios FAIR (\textit{Findable, Accessible, Interoperable, Reusable}).
+
+	\section{Almacenamiento}
+
+	La estrategia de almacenamiento se ha diseñado teniendo en cuenta el volumen de los datos geoespaciales y la necesidad de diferenciar claramente entre los datos de uso frecuente y los archivos destinados a la preservación estática.
+
+	\subsection{Almacenamiento físico}
+
+	La infraestructura física local constituye el primer nivel de nuestra jerarquía de datos. Debido a la carga computacional que requieren las operaciones espaciales en \textbf{ArcGIS Pro} —especialmente el cruce de capas vectoriales de códigos postales (ZCTA) con las series temporales de contaminantes—, hemos priorizado el rendimiento en los equipos de trabajo.\\
+
+	Para el \textbf{almacenamiento activo}, utilizamos unidades de estado sólido (\textbf{SSD}) en las estaciones de trabajo locales. Esto nos permite evitar cuellos de botella durante la renderización de mapas y la ejecución de los scripts de limpieza en R. Adicionalmente, mantenemos un nivel de \textbf{almacenamiento en frío} (\textit{cold storage}) mediante discos duros externos mecánicos (HDD) de alta capacidad. En estos dispositivos se custodian las copias originales de los \textit{raw data} descargados de la EPA y \textit{catalog.data.gov}, liberando espacio en los discos de trabajo principales y sirviendo como repositorio local de los datos fuente inalterados.
+
+	\section{Gestión de los datos}
+
+	El presente estudio se adhiere a los principios FAIR (Findable, Accessible, Interoperable, Reusable) para garantizar la transparencia y la reproducibilidad de la investigación. La gestión de la información no se limita a la recolección, sino que abarca la totalidad del ciclo de vida de los datos, estableciendo procedimientos claros para su manejo desde la obtención inicial hasta su preservación a largo plazo.
+
+    \subsection{Limpieza y curación}
+
+	La transformación de los datos brutos en información analizable se ha llevado a cabo mediante un flujo de trabajo reproducible ejecutado en el entorno estadístico \textbf{R}. En lugar de correcciones manuales, que son propensas a errores y difíciles de auditar, hemos desarrollado scripts automatizados utilizando la librería \texttt{tidyverse} para estandarizar los formatos de fecha y unificar las unidades de medida de los contaminantes ($NO_2$, $O_3$) a partes por millón (ppm).\\
+
+	Para el tratamiento de inconsistencias, los scripts aplican reglas de validación lógica que identifican registros duplicados y valores fuera de rango. Específicamente, la detección de \textit{outliers} en las lecturas de los sensores se realiza mediante el cálculo del rango intercuartílico (IQR), filtrando automáticamente aquellas mediciones que exceden el umbral de $1.5 \times IQR$ por considerarse errores instrumentales. Respecto a los valores nulos (NaNs) en las series temporales, cuando los huecos de información son inferiores a 4 horas, se imputan mediante algoritmos de interpolación lineal disponibles en el paquete \texttt{zoo}, garantizando la continuidad de la serie sin introducir sesgos significativos.\\
+
+	Por último, la integridad espacial de los datos se verifica utilizando \textbf{ArcGIS Pro}. Antes de realizar el cruce espacial entre las estaciones de monitoreo y los códigos postales (ZCTA), empleamos las herramientas de topología de ArcGIS para asegurar que las geometrías de los \textit{shapefiles} no presentan superposiciones ni huecos que pudieran alterar la asignación de los niveles de exposición.
+
+    \subsection{Metadatos}
+
+	Para facilitar la recuperación e interpretación de los datos por terceros, se ha adoptado el esquema de metadatos estandarizado \textbf{Dublin Core}. La elección de este estándar internacional permite describir los recursos digitales mediante un conjunto de elementos esenciales —tales como Título, Creador, Cobertura Espacial, Fecha y Formato—, garantizando que el contexto de recolección y las características técnicas del \textit{dataset} sean comprensibles sin ambigüedades para la comunidad científica.\\
+
+	Como parte fundamental de esta documentación, se adjunta un diccionario de datos o \textit{codebook} detallado que define explícitamente cada variable, especifica las unidades de medida empleadas (ej. ppm o $\mu g/m^3$) y desglosa el significado de cualquier codificación utilizada en las tablas. Adicionalmente, para asegurar el orden, todos los archivos siguen una convención de nombrado sistemática (ej. \texttt{YYYYMMDD\_Nombre\_v01}) que facilita la identificación rápida de versiones.
+
+	\subsection{Acceso y reutilización}
+
+	Una vez finalizado el estudio, los datos procesados se depositarán en el repositorio de acceso abierto \textbf{Zenodo}, gestionado por el CERN. Esta plataforma asignará automáticamente un Identificador de Objeto Digital (DOI) único al conjunto de datos, asegurando que sea localizable y citable de manera permanente en futuras investigaciones.\\
+
+	Los datos se distribuirán bajo la licencia \textbf{Creative Commons Atribución 4.0 Internacional (CC-BY 4.0)}. Esta licencia abierta fomenta la reutilización, permitiendo a terceros compartir y adaptar el material para cualquier propósito, incluso comercial, con la única condición de reconocer la autoría original. En cuanto a las consideraciones éticas, al trabajar con datos de prevalencia agregados a nivel de condado y no con historias clínicas individuales, se garantiza la privacidad de los pacientes sin necesidad de aplicar técnicas adicionales de anonimización sobre los resultados finales.
+
+	\section{Seguridad}
+
+	La seguridad de la información en este proyecto se ha abordado desde una perspectiva integral que contempla tanto la integridad de los ficheros como la privacidad de los datos sensibles, aspectos críticos cuando se trabaja con información relacionada con la salud pública. Aunque los datos de prevalencia de asma utilizados son agregados y no contienen información personal identificable (PII) de pacientes individuales, hemos aplicado protocolos estrictos para evitar cualquier riesgo de reidentificación o manipulación malintencionada de los resultados.\\
+
+	En primer lugar, garantizamos la integridad de los datos mediante el uso de funciones de resumen o \textit{hashing}. Cada vez que se descarga un conjunto de datos original de las fuentes gubernamentales o se genera un \textit{dataset} consolidado tras la limpieza, se calcula su huella digital. Esto nos permite verificar periódicamente que los archivos almacenados en nuestros discos locales no han sufrido alteraciones silenciosas, conocidas como \textit{bit rot}, ni modificaciones accidentales durante su manipulación. Si la suma de verificación actual no coincide con la registrada originalmente, el sistema nos alerta para restaurar una copia limpia desde el sistema de copias de seguridad.\\
+
+	Por otro lado, el control de acceso a los datos en fase de desarrollo se gestiona mediante permisos estrictos en el repositorio de código. Hemos establecido una política de roles donde únicamente los miembros del equipo de investigación tienen permisos de escritura y modificación sobre los \textit{scripts} de análisis y los datos brutos. Cualquier cambio en el código que procesa los datos de contaminación o salud debe pasar por una revisión por pares antes de ser fusionado con la rama principal del proyecto. Esta trazabilidad completa nos asegura que ningún dato ha sido alterado de forma arbitraria para forzar una correlación estadística inexistente, manteniendo así la ética y la validez científica del estudio.\\
+
+	Finalmente, para el tránsito de información entre los equipos locales y los sistemas de almacenamiento remoto, utilizamos exclusivamente protocolos cifrados. Tanto la sincronización con la nube institucional como las operaciones de confirmación de cambios en el repositorio de código se realizan a través de canales seguros HTTPS y SSH, protegiendo la propiedad intelectual del proyecto y los datos de posibles interceptaciones en redes no seguras.
+
+	\section{Estrategia de preservación a largo plazo}
+
+	La preservación digital a largo plazo es un desafío que va más allá del simple almacenamiento de archivos; implica asegurar que la información permanezca legible, comprensible y ejecutable a medida que la tecnología evoluciona. Nuestra estrategia se fundamenta en la migración proactiva de formatos y la documentación exhaustiva, con el objetivo de que este estudio sobre el asma en California pueda ser reproducido con exactitud dentro de diez o veinte años, independientemente del software que exista en ese momento.
+
+	Una de las decisiones más importantes que hemos tomado para garantizar esta perdurabilidad es la renuncia al uso de formatos propietarios para el archivo definitivo. Aunque durante la fase activa del proyecto utilizamos formatos nativos de Excel o archivos de proyecto de ArcGIS Pro por su eficiencia operativa, somos conscientes de que estos formatos podrían quedar obsoletos o requerir licencias de software costosas en el futuro. Por ello, nuestra política de preservación dicta que todo activo digital debe tener una versión equivalente en un estándar abierto:
+	\begin{itemize}
+		\item \textbf{Datos tabulares:} Se convierten a \textbf{CSV} con codificación UTF-8, asegurando su legibilidad por cualquier editor de texto básico.
+		\item \textbf{Datos geográficos:} La cartografía vectorial se exporta a \textbf{GeoJSON}, un formato basado en texto y ampliamente soportado.
+		\item \textbf{Documentación:} La memoria y los manuales se archivan en \textbf{PDF/A}, el estándar ISO diseñado específicamente para el archivo a largo plazo que incrusta todas las fuentes y elementos visuales necesarios.
+	\end{itemize}
+
+	\subsection{Backup}
+
+	Para mitigar el riesgo de pérdida catastrófica de datos, ya sea por fallos de hardware, errores humanos o ataques de software malicioso, hemos implementado una política de copias de seguridad rigurosa basada en el estándar de la industria conocido como la regla \textbf{3-2-1}. Esta metodología asegura que no exista un único punto de fallo que pueda comprometer la totalidad del proyecto.
+
+	El protocolo establecido dicta que debemos mantener en todo momento al menos \textbf{tres} copias completas de todos los datos, almacenadas en \textbf{dos} soportes de diferente naturaleza, con \textbf{una} copia ubicada fuera de sitio (\textit{off-site}):
+
+	\begin{enumerate}
+		\item \textbf{Copia de Trabajo:} Reside en las unidades SSD locales para el procesamiento diario.
+		\item \textbf{Copia de Seguridad Local (Air Gap):} Se realiza semanalmente en los discos duros externos (HDD). La característica clave de esta copia es su aislamiento: los discos se mantienen \textbf{desconectados física y lógicamente} de la red y de la corriente eléctrica cuando no se está realizando la copia. Esta técnica, conocida como "brecha de aire" (\textit{air gap}), proporciona nuestra defensa más robusta contra el \textit{ransomware}, ya que es físicamente imposible que un software malicioso encripte una unidad que no está conectada al sistema infectado.
+		\item \textbf{Copia Remota:} Se almacena en la nube institucional, asegurando la recuperación ante desastres físicos en el lugar de trabajo, como incendios o robos.
+	\end{enumerate}
+
+	\subsection{Almacenamiento en la nube}
+
+	El almacenamiento en la nube juega un doble rol fundamental en nuestro proyecto: facilita la colaboración distribuida durante la fase activa y actúa como repositorio final para la preservación estática.
+
+	Durante el desarrollo, utilizamos \textbf{Google Drive/OneDrive} (vinculados a cuentas institucionales) y \textbf{GitHub} para la sincronización inmediata de documentos y código entre los miembros del equipo. Sin embargo, para la preservación a largo plazo, dependemos de \textbf{Zenodo}. La elección de este repositorio del CERN no es trivial: a diferencia de las nubes comerciales que requieren pagos recurrentes o mantenimiento de cuentas activas, Zenodo garantiza la preservación de los archivos científicos durante al menos 20 años, asegurando que la evidencia generada en este estudio permanezca accesible a la comunidad científica de manera perpetua.
+		
+	% --- CAPÍTULO 5: ANÁLISIS DE DATOS ---
+	\chapter{Análisis de datos}
+	\section{Análisis gráfico}
+	Se observarán mapas de calor de contaminantes en relación con núcleos urbanos de California[cite: 347, 365].
+	
+	\section{Análisis estadístico}
+	Se emplearán árboles de regresión y ajustes lineales para determinar la capacidad explicativa del modelo ambiental sobre los casos de asma[cite: 425, 428].
+	
+	% --- CAPÍTULO 6: CONCLUSIONES ---
+	\chapter{Conclusiones}
+	Se discutirán los resultados obtenidos, reconociendo limitaciones como el número de estaciones de medida o variables socioeconómicas no consideradas[cite: 550, 560]. Se propondrán recomendaciones para futuras estrategias de salud pública[cite: 577].
+	
+\end{document}g
