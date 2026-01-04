@@ -1,8 +1,8 @@
 \documentclass[12pt, letterpaper]{report}
 
 % --- Paquetes y Comandos ---
-\include{preamble}
-\include{commands}
+\input{preamble}
+\input{commands}
 
 % --- Información del Proyecto ---
 \title{\textbf{Impacto de la Contaminación Atmosférica en los Casos de Asma en California}}
@@ -13,37 +13,41 @@
     Samuel Martín Martínez\\
     Jiaze Zhang}
 \date{Curso 2025-2026}
+% TODO: cambiar esta horrible fuente de letra y formato del documento
 
-% --- Compilación parcial ---
-% Utiliza la siguiente estructura para compilar solo la parte en edición
-% \includeonly{chapters/introduction, chapters/description, [...]}
-\includeonly{chapters/data_sources}
+\newif\ifdraft
+\drafttrue % Cambia a \draftfalse para compilar el documento completo
 
 \begin{document}
 	
 	\maketitle
 	
 	\tableofcontents
-	
+ 
+    \ifdraft
+    % Use this for draft mode, compiling only the chapters in editing
+        \input{chapters/data_sources}
+    \else
 	% --- INTRODUCCIÓN ---
-    \include{chapters/introduction}
-	
-	% --- DESCRIPCIÓN DEL PROYECTO ---
-    \include{chapters/description}
-	
-	% --- GESTIÓN DEL PROYECTO ---
-	\include{chapters/project_management}
-	
-    % --- FUENTES DE DATOS ---
-    \include{chapters/data_sources}
-    
-	% --- PROCESAMIENTO DE DATOS ---
-    \include{chapters/data_processing}
-	
-	% ---ANÁLISIS DE DATOS ---
-	\include{chapters/data_analysis}
-	
-	% --- CONCLUSIONES ---
-	\include{chapters/conclusions}
+        \input{chapters/introduction}
+        
+        % --- DESCRIPCIÓN DEL PROYECTO ---
+        \input{chapters/description}
+        
+        % --- GESTIÓN DEL PROYECTO ---
+        \input{chapters/project_management}
+        
+        % --- FUENTES DE DATOS ---
+        \input{chapters/data_sources}
+        
+        % --- PROCESAMIENTO DE DATOS ---
+        \input{chapters/data_processing}
+        
+        % ---ANÁLISIS DE DATOS ---
+        \input{chapters/data_analysis}
+        
+        % --- CONCLUSIONES ---
+        \input{chapters/conclusions}
+    \fi
 	
 \end{document}

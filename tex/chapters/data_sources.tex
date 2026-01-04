@@ -115,9 +115,55 @@ else:
 \end{minted}
 
 El archivo comprimido descargado se encuentra en la ruta \path{data/geographical/tl_2025_us_county.zip},
-cuya
-versión descomprimida se halla en la sub-carpeta \path{california_counties}.
+cuya versión descomprimida se halla en la sub-carpeta \path{california_counties}; en caso de que el lector desee
+explorar los archivos.
 
+\bigskip
+
+En la Figura~\ref{fig:us_counties_qgis} se muestra una captura de pantalla de los condados de Estados Unidos
+visualizados en QGIS, un software de sistemas de información geográfica (\textit{GIS}).
+
+Los condados de California están resaltados en rosa.
+
+\bigskip
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/us_counties_qgis}
+    \caption{Visualización de condados en QGIS}
+    \label{fig:us_counties_qgis}
+\end{figure}
+
+Son de particular interés las siguientes columnas:
+
+\begin{itemize}
+    \item \texttt{STATEFP}: código FIPS del estado (California es 06).
+    
+    \item \texttt{NAME}: nombre del condado, valor que empleamos para relacionarlo con los datos de asma.
+    
+    \item
+        \texttt{geometry}: geometría del condado en formato poligonal, es decir, una cadena de texto en formato WKT
+        (\textit{Well-Known Text}).
+    
+        Se facilita un ejemplo ilustrativo en la Figura~\ref{fig:wkt-ejemplo}.
+   
+\end{itemize}
+
+\begin{figure}[ht]
+    \centering
+    \begin{minted}[fontsize=\small,frame=single]{text}
+        POLYGON ((-122.373121 37.883884, -122.371142 37.884364, ... ))
+    \end{minted}
+    \caption{Ejemplo: geometría en WKT (ilustrativo)}
+    \label{fig:wkt-ejemplo}
+\end{figure}
+
+Para procesar estos datos geográficos, se ha empleado la librería
+\mintinline{python}{geopandas}, que extiende las funcionalidades de \mintinline{python}{pandas} para manejar
+datos espaciales.
+
+En concreto, nos permite usar el método \mintinline{python}{contains} para determinar si las coordenadas
+de una estación de medición están dentro de la geometría de un condado.
 \subsection{Descarga de datos históricos}\label{subsec:descarga-datos-historicos}
 
 \begin{comment}
