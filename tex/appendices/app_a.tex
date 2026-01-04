@@ -1,0 +1,55 @@
+\chapter{Código para la fase ETL}\label{ch:apendice-a:-codigo-para-la-fase-etl}
+En este apéndice se presenta el código utilizado para la fase de Extracción, Transformación y Carga (ETL)
+de los datos en nuestro proyecto.
+
+Las variables no definidas en los fragmentos de código se pueden consultar en la siguiente lista:
+\begin{itemize}
+    \item \texttt{API\_KEY}: Clave de API para acceder a la API de \openaq.
+    \item \texttt{selected\_stations}: DataFrame de pandas que contiene las estaciones seleccionadas para la descarga de datos históricos.
+\end{itemize}
+
+\begin{listing}
+    \begin{minted}{python}
+# define bounding box for California
+x_range = (-125, -113)
+y_range = (32, 42.5)
+
+import requests
+
+BASE = "https://api.openaq.org/v3"
+headers = {"X-API-Key": API_KEY}
+
+all_results = []
+page = 1
+limit = 1000   # OpenAQ v3 maximum
+
+while True:
+    r = requests.get(
+        f"{BASE}/locations",
+        headers=headers,
+        params={
+            "bbox": f"{x_range[0]},{y_range[0]},{x_range[1]},{y_range[1]}",
+            "limit": limit,
+            "page": page,
+            "country": "US",   # optional but helps validation
+        },
+        timeout=60,
+    )
+    r.raise_for_status()
+    data = r.json()
+
+    results = data.get("results", [])
+    if not results:
+        break
+
+    all_results.extend(results)
+    print(f"page {page}: {len(results)}")
+
+    page += 1
+
+print("TOTAL returned:", len(all_results))
+print("first name:", all_results[0].get("name"))
+    \end{minted}
+    \caption{Petición a la API de \openaq dentro de un \bboxt}
+    \label{lst:openaq_extraction}
+\end{listing}

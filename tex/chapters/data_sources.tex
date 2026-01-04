@@ -79,7 +79,7 @@ Para este cometido, se han realizado dos tareas principales:
         de medición se encuentra dentro de un condado específico.
         
     \item
-        \textbf{Filtrar las estaciones de medición mediante un bbox}
+        \textbf{Filtrar las estaciones de medición mediante un \bboxt}
 
         (\textit{bounding box}, i.e., un rectángulo delimitador) que englobe toda California, puesto que la API de
         \openaq permite filtrar por este criterio.
@@ -89,7 +89,7 @@ Para este cometido, se han realizado dos tareas principales:
     - Describir el formato de los shapefiles
     - Indicar que California se corresponde con el estado con código FIPS 06
     - Indicar que se ha empleado `shapely` para determinar si un punto está dentro de un polígono
-    - Mostrar una distribución de estaciones por condado
+    - Mostrar una distribución de estaciones por condado → mejor lo movemos más adelante
 \end{comment}
 
 A continuación se muestra el código empleado para descargar los shapefiles de los condados:
@@ -162,8 +162,60 @@ Para procesar estos datos geográficos, se ha empleado la librería
 \mintinline{python}{geopandas}, que extiende las funcionalidades de \mintinline{python}{pandas} para manejar
 datos espaciales.
 
-En concreto, nos permite usar el método \mintinline{python}{contains} para determinar si las coordenadas
+En concreto, nos permite usar el método \mintinline{python}{Polygon.contains()} para determinar si las coordenadas
 de una estación de medición están dentro de la geometría de un condado.
+
+\bigskip
+
+Una vez que tenemos definido el flujo a seguir para clasificar las estaciones por condado, procedemos a exponer la
+cuestión de decidir cómo filtrar las estaciones de interés a través de la API de \openaq.
+
+Como ya se ha mencionado, la API permite filtrar las estaciones mediante un \textit{bounding box}, que se define
+por las coordenadas de sus esquinas suroeste y noreste.
+
+Para California, simplemente se ha usado QGIS para obtener unas coordenadas aproximadas que engloban todo el estado.
+En la Figura~\ref{fig:california_bbox_qgis} se muestra una captura de pantalla de QGIS donde se procede a copiar las
+coordenadas.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{figures/california_bbox_qgis}
+    \caption{Obtención del \bboxt de California en QGIS}
+    \label{fig:california_bbox_qgis}
+\end{figure}
+
+Se puede consultar el código empleado en el Apéndice~\ref{ch:apendice-a:-codigo-para-la-fase-etl}, en el bloque de
+Código~\ref{lst:openaq_extraction}.
+
+Posteriormente, estos datos se han procesado para asignar cada estación a su condado correspondiente, como se ha
+descrito anteriormente.
+
+Se proporciona una tabla con la distribución de estaciones por condado en California (se ha mostrado solo
+los 10 primeros condados ordenados por recuento) en la Tabla~\ref{tab:county_counts}.
+
+\begin{table}[ht]
+    \centering
+    \caption{Recuento por condado}
+    \label{tab:county_counts}
+    \begin{tabular}{lr}
+        \toprule
+        Condado & Recuento \\
+        \midrule
+        Los Angeles      & 403 \\
+        Alameda          & 190 \\
+        Mono             &  94 \\
+        Contra Costa     &  87 \\
+        Sacramento       &  83 \\
+        San Francisco    &  66 \\
+        Monterey         &  50 \\
+        Sonoma           &  48 \\
+        San Diego        &  46 \\
+        San Luis Obispo  &  44 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
 \subsection{Descarga de datos históricos}\label{subsec:descarga-datos-historicos}
 
 \begin{comment}
@@ -175,6 +227,84 @@ de una estación de medición están dentro de la geometría de un condado.
     - Mostrar como ejemplo la estructura de una respuesta en formato JSON
 \end{comment}
 
+Ahora que tenemos los datos de las estaciones de interés, el siguiente paso es realizar una petición a la API
+de \openaq para descargar los datos históricos de calidad del aire.
+
+La API devuelve información sobre los sensores de cada estación, que miden distintos contaminantes atmosféricos.
+
+A partir de esto, se ha diseñado un bucle que itera sobre los 5333 sensores identificados en California, empleando el
+\textit{endpoint} \texttt{/sensors} de la API.
+
+Dado que la API impone límites en el número de peticiones por minuto y por hora, se ha implementado una lógica
+para monitorizar las cabeceras de respuesta \texttt{X-Rate-Limit-Remaining} y pausar las peticiones cuando sea necesario.
+
+Este proceso ha tenido una naturaleza iterativa en cuanto al código, puesto que han surgido varios inconvenientes
+durante la descarga masiva de datos.
+
+Sin embargo, puesto que se han guardado los datos descargados en archivos intermedios, no se ha perdido el progreso
+realizado hasta el momento.
+
+Es por esta razón que la barra de progreso muestra un tiempo estimado menor del real.
+
+Teniendo en cuenta los límites impuestos por la API, se estima que la descarga completa de los datos históricos
+de calidad del aire en California lleva entre 2 y 3 horas.
+
+Se adjunta una captura de pantalla en la Figura~\ref{fig:openaq_download_progress} que ilustra el progreso de la descarga.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/openaq_download_progress}
+    \caption{Celda del cuaderno ilustrando las peticiones}
+    \label{fig:openaq_download_progress}
+\end{figure}
+
+Puesto que se han guardado los datos descargados en archivos JSON individuales, se ha optado por comprimirlos en un archivo ZIP
+para facilitar su manipulación posterior.
+
+Además, puesto que no se van a modificar, facilita su almacenamiento y distribución.
+
+El bucle se puede consultar en el cuaderno de Jupyter.
+No lo incluimos aquí por su extensión.
+
+En la Figura ~\ref{fig:openaq_sample_json} se muestra un ejemplo de la estructura de una respuesta en formato JSON, cuyo
+contenido ha sido truncado para mayor claridad.
+
+\begin{figure}[H]
+    \centering
+    \begin{minted}[fontsize=\small,frame=single]{json}
+[
+    {
+        "value": 9.0,
+        "flagInfo": {
+            "hasFlags": false
+        },
+        "parameter": {
+            "id": 2,
+            "name": "pm25",
+            "units": "\u00b5g/m\u00b3",
+            "displayName": null
+        },
+        "period": {
+            "label": "raw",
+            "interval": "01:00:00",
+            "datetimeFrom": {
+                "utc": "2016-03-06T19:00:00Z",
+                "local": "2016-03-06T11:00:00-08:00"
+            },
+            "datetimeTo": {
+                "utc": "2016-03-06T20:00:00Z",
+                "local": "2016-03-06T12:00:00-08:00"
+            }
+        },
+        ...
+    }
+]
+    \end{minted}
+    \caption{Ejemplo de respuesta JSON de la API de \openaq}
+    \label{fig:openaq_sample_json}
+\end{figure}
+
+
 \subsection{Procesamiento de los datos descargados}\label{subsec:procesamiento-datos-descargados}
 
 \begin{comment}
@@ -183,6 +313,26 @@ de una estación de medición están dentro de la geometría de un condado.
     - REMINDER: los datos no han sido curados, solo se han insertado tal cual
     - Explicar, si procede, las decisiones de diseño tomadas (tipos de datos, índices, etc.)
 \end{comment}
+
+Con la idea de integrar los datos de calidad del aire con los datos de asma, se ha creado una base de datos SQLite
+para facilitar el análisis posterior.
+
+Se ha diseñado un esquema de base de datos que incluye tablas para las estaciones de medición, los sensores, las mediciones
+realizadas … entre otros.
+
+En la Figura~\ref{fig:database_schema} se muestra un esquema generado por DBeaver de la base de datos.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{../data/openaq_data/sensors/aq_data_cal}
+    \caption{Esquema de la BD en la Fase I}
+    \label{fig:database_schema}
+\end{figure}
+
+Más adelante, la base de datos se ampliará para incluir los datos de asma, permitiendo realizar consultas
+complejas que relacionen ambos conjuntos de datos.
+
+\newpage
 
 \section{Datos de prevalencia de asma en California}\label{sec:datos-asma}
 

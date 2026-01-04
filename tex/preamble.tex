@@ -1,12 +1,10 @@
 % --- Paquetes de Idioma y Formato ---
 \usepackage[utf8]{inputenc}
-\usepackage[spanish, es-tabla]{babel}
+\usepackage[spanish]{babel}
 \usepackage[T1]{fontenc}
 \usepackage{xspace}
 \usepackage{geometry}
 \geometry{margin=1in}
-\usepackage{helvet}
-\renewcommand{\familydefault}{\sfdefault}
 \usepackage{setspace}
 \usepackage{comment}
 \onehalfspacing
@@ -22,8 +20,9 @@
 \setlength{\parindent}{0pt}
 % Setup for syntax highlighted Python code
 \usepackage{minted}
-\setminted{
-  fontsize=\small,
-  linenos,
-  breaklines
-}
+    \renewcommand\listingscaption{Código}
+    \setminted{
+      fontsize=\small,
+      linenos,
+      breaklines
+    }
