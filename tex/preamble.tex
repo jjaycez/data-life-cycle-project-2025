@@ -1,0 +1,29 @@
+% --- Paquetes de Idioma y Formato ---
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{xspace}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{setspace}
+\usepackage{comment}
+\onehalfspacing
+
+% --- Paquetes Técnicos ---
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+% --- Estilos ---
+\newcommand{\parsp}{\hspace*{2em}}
+\setlength{\parindent}{0pt}
+% Setup for syntax highlighted Python code
+\usepackage{minted}
+\setminted{
+  fontsize=\small,
+  linenos,
+  breaklines
+}

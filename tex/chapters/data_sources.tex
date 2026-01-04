@@ -1,0 +1,148 @@
+\chapter{Fuentes de datos}\label{ch:fuentes-de-datos}
+% TODO: decidir si es un título adecuado, he usado uno genérico
+
+En este capítulo se describen las fuentes de datos utilizadas en el análisis del impacto de la contaminación
+atmosférica en los casos de asma en California.
+
+Se detallan las características de cada conjunto de datos, su origen, y cómo se integran en el estudio.
+En este estudio se han empleado principalmente dos fuentes de datos:
+\begin{itemize}
+    \item Datos de calidad del aire obtenidos de la iniciativa~\openaq.
+    \item
+        Datos de ingresos hospitalarios relacionados con asma proporcionados por \datagov, la plataforma de datos
+        abiertos del gobierno de Estados Unidos.
+\end{itemize}
+
+Para la extracción y filtrado de los datos, se han realizado una serie de tareas que se describirán en detalle en las
+secciones siguientes.
+
+Todo este proceso ha sido recogido en un cuaderno de Jupyter, que se puede localizar en el repositorio del proyecto,
+en la ruta \texttt{code/ETL.ipynb}.
+
+\bigskip
+
+A lo largo de las secciones, se facilitarán algunas capturas de pantalla de fragmentos del cuaderno para ilustrar
+ciertas partes del proceso.
+
+\section{Datos de calidad del aire}\label{sec:datos-de-calidad-del-aire}
+
+Los datos de calidad del aire se han obtenido de la iniciativa~\openaq, que proporciona acceso abierto a
+mediciones de contaminantes atmosféricos a nivel global.
+
+\smallskip
+
+Entre otros contaminantes, las entidades colaboradoras exponen datos sobre niveles de dióxido de nitrógeno ($NO_{2}$),
+ozono ($O_{3}$) y material particulado fino ($PM_{2.5}$), que son relevantes para el estudio del asma.
+
+\smallskip
+
+Además de ofrecer un visor web, \openaq cuenta con una API que permite la descarga programática de datos históricos
+y en tiempo real.
+En la documentación oficial de la API se detallan los \textit{endpoints} disponibles, los parámetros de consulta y los
+formatos de respuesta.
+
+\smallskip
+
+En concreto, es de particular relevancia el hecho de que la API tiene un límite de peticiones para distintas franjas
+temporales.
+En el caso de California, ha sido de relevancia considerar los siguientes límites, cuyas razones revelaremos más adelante:
+
+\begin{itemize}
+    \item 60 peticiones por minuto.
+    \item 2000 peticiones por hora.
+\end{itemize}
+
+Estas restricciones han sido el principal cuello de botella a la hora de descargar grandes volúmenes de datos
+históricos.
+
+\subsection{Geografía de California}\label{subsec:geografia-california}
+
+Los datos expuestos por el gobierno de Estados Unidos están desglosados por condados, que son las subdivisiones
+administrativas de primer nivel dentro de los estados.
+
+\bigskip
+
+Esto es de relevancia, puesto que las estaciones de medición de calidad del aire exponen su ubicación geográfica en
+coordenadas de latitud y longitud (EPSG:4326), por lo que es necesario asignar cada estación a su condado
+correspondiente.
+
+Para este cometido, se han realizado dos tareas principales:
+
+\begin{itemize}
+    \item
+        \textbf{Obtener los límites geográficos de los condados de California.}
+        
+        Para ello, se han empleado los datos de \textit{shapefiles} proporcionados por el
+        \textit{U.S. Census Bureau}\footnote{\url{https://www2.census.gov/geo/tiger/TIGER2025/COUNTY/tl_2025_us_county.zip}}.
+        % TODO: buscar cómo integrarlo en el sistema de referencias bibliográficas
+        Estos archivos contienen la geometría de los condados, que se ha utilizado para determinar si una estación
+        de medición se encuentra dentro de un condado específico.
+        
+    \item
+        \textbf{Filtrar las estaciones de medición mediante un bbox}
+
+        (\textit{bounding box}, i.e., un rectángulo delimitador) que englobe toda California, puesto que la API de
+        \openaq permite filtrar por este criterio.
+\end{itemize}
+
+\begin{comment}
+    - Describir el formato de los shapefiles
+    - Indicar que California se corresponde con el estado con código FIPS 06
+    - Indicar que se ha empleado `shapely` para determinar si un punto está dentro de un polígono
+    - Mostrar una distribución de estaciones por condado
+\end{comment}
+
+A continuación se muestra el código empleado para descargar los shapefiles de los condados:
+
+\begin{minted}{python}
+
+import requests
+from pathlib import Path
+# download county shapefiles from US Census Bureau
+shapes_url = 'https://www2.census.gov/geo/tiger/TIGER2025/COUNTY/tl_2025_us_county.zip'
+geo_dir = Path("data/geographical")
+geo_dir.mkdir(parents=True, exist_ok=True)
+shapes_path = geo_dir / "tl_2025_us_county.zip"
+if not shapes_path.exists():
+    print(f"Downloading county shapefiles from {shapes_url}...")
+    r = requests.get(shapes_url)
+    with open(shapes_path, 'wb') as f:
+        f.write(r.content)
+    print(f"Downloaded to {shapes_path}")
+else:
+    print(f"Shapefiles already exist at {shapes_path}")
+   
+\end{minted}
+
+El archivo comprimido descargado se encuentra en la ruta \path{data/geographical/tl_2025_us_county.zip},
+cuya
+versión descomprimida se halla en la sub-carpeta \path{california_counties}.
+
+\subsection{Descarga de datos históricos}\label{subsec:descarga-datos-historicos}
+
+\begin{comment}
+    - Explicar la cabecera `X-Rate-Limit-Remaining` y cómo se ha empleado para gestionar las peticiones
+    - Explicar el tiempo estimado para descargar los datos de toda California
+    - Explicar que el código se tuvo que modificar varias veces, pero no se perdió el progreso gracias a los archivos
+      intermedios, por eso la barra de progreso muestra un tiempo menor del real
+    - Explicar que son 5333 archivos JSON, por lo que se ha optado comprimirlos en un ZIP para facilitar su manipulación
+    - Mostrar como ejemplo la estructura de una respuesta en formato JSON
+\end{comment}
+
+\subsection{Procesamiento de los datos descargados}\label{subsec:procesamiento-datos-descargados}
+
+\begin{comment}
+    - Explicar que se ha creado una base de datos SQLite para facilitar el análisis posterior
+    - Mostrar un esquema de la base de datos
+    - REMINDER: los datos no han sido curados, solo se han insertado tal cual
+    - Explicar, si procede, las decisiones de diseño tomadas (tipos de datos, índices, etc.)
+\end{comment}
+
+\section{Datos de prevalencia de asma en California}\label{sec:datos-asma}
+
+\begin{comment}
+    - Explicar la estructura de los datos obtenidos de data.gov
+    - TODO: procesar los datos en la base de datos SQLite
+    - Mostrar un esquema actualizado de la base de datos
+    - Explicar las decisiones de diseño tomadas (tipos de datos, índices, etc.)
+\end{comment}

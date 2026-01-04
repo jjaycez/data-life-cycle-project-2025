@@ -2,10 +2,11 @@
 - Discutir requisitos y requerimientos técnicos ("inventarnos" cómo vamos a recopilar los datos).
 - Repartir secciones restantes entre todos:
     - Descripción de las fuentes de datos. *Jiaze*
-    - Planificación del proyecto.
-    - Plan de presentación.
-    - Desarrollo de análisis de datos preliminar.
-    - Plan de Gestión de Datos (DMP).
+    - Planificación del proyecto. *Fabián*
+    - Plan de preservación. *Samuel*
+    - Desarrollo de análisis de datos preliminar. *Miguel*
+    - Plan de Gestión de Datos (DMP). *Julio*
+
 - Secciones menores:
     - Conclusión.
     - Bibliografía.
