@@ -1,6 +1,0 @@
-column,type,label,description
-Year,text,,Year of survey
-Percent,text,,"Weighted estimate of asthma prevalence among adults, as a percentage."
-95% CI Lower Limit,numeric,,Lower bound of the 95% confidence interval calculated for the percent asthma prevalence
-95% CI Upper Limit,numeric,,Upper bound of the 95% confidence interval calculated for the percent asthma prevalence.
-Measure,text,,Lifetime asthma prevalence includes adults who report that they have ever been diagnosed with asthma. Current asthma prevalence includes adults who report that they have ever been diagnosed with asthma AND that they still have asthma at the time of the survey.
