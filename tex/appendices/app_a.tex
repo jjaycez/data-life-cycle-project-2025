@@ -8,21 +8,20 @@ Las variables no definidas en los fragmentos de código se pueden consultar en l
     \item \texttt{selected\_stations}: DataFrame de pandas que contiene las estaciones seleccionadas para la descarga de datos históricos.
 \end{itemize}
 
-\begin{listing}
-    \begin{minted}{python}
+\newpage
+% --- Extracción de datos de OpenAQ ---
+\section{Extracción de datos de OpenAQ}\label{sec:extraccion-de-datos-de-openaq}
+
+\begin{minted}{python}
 # define bounding box for California
 x_range = (-125, -113)
 y_range = (32, 42.5)
-
 import requests
-
 BASE = "https://api.openaq.org/v3"
 headers = {"X-API-Key": API_KEY}
-
 all_results = []
 page = 1
 limit = 1000   # OpenAQ v3 maximum
-
 while True:
     r = requests.get(
         f"{BASE}/locations",
@@ -37,19 +36,100 @@ while True:
     )
     r.raise_for_status()
     data = r.json()
-
+    
     results = data.get("results", [])
     if not results:
         break
-
+    
     all_results.extend(results)
     print(f"page {page}: {len(results)}")
-
+    
     page += 1
 
 print("TOTAL returned:", len(all_results))
 print("first name:", all_results[0].get("name"))
-    \end{minted}
-    \caption{Petición a la API de \openaq dentro de un \bboxt}
-    \label{lst:openaq_extraction}
-\end{listing}
+\end{minted}
+\newpage
+% --- Esquema de primera fuente de datos ---
+\section{Esquema de primera fuente de datos}\label{sec:schema-de-primera-fuente-de-datos}
+\begin{minted}{sql}
+CREATE TABLE IF NOT EXISTS units(
+    unit_id INTEGER PRIMARY KEY,
+    unit_name VARCHAR(100) NOT NULL,
+    description TEXT
+);
+
+CREATE TABLE IF NOT EXISTS pollutants(
+    pollutant_id INTEGER PRIMARY KEY,
+    pollutant_name VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS stations(
+    station_id INTEGER PRIMARY KEY,
+    county_id INTEGER,
+    latitude DECIMAL(9,6),
+    longitude DECIMAL(9,6),
+    FOREIGN KEY (county_id) REFERENCES counties(county_id)
+);
+
+CREATE TABLE IF NOT EXISTS counties(
+    county_id INTEGER PRIMARY KEY,
+    county_name VARCHAR(100) NOT NULL,
+    geometry TEXT
+);
+
+CREATE TABLE IF NOT EXISTS sensors(
+    sensor_id INTEGER PRIMARY KEY,
+    station_id INTEGER,
+    pollutant_id INTEGER,
+    unit_id INTEGER,
+    FOREIGN KEY (station_id) REFERENCES stations(station_id),
+    FOREIGN KEY (pollutant_id) REFERENCES pollutants(pollutant_id),
+    FOREIGN KEY (unit_id) REFERENCES units(unit_id)
+);
+
+CREATE TABLE IF NOT EXISTS measurements(
+    measurement_id INTEGER PRIMARY KEY,
+    sensor_id INTEGER,
+    measurement_value DECIMAL(10,4) NOT NULL,
+    start_time DATETIME NOT NULL,
+    end_time DATETIME NOT NULL,
+    FOREIGN KEY (sensor_id) REFERENCES sensors(sensor_id),
+    UNIQUE(sensor_id, start_time, end_time)
+);
+\end{minted}
+\newpage
+% --- Schema de segunda fuente de datos ---
+\section{Esquema de segunda fuente de datos}\label{sec:schema-de-segunda-fuente-de-datos}
+\begin{minted}{sql}
+CREATE TABLE IF NOT EXISTS asthma_prevalence (
+    id INTEGER PRIMARY KEY,
+    county_id INTEGER,
+    year_from INTEGER,
+    year_to INTEGER,
+    demographic_group_id INTEGER,
+    current_prevalence FLOAT,
+    ci_95_lower FLOAT,
+    ci_95_upper FLOAT,
+    comment TEXT,
+    FOREIGN KEY (county_id) REFERENCES counties(county_id),
+    FOREIGN KEY (demographic_group_id) REFERENCES demographic_group(id)
+);
+
+CREATE TABLE IF NOT EXISTS grouped_counties (
+    -- Though it's a 1:N relationship, we create a separate table to allow for easier querying and future expansion
+    county_id INTEGER,
+    asthma_prevalence_id INTEGER,
+    FOREIGN KEY (county_id) REFERENCES counties(county_id),
+    FOREIGN KEY (asthma_prevalence_id) REFERENCES asthma_prevalence(id),
+    PRIMARY KEY (county_id, asthma_prevalence_id)
+);
+
+CREATE TABLE IF NOT EXISTS demographic_group (
+    id INTEGER PRIMARY KEY,
+    strata TEXT,
+    age_group TEXT, -- as is from the data
+    age_min INTEGER,
+    age_max INTEGER
+);
+\end{minted}

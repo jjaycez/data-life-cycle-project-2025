@@ -73,8 +73,7 @@ Para este cometido, se han realizado dos tareas principales:
         \textbf{Obtener los límites geográficos de los condados de California.}
         
         Para ello, se han empleado los datos de \textit{shapefiles} proporcionados por el
-        \textit{U.S. Census Bureau}\footnote{\url{https://www2.census.gov/geo/tiger/TIGER2025/COUNTY/tl_2025_us_county.zip}}.
-        % TODO: buscar cómo integrarlo en el sistema de referencias bibliográficas
+        \textit{U.S. Census Bureau}~\cite{census_tiger2025_us_county}.
         Estos archivos contienen la geometría de los condados, que se ha utilizado para determinar si una estación
         de medición se encuentra dentro de un condado específico.
         
@@ -184,8 +183,7 @@ coordenadas.
     \label{fig:california_bbox_qgis}
 \end{figure}
 
-Se puede consultar el código empleado en el Apéndice~\ref{ch:apendice-a:-codigo-para-la-fase-etl}, en el bloque de
-Código~\ref{lst:openaq_extraction}.
+Se puede consultar el código empleado en la Sección~\ref{sec:extraccion-de-datos-de-openaq}.
 
 Posteriormente, estos datos se han procesado para asignar cada estación a su condado correspondiente, como se ha
 descrito anteriormente.
@@ -229,6 +227,8 @@ los 10 primeros condados ordenados por recuento) en la Tabla~\ref{tab:county_cou
 
 Ahora que tenemos los datos de las estaciones de interés, el siguiente paso es realizar una petición a la API
 de \openaq para descargar los datos históricos de calidad del aire.
+
+La documentación oficial de la API se puede consultar en la fuente~\cite{openaq_api_docs}.
 
 La API devuelve información sobre los sensores de cada estación, que miden distintos contaminantes atmosféricos.
 
@@ -320,6 +320,8 @@ para facilitar el análisis posterior.
 Se ha diseñado un esquema de base de datos que incluye tablas para las estaciones de medición, los sensores, las mediciones
 realizadas … entre otros.
 
+El esquema de las tablas se puede consultar en la Sección~\ref{sec:schema-de-primera-fuente-de-datos}.
+
 En la Figura~\ref{fig:database_schema} se muestra un esquema generado por DBeaver de la base de datos.
 
 \begin{figure}[H]
@@ -332,6 +334,53 @@ En la Figura~\ref{fig:database_schema} se muestra un esquema generado por DBeave
 Más adelante, la base de datos se ampliará para incluir los datos de asma, permitiendo realizar consultas
 complejas que relacionen ambos conjuntos de datos.
 
+\subsection*{Descripción del esquema de la base de datos}
+
+El esquema modela un sistema de \textbf{monitoreo ambiental} basado en estaciones y sensores, donde se registran mediciones de contaminantes a lo largo del tiempo.
+La estructura se compone de seis tablas principales y varias relaciones mediante claves foráneas.
+
+\begin{itemize}
+  \item \textbf{units}: almacena las \textbf{unidades de medida} usadas en las mediciones (por ejemplo, \textit{$\mu g/m^3$}, \textit{ppm}).
+  Contiene un identificador (\texttt{unit\_id}), el nombre de la unidad (\texttt{unit\_name}) y una descripción opcional (\texttt{description}).
+
+  \item \textbf{pollutants}: catálogo de \textbf{contaminantes} medidos (por ejemplo, \textit{NO\textsubscript{2}}, \textit{PM2.5}, \textit{O\textsubscript{3}}).
+  Incluye \texttt{pollutant\_id} y \texttt{pollutant\_name}.
+
+  \item \textbf{counties}: representa las \textbf{entidades geográficas} (condados).
+  Guarda \texttt{county\_id}, el nombre (\texttt{county\_name}) y un campo \texttt{geometry} para almacenar la geometría (típicamente en formato texto, p.\ ej.\ WKT/GeoJSON).
+
+  \item \textbf{stations}: define las \textbf{estaciones de monitoreo} asociadas a un condado.
+  Cada estación (\texttt{station\_id}) puede tener un \texttt{county\_id} (clave foránea a \texttt{counties}) y coordenadas geográficas (\texttt{latitude}, \texttt{longitude}).
+
+  \item \textbf{sensors}: modela los \textbf{sensores instalados en estaciones}.
+  Un sensor (\texttt{sensor\_id}) pertenece a una estación (\texttt{station\_id}) y está asociado a un contaminante (\texttt{pollutant\_id}) y a una unidad de medida (\texttt{unit\_id}).
+  Estas relaciones se implementan con claves foráneas hacia \texttt{stations}, \texttt{pollutants} y \texttt{units}.
+
+  \item \textbf{measurements}: almacena las \textbf{mediciones} generadas por cada sensor.
+  
+  Incluye \texttt{measurement\_id}, el sensor (\texttt{sensor\_id}), el valor medido (\texttt{measurement\_value}) y el intervalo temporal de validez (\texttt{start\_time}, \texttt{end\_time}).
+  Además, se define una restricción \texttt{UNIQUE(sensor\_id, start\_time, end\_time)} para evitar duplicados del mismo sensor en el mismo intervalo.
+\end{itemize}
+
+\subsubsection*{Relaciones principales}
+
+\begin{itemize}
+  \item Un \textbf{condado} (\texttt{counties}) puede tener muchas \textbf{estaciones} (\texttt{stations}).
+  Esto se define con \texttt{stations.county\_id} $\rightarrow$ \texttt{counties.county\_id}.
+
+  \item Una \textbf{estación} puede tener muchos \textbf{sensores}.
+  Esto se define con \texttt{sensors.station\_id} $\rightarrow$ \texttt{stations.station\_id}.
+
+  \item Un \textbf{sensor} mide un \textbf{contaminante} y usa una \textbf{unidad}.
+  
+  Esto se define con \texttt{sensors.pollutant\_id} $\rightarrow$ \texttt{pollutants.pollutant\_id} y \texttt{sensors.unit\_id} $\rightarrow$ \texttt{units.unit\_id}.
+
+  \item Un \textbf{sensor} genera muchas \textbf{mediciones}.
+  Esto se define con \texttt{measurements.sensor\_id} $\rightarrow$ \texttt{sensors.sensor\_id}.
+\end{itemize}
+
+
+
 \newpage
 
 \section{Datos de prevalencia de asma en California}\label{sec:datos-asma}
@@ -343,3 +392,89 @@ complejas que relacionen ambos conjuntos de datos.
     - Explicar las decisiones de diseño tomadas (tipos de datos, índices, etc.)
 \end{comment}
 
+Los datos de prevalencia de asma en California se han obtenido de \datagov, la plataforma de datos abiertos del
+gobierno de Estados Unidos~\cite{cdph_asthma_prevalence_datagov}.
+
+La iniciativa CHIS (California Health Interview Survey) proporciona datos detallados sobre la salud de la
+población californiana, incluyendo información sobre la prevalencia de asma.
+
+Estos datos describen la proporción de personas diagnosticadas con asma en distintos condados de California,
+desglosados por año, grupo de edad, género y otros factores demográficos.
+
+La extensión temporal de los datos abarca desde 2015 hasta 2021 (hasta el final de año), lo que permite analizar
+tendencias a lo largo del tiempo, si bien de forma limitada.
+
+\bigskip
+
+Debido a la urgencia de disponer de estos datos para el análisis, se ha optado por realizar este análisis con
+una cantidad limitada de años.
+
+En futuras iteraciones del proyecto, se podría ampliar el rango temporal para obtener una visión más completa
+de la evolución de la prevalencia de asma en California.
+
+Es por esto que se ha optado emplear una base de datos SQLite para integrar estos datos con los de calidad del aire.
+Permitiendo un mayor grado de extensibilidad y flexibilidad en el análisis posterior.
+
+\bigskip
+
+Similarmente a la fase anterior, se puede consultar el esquema actualizado de la base de datos en la Sección~\ref{sec:schema-de-segunda-fuente-de-datos}.
+
+El diagrama generado por DBeaver se muestra en la Figura~\ref{fig:database_schema_updated}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{../data/openaq_data/sensors/unified phase 2}
+    \caption{Esquema tras implementar la segunda fuente}
+    \label{fig:database_schema_updated}
+\end{figure}
+
+\subsection*{Descripción del esquema actualizado de la base de datos}
+
+Este esquema modela un conjunto de datos de \textbf{prevalencia de asma} por condado y por \textbf{gropo demográfico},
+incluyendo intervalos de confianza.
+
+Cabe mencionar que algunos condados pueden agruparse en ciertas observaciones, lo que se gestiona mediante una tabla intermedia.
+
+\bigskip
+
+La tabla principal es \textbf{\texttt{asthma\_prevalence}}.
+
+Cada fila representa una observación de prevalencia asociada a un \textbf{condado} (\texttt{county\_id}) y a un \textbf{periodo temporal} definido por \texttt{year\_from} y \texttt{year\_to}.
+
+La prevalencia se almacena en \texttt{current\_prevalence}, y la incertidumbre se captura con el intervalo de confianza del 95\% mediante \texttt{ci\_95\_lower} y \texttt{ci\_95\_upper}.
+
+El campo \texttt{comment} permite registrar notas o aclaraciones del dato (agrupaciones, incertidumbres\ldots).
+
+Además, la observación se vincula a una definición de subpoblación mediante \texttt{demographic\_group\_id}, y se mantiene integridad referencial con claves foráneas hacia \texttt{counties(county\_id)} y \texttt{demographic\_group(id)}.
+
+\bigskip
+
+La tabla \textbf{\texttt{demographic\_group}} define los \textbf{grupos demográficos/poblacionales} empleados en el dataset.
+
+El campo \texttt{strata} identifica la \textbf{subpoblación} al que corresponde el registro (por ejemplo,
+\textit{All ages}, \textit{Age groups} o \textit{Child vs. Adult}).
+
+El campo \texttt{age\_group} conserva la etiqueta de edad exactamente como aparece en los datos originales.
+
+Para facilitar análisis cuantitativos, \texttt{age\_min} y \texttt{age\_max} almacenan, cuando es posible, una normalización numérica del rango de edad.
+De esta forma es posible filtrar por intervalos (p.\ ej.\ 0--4, 5--17, 18--64, etc.) incluso si la etiqueta original es textual.
+
+\bigskip
+
+La tabla \textbf{\texttt{grouped\_counties}} representa los casos en los que una observación del dataset corresponde a un \textbf{grupo de condados} (columna \texttt{COUNTIES GROUPED}).
+
+Cada fila enlaza un \texttt{county\_id} con un \texttt{asthma\_prevalence\_id}, permitiendo reconstruir exactamente qué condados están incluidos en esa agregación.
+
+La clave primaria compuesta \texttt{(county\_id, asthma\_prevalence\_id)} evita duplicidades y mantiene la consistencia de la relación.
+
+En conjunto, el esquema separa la \textbf{medición} (prevalencia e intervalos) de las dimensiones \textbf{geográfica} (condados) y \textbf{poblacional} (estratos y edades).
+Esto permite consultas flexibles tanto para registros por condado individual como para resultados agregados por grupos de condados.
+
+\newpage
+\section{Limitaciones de las fuentes de datos}\label{sec:limitaciones-fuentes-datos}
+
+\begin{comment}
+    - Explicar que ni Modoc ni Sierra tienen estaciones de medición
+    - Explicar que algunas estaciones/sensores han dejado de estar operativos
+    - Explicar que el período temporal no es muy extenso, si bien se puede ampliar en el futuro
+\end{comment}
