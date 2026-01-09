@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Template — Linking Asthma Prevalence (CHIS) & Air Quality (OpenAQ) in California</title>
+  <style>
+    :root{
+      --bg:#0b0f14; --card:#121926; --muted:#9fb1c7; --text:#e8eef7; --accent:#67b0ff;
+      --border:#243247; --good:#3ddc97; --warn:#ffd166;
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f6f8fb; --card:#ffffff; --muted:#516376; --text:#15202b; --accent:#1e6bd6; --border:#d7e0ea; }
+    }
+    body{ margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      background:var(--bg); color:var(--text); line-height:1.55; }
+    header{ padding:28px 18px 18px; border-bottom:1px solid var(--border); background:linear-gradient(180deg, rgba(103,176,255,.18), transparent); }
+    .wrap{ max-width:980px; margin:0 auto; padding:0 14px 52px; }
+    h1{ margin:0 0 6px; font-size:1.55rem; letter-spacing:.2px; }
+    .subtitle{ margin:0; color:var(--muted); }
+    .pill{ display:inline-block; padding:4px 10px; border:1px solid var(--border); border-radius:999px; color:var(--muted); font-size:.84rem; margin-top:10px; }
+    nav.toc{ margin:16px 0 0; display:grid; gap:8px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    nav.toc a{ display:block; padding:10px 12px; border:1px solid var(--border); border-radius:12px; color:var(--text);
+      text-decoration:none; background:rgba(255,255,255,.02); }
+    nav.toc a:hover{ border-color:rgba(103,176,255,.65); }
+    section{ margin-top:18px; padding:16px 14px; background:var(--card); border:1px solid var(--border); border-radius:16px; }
+    section h2{ margin:0 0 10px; font-size:1.15rem; }
+    section h3{ margin:16px 0 8px; font-size:1.0rem; color:var(--text); }
+    .muted{ color:var(--muted); }
+    .grid{ display:grid; gap:12px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .card{ padding:12px; border:1px solid var(--border); border-radius:14px; background:rgba(255,255,255,.02); }
+    ul{ margin:8px 0 0 18px; }
+    code, pre{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    pre{ background:rgba(0,0,0,.18); border:1px solid var(--border); padding:12px; border-radius:14px; overflow:auto; }
+    .ph{ color:var(--warn); font-weight:600; }
+    table{ width:100%; border-collapse:collapse; margin-top:10px; }
+    th, td{ border-bottom:1px solid var(--border); padding:10px 8px; vertical-align:top; text-align:left; }
+    th{ color:var(--muted); font-weight:600; }
+    .checklist label{ display:block; margin:8px 0; }
+    .tag{ display:inline-block; padding:2px 8px; border-radius:999px; font-size:.78rem; border:1px solid var(--border); color:var(--muted); }
+    details{ border:1px dashed var(--border); border-radius:14px; padding:10px 10px; margin-top:10px; background:rgba(255,255,255,.01); }
+    details summary{ cursor:pointer; font-weight:700; color:var(--text); }
+    footer{ margin-top:18px; color:var(--muted); font-size:.9rem; }
+    .good{ color:var(--good); font-weight:700; }
+    .accent{ color:var(--accent); font-weight:700; }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Project Template: Linking Asthma Prevalence (CHIS) & Air Quality (OpenAQ) in California</h1>
+    <p class="subtitle">A fill-in template for your fictional group project report, DMP, metadata doc, and presentation outline.</p>
+    <div class="pill">Scope: California counties (TIGER/Line shapefiles) • Sources: CHIS + OpenAQ • Output: Report + slides + DMP + metadata</div>
+
+    <nav class="toc" aria-label="Table of contents">
+      <a href="#overview">1. General project description</a>
+      <a href="#problem">2. Problem statement & objectives</a>
+      <a href="#coverage">3. Coverage (geo & time)</a>
+      <a href="#sources">4. Data sources (CHIS, OpenAQ, TIGER)</a>
+      <a href="#workflow">5. Workflow & reproducibility</a>
+      <a href="#curation">6. Data curation / cleaning</a>
+      <a href="#integration">7. Geospatial integration (county join)</a>
+      <a href="#dmp">8. Data Management Plan (EU-style)</a>
+      <a href="#metadata">9. Metadata plan (Dublin Core + extensions)</a>
+      <a href="#preservation">10. Preservation & storage</a>
+      <a href="#analysis">11. Analysis plan (plots + methods)</a>
+      <a href="#gantt">12. Gantt / timeline (data life cycle)</a>
+      <a href="#deliverables">13. Deliverables checklist</a>
+      <a href="#references">14. References & appendix</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="overview">
+    <h2>1) General Project Description</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Project title</h3>
+        <p class="muted"><span class="ph">[Fill in]</span> e.g., “County-level association between asthma prevalence and air quality in California.”</p>
+      </div>
+      <div class="card">
+        <h3>One-paragraph abstract</h3>
+        <p class="muted"><span class="ph">[Fill in]</span> Describe the question, data sources, spatial unit, time period, and intended outputs.</p>
+      </div>
+      <div class="card">
+        <h3>Expected results</h3>
+        <ul class="muted">
+          <li><span class="ph">[Fill in]</span> A county-level dataset joining asthma prevalence and air quality indicators.</li>
+          <li><span class="ph">[Fill in]</span> 2–4 figures (maps + trend plots) and a brief interpretation.</li>
+          <li><span class="ph">[Fill in]</span> Reproducible pipeline + metadata + DMP + preservation plan.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Technical requirements</h3>
+        <ul class="muted">
+          <li>Languages/tools: <span class="ph">[Python/R]</span> (e.g., GeoPandas/sf), notebooks, scripts.</li>
+          <li>Versioning: <span class="ph">[Git repo]</span> + tagged releases.</li>
+          <li>Compute: <span class="ph">[Local / cloud / university]</span>.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="problem">
+    <h2>2) Problem Statement, Interest, and Objectives</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Why this is interesting</h3>
+        <ul class="muted">
+          <li>Public health relevance: asthma burden varies geographically.</li>
+          <li>Environmental exposure hypothesis: air quality may correlate with prevalence or exacerbations.</li>
+          <li>Policy relevance: county-level insights can support targeted interventions.</li>
+        </ul>
+        <p class="muted"><span class="ph">[Add 2–3 sentences tailored to your narrative]</span></p>
+      </div>
+
+      <div class="card">
+        <h3>Research question(s)</h3>
+        <ol class="muted">
+          <li><span class="ph">[RQ1]</span> Is county-level asthma prevalence associated with average pollution indicators?</li>
+          <li><span class="ph">[RQ2]</span> Do associations differ by season/year or by pollutant type?</li>
+          <li><span class="ph">[RQ3]</span> How sensitive are results to station coverage / missingness?</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <h3>Hypotheses (optional)</h3>
+        <ul class="muted">
+          <li><span class="ph">[H1]</span> Higher long-run PM2.5/NO2 → higher asthma prevalence.</li>
+          <li><span class="ph">[H2]</span> Urban counties show stronger association due to traffic-related emissions.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Success criteria</h3>
+        <ul class="muted">
+          <li>All datasets documented + reproducible ETL.</li>
+          <li>Clear definitions of variables and spatial/temporal alignment.</li>
+          <li>At least two distinct visualizations + short conclusion section.</li>
+        </ul>
+      </div>
+    </div>
+
+    <details>
+      <summary>Template text you can paste into the report</summary>
+      <p class="muted">
+        This project integrates <span class="accent">public health survey estimates</span> of asthma prevalence with
+        <span class="accent">open air-quality measurements</span> to explore county-level spatial patterns in California.
+        We harmonize heterogeneous data sources into a reproducible analytical dataset, create metadata using an
+        extended Dublin Core approach, and propose a preservation and sharing strategy aligned with FAIR principles.
+      </p>
+    </details>
+  </section>
+
+  <section id="coverage">
+    <h2>3) Coverage (Geographic & Temporal)</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Geographic coverage</h3>
+        <ul class="muted">
+          <li>Region: California, USA</li>
+          <li>Spatial unit: County polygons (TIGER/Line)</li>
+          <li>County list/version: <span class="ph">[TIGER vintage + year]</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Temporal coverage</h3>
+        <ul class="muted">
+          <li>CHIS asthma prevalence period: <span class="ph">[year(s)]</span></li>
+          <li>OpenAQ measurements period: <span class="ph">[start date → end date]</span></li>
+          <li>Alignment strategy: <span class="ph">[same year / multi-year average / lag]</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Constraints & limitations</h3>
+        <ul class="muted">
+          <li>Data availability may limit county granularity or time resolution.</li>
+          <li>Monitoring stations are unevenly distributed; coverage varies by county.</li>
+          <li>Survey estimates have sampling uncertainty (margins of error / CI).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="sources">
+    <h2>4) Data Sources</h2>
+    <p class="muted">Describe each source: origin, access method, format, licensing, and key variables.</p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>CHIS — asthma prevalence</h3>
+        <span class="tag">Health survey estimates</span>
+        <ul class="muted">
+          <li>Provider/origin: <span class="ph">[CHIS / AskCHIS / public-use release]</span></li>
+          <li>Access: <span class="ph">[download table / API / portal]</span></li>
+          <li>Format(s): <span class="ph">[CSV, XLSX, SAS/Stata, etc.]</span></li>
+          <li>Key variables: prevalence %, CI/MOE, year, county, subgroup (optional)</li>
+          <li>License/terms: <span class="ph">[fill in]</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>OpenAQ — air quality measurements</h3>
+        <span class="tag">Environmental monitoring</span>
+        <ul class="muted">
+          <li>Access: API queries filtered to California + time window</li>
+          <li>Format(s): JSON from API → processed CSV/Parquet</li>
+          <li>Pollutants/parameters: <span class="ph">[pm25, pm10, no2, o3, ...]</span></li>
+          <li>Spatial: station coordinates → county assignment</li>
+          <li>Temporal: timestamps → daily/monthly/yearly aggregation</li>
+          <li>License/terms: <span class="ph">[fill in]</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>TIGER/Line — county boundaries</h3>
+        <span class="tag">Geospatial reference</span>
+        <ul class="muted">
+          <li>Provider: U.S. Census Bureau TIGER/Line shapefiles</li>
+          <li>Format: Shapefile (.shp + .shx + .dbf + .prj) or GeoPackage</li>
+          <li>Key fields: county name, FIPS code, geometry</li>
+          <li>Coordinate system: <span class="ph">[EPSG:4326 or projected]</span></li>
+          <li>Version/vintage: <span class="ph">[year]</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <details>
+      <summary>Minimum “Data sources” paragraph (report-ready)</summary>
+      <p class="muted">
+        We combine (1) county-level asthma prevalence estimates from CHIS, (2) OpenAQ air quality measurements
+        retrieved via API and aggregated to county-year indicators, and (3) county boundary polygons from
+        TIGER/Line shapefiles. The integration relies on consistent county identifiers (FIPS) and documented
+        spatial/temporal harmonization steps.
+      </p>
+    </details>
+  </section>
+
+  <section id="workflow">
+    <h2>5) Workflow & Reproducibility</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Repository structure</h3>
+        <pre><code>project/
+  data_raw/            # untouched downloads
+  data_intermediate/   # cleaned but not joined
+  data_final/          # analysis-ready tables
+  geo/                 # TIGER shapefiles / geopackages
+  src/                 # ETL + analysis code
+  notebooks/           # optional exploratory notebooks
+  metadata/            # Dublin Core / DataCite-style records
+  dmp/                 # Data Management Plan document
+  figures/             # generated plots/maps
+  reports/             # final report + slide deck exports
+</code></pre>
+      </div>
+
+      <div class="card">
+        <h3>Reproducibility rules</h3>
+        <ul class="muted checklist">
+          <label><input type="checkbox"> Pin environment (requirements.txt / renv.lock / conda).</label>
+          <label><input type="checkbox"> Keep raw data immutable + checksum logs.</label>
+          <label><input type="checkbox"> Use scripted ETL (no manual copy/paste).</label>
+          <label><input type="checkbox"> Provide “make all” pipeline (Makefile / task runner).</label>
+          <label><input type="checkbox"> Export analysis-ready dataset + codebook.</label>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Provenance & traceability</h3>
+        <ul class="muted">
+          <li>Record retrieval parameters for every OpenAQ query (date range, bbox, parameters).</li>
+          <li>Record CHIS extraction details (table name, filters, denominator/population).</li>
+          <li>Track shapefile vintage and any geometry simplification steps.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="curation">
+    <h2>6) Data Curation / Cleaning (Explain what you did)</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>CHIS cleaning</h3>
+        <ul class="muted">
+          <li>Standardize county identifiers (prefer FIPS).</li>
+          <li>Handle suppressed/unreliable estimates: <span class="ph">[rule]</span></li>
+          <li>Keep uncertainty fields (CI/MOE) for interpretation.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>OpenAQ cleaning</h3>
+        <ul class="muted">
+          <li>Drop invalid timestamps / non-numeric values.</li>
+          <li>Normalize units when needed (document assumptions).</li>
+          <li>Deduplicate station-time records.</li>
+          <li>Aggregation plan: <span class="ph">[hourly→daily→monthly→yearly]</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Geospatial cleaning</h3>
+        <ul class="muted">
+          <li>Validate geometries; fix invalid polygons if any.</li>
+          <li>Choose consistent CRS; document transformations.</li>
+          <li>Optional: simplify geometry for faster plotting (keep original too).</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Quality checks</h3>
+        <ul class="muted checklist">
+          <label><input type="checkbox"> Row counts before/after each step.</label>
+          <label><input type="checkbox"> Missingness summary per county and year.</label>
+          <label><input type="checkbox"> Station coverage map (OpenAQ).</label>
+          <label><input type="checkbox"> Outlier inspection (boxplots / histograms).</label>
+        </ul>
+      </div>
+    </div>
+
+    <details>
+      <summary>Write-up prompts (answer in 3–8 bullet points)</summary>
+      <ul class="muted">
+        <li>What was “raw”? What became “processed”? What became “final”?</li>
+        <li>Which steps are deterministic vs. involve choices (thresholds, filters)?</li>
+        <li>How would you rerun everything from scratch?</li>
+      </ul>
+    </details>
+  </section>
+
+  <section id="integration">
+    <h2>7) Geospatial Integration: Stations → Counties → Join with CHIS</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Station-to-county assignment</h3>
+        <ul class="muted">
+          <li>Method: spatial point-in-polygon join (station coordinates inside county polygon)</li>
+          <li>Fallback for border cases: <span class="ph">[e.g., nearest polygon / buffer]</span></li>
+          <li>Store: station_id, lat/lon, county_fips, assignment_date</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Aggregation to county indicators</h3>
+        <ul class="muted">
+          <li>Compute pollutant summaries per county-year: mean/median, percentiles, exceedance days.</li>
+          <li>Minimum coverage rule: <span class="ph">[e.g., ≥ X station-days per year]</span></li>
+          <li>Optionally weight by station completeness.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Join strategy</h3>
+        <ul class="muted">
+          <li>Primary key: (county_fips, year)</li>
+          <li>CHIS prevalence fields: asthma_prev, CI_low, CI_high</li>
+          <li>OpenAQ fields: pm25_mean, no2_mean, o3_mean, …</li>
+          <li>Output: one tidy table + one geo-enabled layer for mapping</li>
+        </ul>
+      </div>
+    </div>
+
+    <details>
+      <summary>Define your “analysis-ready” schema (edit this example)</summary>
+      <pre><code>county_year.csv / county_year.parquet
+- county_fips (string)
+- county_name (string)
+- year (int)
+- asthma_prev (float)        # % prevalence
+- asthma_ci_low (float)      # optional
+- asthma_ci_high (float)     # optional
+- pm25_mean (float)          # annual mean
+- no2_mean (float)
+- o3_mean (float)
+- station_days (int)         # coverage indicator
+- notes (string)             # flags/suppression/caveats
+</code></pre>
+    </details>
+  </section>
+
+  <section id="dmp">
+    <h2>8) Data Management Plan (EU-style template)</h2>
+    <p class="muted">
+      Fill these sections as if you were generating new research data. Keep it concise and practical.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>8.1 Data summary</h3>
+        <ul class="muted">
+          <li>Types: raw downloads, cleaned tables, integrated datasets, code, figures, metadata.</li>
+          <li>Estimated volume: <span class="ph">[MB/GB per stage]</span></li>
+          <li>Origin: reused external sources + derived datasets for analysis.</li>
+          <li>Reuse potential: county-level indicators can support other public health studies.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>8.2 FAIR + sharing / access</h3>
+        <ul class="muted">
+          <li>Repository: <span class="ph">[Zenodo / OSF / institutional]</span></li>
+          <li>Persistent IDs: <span class="ph">[DOI/URI]</span></li>
+          <li>Access policy: “as open as possible, as closed as necessary”.</li>
+          <li>License: <span class="ph">[CC-BY / CC0 / other]</span> (respect source terms)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>8.3 Storage, backups, preservation</h3>
+        <ul class="muted">
+          <li>During project: <span class="ph">[local + cloud + weekly snapshots]</span></li>
+          <li>Backups: <span class="ph">[frequency + retention]</span></li>
+          <li>Long-term: archive final dataset, code, metadata, and a “reproduce” guide.</li>
+          <li>Responsible person(s): <span class="ph">[names/roles]</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>8.4 Documentation & standards</h3>
+        <ul class="muted">
+          <li>Metadata standard: Dublin Core + extensions (see Section 9).</li>
+          <li>Naming: <span class="ph">[convention]</span> (dates, versions, units).</li>
+          <li>Versioning: semantic version tags for releases.</li>
+          <li>QA plan: validation scripts + summary reports.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>8.5 Ethics, legal, privacy</h3>
+        <ul class="muted">
+          <li>CHIS content relates to health; prefer aggregated/public estimates.</li>
+          <li>Do not store personal identifiers; keep only county/year aggregates.</li>
+          <li>Document any restrictions from CHIS terms of use.</li>
+          <li>Compliance notes: <span class="ph">[GDPR relevance / none]</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>8.6 Dissemination & reuse timeline</h3>
+        <ul class="muted">
+          <li>When will data be public? <span class="ph">[on report submission / after grading]</span></li>
+          <li>Embargo? <span class="ph">[yes/no + reason]</span></li>
+          <li>What will be released: derived data + code + metadata + figures.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="metadata">
+    <h2>9) Metadata Plan (Dublin Core + Extensions)</h2>
+    <p class="muted">
+      The goal: someone else can understand your dataset and rerun your processing without guessing.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Dublin Core (minimum)</h3>
+        <ul class="muted">
+          <li><b>Title</b>, <b>Creator</b>, <b>Subject</b>, <b>Description</b></li>
+          <li><b>Publisher</b>, <b>Contributor</b>, <b>Date</b>, <b>Type</b></li>
+          <li><b>Format</b>, <b>Identifier</b>, <b>Source</b>, <b>Language</b></li>
+          <li><b>Relation</b>, <b>Coverage</b>, <b>Rights</b></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Useful extensions (examples)</h3>
+        <ul class="muted">
+          <li>Geospatial: bounding box, CRS, county FIPS list, geometry resolution.</li>
+          <li>Methods: aggregation rules, thresholds, QA checks, missingness handling.</li>
+          <li>Variables: codebook (units, definitions, allowed values).</li>
+          <li>Provenance: API query params, retrieval dates, checksums.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Metadata deliverables</h3>
+        <ul class="muted checklist">
+          <label><input type="checkbox"> Dataset-level metadata record (one page).</label>
+          <label><input type="checkbox"> Variable-level codebook (table).</label>
+          <label><input type="checkbox"> Processing “runbook” (step-by-step).</label>
+          <label><input type="checkbox"> Parameter list (ETL config).</label>
+        </ul>
+      </div>
+    </div>
+
+    <details>
+      <summary>Metadata record skeleton (copy and edit)</summary>
+      <pre><code>Title: [County-level Asthma & Air Quality in California, YEAR_RANGE]
+Creator(s): [Team members]
+Description: [What it is, how built, intended use, limitations]
+Subject/Keywords: asthma, air quality, OpenAQ, CHIS, California, counties
+Coverage: California counties; years [YYYY–YYYY]
+Sources: CHIS [release/table], OpenAQ [API], TIGER/Line [vintage]
+Methods: station→county join; aggregation; QA checks; suppression rules
+Format: CSV + Parquet; GeoPackage for polygons; PNG/SVG figures
+Identifier: [DOI/URI if archived]
+Rights/Licenses: [Your license + upstream licenses]
+Version: [vX.Y.Z]
+Contact: [email/role]
+</code></pre>
+    </details>
+  </section>
+
+  <section id="preservation">
+    <h2>10) Preservation & Storage Plan</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>During the project</h3>
+        <ul class="muted">
+          <li>Storage locations: <span class="ph">[PC + cloud drive + repo]</span></li>
+          <li>Backups: <span class="ph">[daily incremental + weekly full]</span></li>
+          <li>Integrity: checksums (SHA-256) for raw and final artifacts.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Long-term archive</h3>
+        <ul class="muted">
+          <li>Archive bundle: final dataset + code + metadata + report + slides.</li>
+          <li>Preferred formats: CSV/Parquet, GeoPackage, PDF, plain text.</li>
+          <li>Retention: <span class="ph">[e.g., ≥ 5 years]</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Responsibility & costs</h3>
+        <ul class="muted">
+          <li>Data manager role: <span class="ph">[name]</span></li>
+          <li>Expected storage cost: <span class="ph">[estimate]</span></li>
+          <li>Maintenance: minimal (static archive) + documentation included.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="analysis">
+    <h2>11) Analysis Plan (Include at least two different plots)</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Core visualizations (suggested)</h3>
+        <ul class="muted">
+          <li><b>Map</b>: county choropleth of asthma prevalence (with legend and year).</li>
+          <li><b>Map</b>: county choropleth of annual mean PM2.5 (or NO2/O3).</li>
+          <li><b>Scatter</b>: asthma prevalence vs pollutant indicator (with trend line).</li>
+          <li><b>Time series</b>: statewide or selected counties AQ over time.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Modeling ideas (keep it simple)</h3>
+        <ul class="muted">
+          <li>Correlation + robustness checks (coverage thresholds).</li>
+          <li>Linear regression: asthma_prev ~ pollutant + year (optional).</li>
+          <li>Optional: spatial considerations (acknowledge autocorrelation).</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Interpretation & limitations</h3>
+        <ul class="muted">
+          <li>Ecological analysis: county-level ≠ individual-level causality.</li>
+          <li>Station placement bias and measurement coverage limitations.</li>
+          <li>Survey estimate uncertainty; do not overclaim significance.</li>
+        </ul>
+      </div>
+    </div>
+
+    <details>
+      <summary>Results section outline (fill-in)</summary>
+      <ol class="muted">
+        <li>Data coverage summary (table: counties per year passing coverage rule).</li>
+        <li>Map 1: asthma prevalence patterns.</li>
+        <li>Map 2: air quality patterns (choose 1–2 pollutants).</li>
+        <li>Association plot(s) + short statistical summary.</li>
+        <li>Sensitivity: vary coverage rule / aggregation window.</li>
+      </ol>
+    </details>
+  </section>
+
+  <section id="gantt">
+    <h2>12) Gantt / Timeline (Data Life Cycle)</h2>
+    <p class="muted">Adjust the weeks/dates to match your schedule. Make sure the timeline reflects the data life cycle (acquire → curate → integrate → analyze → document → preserve/share).</p>
+
+    <table>
+      <thead>
+        <tr><th>Phase</th><th>Tasks</th><th>Owner</th><th>Week(s)</th><th>Outputs</th></tr>
+      </thead>
+      <tbody class="muted">
+        <tr>
+          <td>Planning</td>
+          <td>Define RQs, scope, coverage; select indicators; write project overview</td>
+          <td><span class="ph">[name]</span></td>
+          <td><span class="ph">W1</span></td>
+          <td>Problem statement + scope</td>
+        </tr>
+        <tr>
+          <td>Acquisition</td>
+          <td>Download CHIS estimates; query OpenAQ; fetch TIGER shapefiles; log provenance</td>
+          <td><span class="ph">[name]</span></td>
+          <td><span class="ph">W1–W2</span></td>
+          <td>Raw datasets + checksums</td>
+        </tr>
+        <tr>
+          <td>Curation</td>
+          <td>Clean tables; standardize IDs; validate geometries; unit checks</td>
+          <td><span class="ph">[name]</span></td>
+          <td><span class="ph">W2</span></td>
+          <td>Clean intermediate tables</td>
+        </tr>
+        <tr>
+          <td>Integration</td>
+          <td>Spatial join stations→counties; aggregate; join with CHIS</td>
+          <td><span class="ph">[name]</span></td>
+          <td><span class="ph">W2–W3</span></td>
+          <td>Analysis-ready dataset</td>
+        </tr>
+        <tr>
+          <td>Analysis</td>
+          <td>Maps + plots; simple models; sensitivity checks; draft conclusions</td>
+          <td><span class="ph">[name]</span></td>
+          <td><span class="ph">W3</span></td>
+          <td>Figures + results text</td>
+        </tr>
+        <tr>
+          <td>Documentation</td>
+          <td>DMP; metadata records; parameter list; workflow runbook</td>
+          <td><span class="ph">[name]</span></td>
+          <td><span class="ph">W3–W4</span></td>
+          <td>DMP + metadata doc</td>
+        </tr>
+        <tr>
+          <td>Preserve & share</td>
+          <td>Package artifacts; choose repository/license; create release</td>
+          <td><span class="ph">[name]</span></td>
+          <td><span class="ph">W4</span></td>
+          <td>Archived bundle + DOI/URL</td>
+        </tr>
+        <tr>
+          <td>Communication</td>
+          <td>Final report + final slides; rehearsal</td>
+          <td><span class="ph">[name]</span></td>
+          <td><span class="ph">W4</span></td>
+          <td>Report + presentation</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="deliverables">
+    <h2>13) Deliverables Checklist</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Report</h3>
+        <ul class="muted checklist">
+          <label><input type="checkbox"> General description (objectives, expected results, requirements)</label>
+          <label><input type="checkbox"> Problem statement (interest, coverage, objectives)</label>
+          <label><input type="checkbox"> Data sources (origins, formats)</label>
+          <label><input type="checkbox"> Data curation techniques</label>
+          <label><input type="checkbox"> Preservation plan</label>
+          <label><input type="checkbox"> Analysis with ≥2 plots + conclusions</label>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Data Management Plan</h3>
+        <ul class="muted checklist">
+          <label><input type="checkbox"> Data summary</label>
+          <label><input type="checkbox"> FAIR + sharing plan</label>
+          <label><input type="checkbox"> Storage/backup/preservation</label>
+          <label><input type="checkbox"> Documentation/standards + QC plan</label>
+          <label><input type="checkbox"> Ethics/legal/privacy</label>
+          <label><input type="checkbox"> Dissemination/reuse timeline</label>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Metadata document</h3>
+        <ul class="muted checklist">
+          <label><input type="checkbox"> Dublin Core (extended) record</label>
+          <label><input type="checkbox"> Codebook for variables</label>
+          <label><input type="checkbox"> Parameter list (API queries, filters, thresholds)</label>
+          <label><input type="checkbox"> File-format details sufficient to automate processing</label>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Presentation</h3>
+        <ul class="muted checklist">
+          <label><input type="checkbox"> Problem + data sources</label>
+          <label><input type="checkbox"> Pipeline + timeline</label>
+          <label><input type="checkbox"> Key figures + takeaways</label>
+          <label><input type="checkbox"> FAIR/preservation plan</label>
+        </ul>
+      </div>
+    </div>
+
+    <footer>
+      <p>Tip: keep every claim linked to a documented variable definition, time window, and coverage rule. A clean “methods + metadata” section often matters as much as the plots.</p>
+    </footer>
+  </section>
+
+  <section id="references">
+    <h2>14) References & Appendix</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Citations you’ll likely include</h3>
+        <ul class="muted">
+          <li>CHIS documentation / table references: <span class="ph">[add links/citations]</span></li>
+          <li>OpenAQ documentation / API reference: <span class="ph">[add links/citations]</span></li>
+          <li>TIGER/Line county shapefiles documentation: <span class="ph">[add links/citations]</span></li>
+          <li>Any method references (aggregation, spatial join, statistical models)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Appendix (optional)</h3>
+        <ul class="muted">
+          <li>Full parameter list for OpenAQ queries.</li>
+          <li>County coverage table.</li>
+          <li>Data dictionary.</li>
+          <li>Reproduction instructions: “from zero to figures”.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <p class="muted">
+    <span class="good">Ready to use:</span> open this file in your browser and replace <span class="ph">[Fill in]</span> placeholders.
+  </p>
+</footer>
+
+</body>
+</html>
