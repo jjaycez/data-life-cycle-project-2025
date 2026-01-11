@@ -1,8 +1,8 @@
-\chapter{Impacto de la calidad del aire sobre la calidad de vida}\label{ch:introduccion}
+\chapter{Aspectos generales del proyecto}\label{ch:introduccion}
 
 \section{Problemática y objetivos}\label{sec:problematica-y-objetivos}
 
-\subsection*{Problemática}\label{subsec:problematica}
+\subsection{Problemática}\label{subsec:problematica}
 En las últimas décadas, el modelo de éxito de las sociedades modernas se ha vinculado frecuentemente a la expansión
 económica fundamentada en la industrialización.
 Tradicionalmente, esta estrategia no ha prestado atención a los efectos colaterales pertinentes a la salud pública y al medio ambiente.
@@ -19,7 +19,7 @@ como es el caso del asma.
 En regiones con un alto desarrollo logístico e industrial, los contaminantes que actúan como detonantes
 de crisis respiratorias.
 
-\subsection*{Objetivos}\label{subsec:objetivos}
+\subsection{Objetivos}\label{subsec:objetivos}
 
 El objetivo principal del proyecto es analizar si en California (EEUU) la calidad del aire está dentro de los niveles
 recomendados por la OMS ~\cite{who2021_global_aqg}, que establecen unas recomendaciones sobre los niveles
@@ -52,32 +52,131 @@ Para este proyecto, son de especial interés los siguientes contaminantes:
     ha observado un aumento en las crisis asmáticas y en las hospitalizaciones relacionadas con el asma~\cite{epa2025_ozone_asthma_health_effects}.
 \end{itemize}
 
-Con el análisis de estos contaminantes, se pretende exponer la situación actual en la calidad del aire en el caso
-concreto de California, teniendo así una base científica para impulsar políticas públicas que mejoren la calidad del aire
-y, por ende, la salud de sus habitantes.
 
-Otra meta del proyecto es desarrollar un pipeline reproducible y modular que permita continuar una monitorización
-de la calidad del aire en California, y que pueda ser adaptado a otras regiones geográficas en el futuro.
-
-\bigskip
-
-Como resultado, se espera que este proyecto permita cuantificar las repercusiones de la contaminación atmosférica
-sobre la salud pública en California.
-
-\subsection*{Requisitos generales y técnicos}\label{subsec:requisitos}
-Para llevar a cabo este proyecto, es necesario disponer de:
+\subsubsection{Objetivos específicos}\label{subsubsec:objetivos-especificos}
+Para alcanzar el objetivo principal, se plantean los siguientes objetivos específicos:
 
 \begin{itemize}
-    \item Datos históricos de calidad del aire en California, incluyendo mediciones de los contaminantes
+    \item Recopilar y procesar datos históricos de calidad del aire en California, centrándose en los contaminantes
     mencionados anteriormente.
     
-    \item Evaluación de las zonas que requieran la instalación de nuevos puntos de medición para mejorar la cobertura y precisión de los datos.
+    \item Evaluar la cobertura espacial de los puntos de medición existentes y proponer la instalación de nuevos puntos
+    en áreas con deficiencias de monitorización.
     
-    \item Datos históricos sobre la incidencia de asma en la población de California, desglosados por edad, género y
-    ubicación geográfica.
+    \item Analizar la relación entre los niveles de contaminación atmosférica y la incidencia de asma en la población
+    de California, desglosada por edad, género y ubicación geográfica.
     
-    \item Elaboración de un plan para monitorizar la salud respiratoria de la población en relación con los niveles de contaminación atmosférica.
+    \item Desarrollar herramientas de análisis y visualización que faciliten la interpretación de los resultados y
+    permitan identificar patrones temporales y geográficos.
     
-    \item Herramientas de análisis de datos y visualización para interpretar los resultados.
-    
+    \item Proponer un plan para monitorizar la salud respiratoria de la población en función de los niveles de
+    contaminación atmosférica.
 \end{itemize}
+
+\section{Resultados esperados}\label{sec:resultados-esperados}
+
+Los resultados esperados se pueden resumir en los siguientes puntos:
+
+\begin{enumerate}
+    \item \textbf{Informe detallado sobre la calidad del aire en California}
+    
+    Elaboración de un informe exhaustivo que detalle los niveles de los contaminantes analizados, comparándolos con las
+    recomendaciones de la OMS y destacando las áreas con mayores deficiencias.
+    
+    Además, relacionarlo con la incidencia de asma en la población, identificando posibles correlaciones y tendencias.
+    Evaluar su impacto en la salud pública.
+    
+    \item \textbf{Análisis de la cobertura de monitorización}
+    
+    Evaluación de la distribución geográfica de los puntos de medición de calidad del aire en California, identificando
+    áreas con deficiencias en la monitorización y proponiendo la instalación de nuevos puntos en dichas zonas.
+    
+    \item \textbf{Modelo predictivo de ingresos hospitalarios por asma}
+    
+    Desarrollo de un modelo predictivo que relacione los niveles de contaminación atmosférica con la incidencia de
+    asma en la población, con el fin de anticipar posibles crisis sanitarias y planificar recursos médicos.
+    
+    \item \textbf{Base de datos integrada}
+    
+    Creación de una base de datos integrada que combine datos de calidad del aire y datos epidemiológicos, facilitando
+    futuros análisis y estudios.
+    Junto con flujo de trabajo reproducible para la actualización periódica de los datos.
+    
+    \item \textbf{Base científica para políticas públicas en California}
+    
+    Proporcionar una base científica sólida que respalde la formulación de políticas públicas destinadas a mejorar la
+    calidad del aire y la salud respiratoria de la población en California.
+    
+\end{enumerate}
+
+Este último punto es especialmente relevante, ya que los resultados del proyecto pueden influir en la toma de decisiones
+políticas, promoviendo medidas que reduzcan la contaminación atmosférica y mejoren la calidad de vida de los habitantes de California.
+
+\section{Requisitos generales y técnicos}\label{sec:requisitos}
+Para llevar a cabo este proyecto, se requieren los siguientes recursos y condiciones:
+
+\begin{enumerate}
+    \item \textbf{Datos}
+    
+    Se requiere acceso a bases de datos históricas de calidad del aire en California, que incluyan mediciones de los
+    contaminantes de interés en cada condado de California.
+    Los datos deben estar preferiblemente tomados horariamente, puesto que a partir de ello se pueden computar
+    varias métricas por las que se rige la normativa de la OMS (diarias, octo-horarias, anuales, etc.).
+    
+    \bigskip
+    
+    Similarmente, se requieren datos de prevalencia de asma en California por condado.
+    Es de interés que los datos incluyan agregación por edad, puesto que varios estudios enfocan sus conclusiones en
+    desarrollo de asma en la infancia.
+    Además, es deseable que los datos incluyan un intervalo de confianza, puesto que la prevalencia de asma se suele
+    estimar a partir de encuestas, y no es factible conducir un censo exhaustivo.
+    
+    \item \textbf{Herramientas y software}
+    
+    Se utilizarán herramientas de análisis de datos y visualización, como Python con bibliotecas especializadas
+    (pandas, geopandas, etc.).
+    Se emplearán cuadernos de Jupyter para documentar el proceso ETL (Extracción, Transformación y Carga) y los análisis realizados.
+    Para la elaboración de gráficos y mapas, se emplearán herramientas como Power BI o QGIS.
+    Los datos se transformarán a una base de datos SQLite para facilitar su consulta y análisis, con la posibilidad
+    de extender a otros sistemas de gestión de bases de datos si el volumen de datos lo requiere.
+    
+    \item \textbf{Recursos humanos}
+    
+    Se requieren los siguientes perfiles profesionales para desarrollar el proyecto:
+    
+    \begin{itemize}
+        \item \textbf{Científico de datos}
+        
+        Responsable de la recopilación, procesamiento y análisis de los datos, así como del desarrollo de modelos predictivos.
+        
+        \item \textbf{Especialista en salud pública}
+        
+        Proporcionará conocimientos sobre la epidemiología del asma y su relación con la contaminación atmosférica.
+        
+        \item \textbf{Visualizador de datos}
+        
+        Encargado de diseñar y crear visualizaciones efectivas que faciliten la interpretación de los resultados.
+        
+        \item \textbf{Técnico GIS}
+        
+        Responsable del análisis espacial de los datos y de la evaluación de la cobertura de monitorización.
+        
+        \item \textbf{Gestor de proyectos}
+        
+        Encargado de coordinar las actividades del equipo, gestionar los plazos y asegurar el cumplimiento de los objetivos.
+    \end{itemize}
+    
+    \item \textbf{Recursos materiales}
+    
+    Se requiere acceso a equipos informáticos con capacidad suficiente para manejar grandes volúmenes de datos y
+    realizar análisis complejos.
+    Para concretar los requisitos de hardware, se evaluará el volumen de datos a procesar y la complejidad de los análisis
+    previstos conjuntamente con el científico de datos.
+    Para garantizar un entorno de trabajo colaborativo, se utilizarán plataformas de gestión de proyectos y almacenamiento en la nube.
+    
+    \item \textbf{Organización cronológica}
+    
+    El proyecto se desarrollará en varias fases, cada una con sus propios hitos y entregables que se deberán discutir
+    detalladamente con el gestor de proyectos y el equipo involucrado.
+    Esto irá acompañado de la elaboración de un presupuesto detallado para evitar demoras y sobrecostes.
+\end{enumerate}
