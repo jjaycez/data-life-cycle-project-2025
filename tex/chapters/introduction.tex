@@ -1,10 +1,83 @@
-\chapter{Introducción}\label{ch:introduccion}
+\chapter{Impacto de la calidad del aire sobre la calidad de vida}\label{ch:introduccion}
 
+\section{Problemática y objetivos}\label{sec:problematica-y-objetivos}
 
-\section{Descripción del Problema}\label{sec:descripcion-del-problema}
+\subsection*{Problemática}\label{subsec:problematica}
+En las últimas décadas, el modelo de éxito de las sociedades modernas se ha vinculado frecuentemente a la expansión
+económica fundamentada en la industrialización.
+Tradicionalmente, esta estrategia no ha prestado atención a los efectos colaterales pertinentes a la salud pública y al medio ambiente.
 
-En las últimas décadas, el modelo de éxito de las sociedades modernas se ha vinculado frecuentemente a la expansión económica y al crecimiento industrial. Sin embargo, este enfoque genera consecuencias adversas en ocasiones dificilmente apreciables a primera vista: la omisión sistemática de las consecuencias ambientales en favor de la productividad. A medida que las ciudades se expanden y las actividades comerciales se intensifican, el impacto sobre el entorno natural se desplaza a un segundo plano, considerándose a menudo como un efecto secundario inevitable del desarrollo.
+A medida que las ciudades se expanden y las actividades comerciales se intensifican, el impacto sobre el entorno natural
+se desplaza a un segundo plano, considerándose a menudo como un efecto secundario inevitable del desarrollo.
 
-Este descuido del entorno tiene usualmente una repercusión directa y alarmante en la salud de la población. La prioridad por sostener una economía de alto rendimiento ha derivado en una degradación de la calidad del aire que respiramos. Al no prestar debidamente atención a las emisiones derivadas de estos sistemas, se han creado condiciones ambientales que no solo facilitan la aparición de nuevas enfermedades respiratorias, sino que agravan seriamente las ya existentes, como es el caso del asma.
+Este descuido del entorno tiene usualmente una repercusión directa y alarmante en la salud de la población.
+La prioridad por sostener una economía de alto rendimiento ha derivado en una degradación de la calidad del aire que respiramos.
+Al no prestar debidamente atención a las emisiones derivadas de estos sistemas, se han creado condiciones ambientales que
+no solo causan la aparición de nuevas enfermedades respiratorias, sino que agravan seriamente las ya existentes,
+como es el caso del asma.
 
-En regiones con un alto desarrollo logístico e industrial, como California, el aire se carga de contaminantes que actúan como detonantes de crisis respiratorias.
+En regiones con un alto desarrollo logístico e industrial, los contaminantes que actúan como detonantes
+de crisis respiratorias.
+
+\subsection*{Objetivos}\label{subsec:objetivos}
+
+El objetivo principal del proyecto es analizar si en California (EEUU) la calidad del aire está dentro de los niveles
+recomendados por la OMS ~\cite{who2021_global_aqg}, que establecen unas recomendaciones sobre los niveles
+de materia particulada, ozono, óxidos de nitrógeno, azufre y monóxido de carbono.
+Esto se manifiesta en límites horarios, octo-horarios, diarios y anuales.
+
+Para este proyecto, son de especial interés los siguientes contaminantes:
+
+\begin{itemize}
+    \item \textbf{Dióxido de nitrógeno} ($\notwo$)
+    
+    Ciertos estudios lo relacionan con un aumento del riesgo en el desarrollo de asma durante la infancia, como~\cite{Naidoo2019NO2asthma}.)
+    
+    También se ha observado lo mismo en adultos, aunque con mayor heterogeneidad en los resultados~\cite{Khreis2017TRAPchildhoodAsthma}.
+    
+    Si bien en este último estudio se reconoce que las conclusiones son limitadas, puesto que muchos estudios se apoyan
+    en asma definida por cuestionarios y no en diagnósticos clínicos, entre otros factores.
+    
+    \item \textbf{Materia particulada fina} ($\pmtwofive$~y~$\pmten$)
+    
+    Su exposición aumenta el riesgo de desarrollo de asma en la infancia.
+    
+    En el caso de~$\pmtwofive$~es más homogéneo y exacerbado a partir de los 6 años continuados de exposición.
+    
+    En el caso de~$\pmten$~se ha observado un aumento del riesgo en todos los grupos de edad~\cite{Khreis2017TRAPchildhoodAsthma}.
+    
+    \item \textbf{Ozono} ($\ozone$) \textbf{a nivel del suelo}
+    
+    Debido a la reducción en capacidad pulmonar de los pacientes asmáticos, tras la exposición a este contaminante, se
+    ha observado un aumento en las crisis asmáticas y en las hospitalizaciones relacionadas con el asma~\cite{epa2025_ozone_asthma_health_effects}.
+\end{itemize}
+
+Con el análisis de estos contaminantes, se pretende exponer la situación actual en la calidad del aire en el caso
+concreto de California, teniendo así una base científica para impulsar políticas públicas que mejoren la calidad del aire
+y, por ende, la salud de sus habitantes.
+
+Otra meta del proyecto es desarrollar un pipeline reproducible y modular que permita continuar una monitorización
+de la calidad del aire en California, y que pueda ser adaptado a otras regiones geográficas en el futuro.
+
+\bigskip
+
+Como resultado, se espera que este proyecto permita cuantificar las repercusiones de la contaminación atmosférica
+sobre la salud pública en California.
+
+\subsection*{Requisitos generales y técnicos}\label{subsec:requisitos}
+Para llevar a cabo este proyecto, es necesario disponer de:
+
+\begin{itemize}
+    \item Datos históricos de calidad del aire en California, incluyendo mediciones de los contaminantes
+    mencionados anteriormente.
+    
+    \item Evaluación de las zonas que requieran la instalación de nuevos puntos de medición para mejorar la cobertura y precisión de los datos.
+    
+    \item Datos históricos sobre la incidencia de asma en la población de California, desglosados por edad, género y
+    ubicación geográfica.
+    
+    \item Elaboración de un plan para monitorizar la salud respiratoria de la población en relación con los niveles de contaminación atmosférica.
+    
+    \item Herramientas de análisis de datos y visualización para interpretar los resultados.
+    
+\end{itemize}
