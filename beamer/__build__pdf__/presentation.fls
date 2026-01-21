@@ -341,6 +341,10 @@ INPUT ../management/WBS.png
 INPUT ../management/WBS.png
 INPUT ../management/WBS.png
 INPUT ../management/WBS.png
+INPUT ../management/WBS-fase-2.png
+INPUT ../management/WBS-fase-2.png
+INPUT ../management/WBS-fase-2.png
+INPUT ../management/WBS-fase-2.png
 INPUT ../management/gantt
 INPUT ../management/Gantt.png
 INPUT ../management/Gantt.png
@@ -350,6 +354,10 @@ INPUT ../management/gantt-focus-5-6.png
 INPUT ../management/gantt-focus-5-6.png
 INPUT ../management/gantt-focus-5-6.png
 INPUT ../management/gantt-focus-5-6.png
+INPUT ../management/dc-metadata.png
+INPUT ../management/dc-metadata.png
+INPUT ../management/dc-metadata.png
+INPUT ../management/dc-metadata.png
 INPUT ./figures/openaq_icon.png
 INPUT ./figures/openaq_icon.png
 INPUT ./figures/openaq_icon.png
@@ -386,6 +394,32 @@ INPUT ../data/openaq_data/sensors/unified phase 2.png
 INPUT ../data/openaq_data/sensors/unified phase 2.png
 INPUT ../data/openaq_data/sensors/unified phase 2.png
 INPUT ../data/openaq_data/sensors/unified phase 2.png
+INPUT ../code/figures/ranked_counties_2016__NO__2___Child_vs__adult__0_17_years.png
+INPUT ../code/figures/ranked_counties_2016__NO__2___Child_vs__adult__0_17_years.png
+INPUT ../code/figures/ranked_counties_2016__NO__2___Child_vs__adult__0_17_years.png
+INPUT ../code/figures/ranked_counties_2016__NO__2___Child_vs__adult__0_17_years.png
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT ../code/figures/ranked_counties_2016__O__3___Child_vs__adult__0_17_years.png
+INPUT ../code/figures/ranked_counties_2016__O__3___Child_vs__adult__0_17_years.png
+INPUT ../code/figures/ranked_counties_2016__O__3___Child_vs__adult__0_17_years.png
+INPUT ../code/figures/ranked_counties_2016__O__3___Child_vs__adult__0_17_years.png
+INPUT ../code/figures/ranked_counties_2016__PM___2_5____Child_vs__adult__0_17_years.png
+INPUT ../code/figures/ranked_counties_2016__PM___2_5____Child_vs__adult__0_17_years.png
+INPUT ../code/figures/ranked_counties_2016__PM___2_5____Child_vs__adult__0_17_years.png
+INPUT ../code/figures/ranked_counties_2016__PM___2_5____Child_vs__adult__0_17_years.png
+INPUT ../code/figures/ranked_counties_2016__PM___10____Child_vs__adult__0_17_years.png
+INPUT ../code/figures/ranked_counties_2016__PM___10____Child_vs__adult__0_17_years.png
+INPUT ../code/figures/ranked_counties_2016__PM___10____Child_vs__adult__0_17_years.png
+INPUT ../code/figures/ranked_counties_2016__PM___10____Child_vs__adult__0_17_years.png
+INPUT ../code/figures/ranked_counties_2016__PM___2_5____Total_population__All_ages.png
+INPUT ../code/figures/ranked_counties_2016__PM___2_5____Total_population__All_ages.png
+INPUT ../code/figures/ranked_counties_2016__PM___2_5____Total_population__All_ages.png
+INPUT ../code/figures/ranked_counties_2016__PM___2_5____Total_population__All_ages.png
 INPUT __build__pdf__/presentation.bbl
 INPUT __build__pdf__/presentation.bbl
 INPUT __build__pdf__/presentation.bbl
@@ -396,7 +430,9 @@ OUTPUT __build__pdf__/presentation.snm
 INPUT __build__pdf__/presentation.aux
 INPUT __build__pdf__/presentation.out
 INPUT __build__pdf__/presentation.out
+INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb
+INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
 INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb
 INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb

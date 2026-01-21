@@ -1,24 +1,63 @@
+---
+config:
+  theme: forest
+---
 gantt
     title Impacto de la calidad del aire en la prevalencia de asma: California
     dateFormat  YYYY-MM-DD
-    Inicio del Proyecto : vert, v1, 2027-01-01, 2m
+    tickInterval    1week
     section Planificación
-        Definición de Problemática y Objetivos                  :a1, 2027-01-01, 7d
-        Definir Recopilación, Curación y Análisis de Datos      :a2, 2027-01-02, 7d
-        Describir Modelo Predictivo                             :a3, 2027-01-03, 7d
-        Describir Evaluación de Cobertura                       :a4, 2027-01-04, 7d
-        Métricas de progreso y Planificación temporal           :a5, 2027-01-05, 7d
-        Requisitos                                              :a6, 2027-01-06, 7d
+        Objetivos   :a1, 2027-01-01, 7d
+        Datos   :a2, 2027-01-02, 7d
+        Modelo  :a3, 2027-01-03, 7d
+        Cobertura   :a4, 2027-01-04, 7d
+        Planificación   :a5, 2027-01-05, 7d
+        Control y Seguimiento   :a5.1, 2027-01-01, until h2
+        Requisitos  :a6, 2027-01-06, 7d
         Planificación Completada :milestone, m1
     section Recopilación de Datos
-        Definición de Fuentes   :b1, 2027-01-11, 3d
-        Descarga   :b2, 2027-01-13, 1d
+        Fuentes   :b1, 2027-01-11, 3d
+        Descarga   :b2, after b1, 2d
         Datos Brutos Disponibles    :milestone, m2
-        Script de Automatización    :b3, 2027-01-13, 14d
-        Almacenamiento y Control de Versiones   :b4, 2027-01-15, 14d
-        Pipeline de Descarga    :milestone, m3
-        Análisis Exploratorio   :b5, 2027-01-24, 7d
+        Automatización    :b3, after b1, 14d
+        Almacenamiento   :b4, after b2, 14d
+        Pipeline de Descarga    :milestone, after b3, m3
+        Exploración   :b5, 2027-01-24, 7d
     section Curación de Datos
         Análisis de Estructura  :c1, 2027-01-20, 7d
         Formato de Almacenamiento   :c2, 2027-01-20, 7d
-        Esquema de la Base de Datos :after c2, 7d
+        Esquema de la Base de Datos :c3, after c2, 7d
+        Inserción  :c4, after c3, 5d
+        Curación    :c5, after c4, 14d
+        Almacenamiento y Metadatos  :c6, after c5, 14d
+        Automatización  :c7, after c6, 14d
+        Pipeline de Curación    :milestone, after c7
+    section Análisis de Datos
+        Análisis de Correlación :d1, after c7, 14d
+        Tendencias Temporales   :d2, after c7, 14d
+        Evaluación Preliminar   :d3, after d2, 14d
+        Visualización e Informe  :d4, after d3, 21d
+        Automatización  :d5, after d3 + 7d, 21d
+        Pipeline de Análisis    :milestone, after d5
+        Pipeline de Datos    : vert, v1
+    section Modelo Predictivo
+        Modelos Base :e1, after d5, 14d
+        Modelos Específicos :e2, after e1, 14d
+        Evaluación  :e3, after e2, 21d
+        Interpretabilidad   :e4, after e2, 21d
+        Publicación y Almacenamiento    :e5, after e4, 7d
+        Modelo Predictivo   :milestone,
+        Modelo Predictivo   :vert, v4
+    section Evaluación de Cobertura
+        Análisis Actual :f1, after d5, 14d
+        Puntos Críticos :f2, after f1, 14d
+        Deficiencias    :f3, after f1, 14d
+        Cobertura de Sensores   :milestone,
+    section Publicación de Resultados
+        Recopilación y Discusión    :g1, after e5, 14d
+        Redacción del artículo  :g2, after g1, 28d
+        Publicación de Datos y Código   :g3, after g2, 7d
+    section Evaluación y Propuesta de Medidas
+        Evaluación de Rendimiento   :h1, after g3, 7d
+        Elaboración de Informe Final    :h2, after g3, 21d
+        Fin del Proyecto    :vert,

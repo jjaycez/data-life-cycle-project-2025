@@ -1,8 +1,8 @@
 \beamer@sectionintoc {1}{Descripción del Proyecto}{3}{0}{1}
 \beamer@sectionintoc {2}{Gestión del proyecto}{7}{0}{2}
-\beamer@sectionintoc {3}{Plan de Preservación de Datos}{10}{0}{3}
-\beamer@sectionintoc {4}{Fuentes de datos}{10}{0}{4}
-\beamer@subsectionintoc {4}{1}{\texttt {OpenAQ}\xspace }{10}{0}{4}
-\beamer@subsectionintoc {4}{2}{\texttt {data.gov}\xspace }{15}{0}{4}
-\beamer@subsectionintoc {4}{3}{Base de datos integrada}{16}{0}{4}
-\beamer@sectionintoc {5}{Análisis de datos}{17}{0}{5}
+\beamer@sectionintoc {3}{Plan de Preservación de Datos}{11}{0}{3}
+\beamer@sectionintoc {4}{Fuentes de datos}{12}{0}{4}
+\beamer@subsectionintoc {4}{1}{\texttt {OpenAQ}\xspace }{12}{0}{4}
+\beamer@subsectionintoc {4}{2}{\texttt {data.gov}\xspace }{17}{0}{4}
+\beamer@subsectionintoc {4}{3}{Base de datos integrada}{18}{0}{4}
+\beamer@sectionintoc {5}{Análisis de datos}{19}{0}{5}
