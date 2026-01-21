@@ -1,0 +1,19 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+
+\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{requests}
+\PYG{k+kn}{from}\PYG{+w}{ }\PYG{n+nn}{pathlib}\PYG{+w}{ }\PYG{k+kn}{import} \PYG{n}{Path}
+\PYG{c+c1}{\PYGZsh{} download county shapefiles from US Census Bureau}
+\PYG{n}{shapes\PYGZus{}url} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}https://www2.census.gov/geo/tiger/TIGER2025/COUNTY/tl\PYGZus{}2025\PYGZus{}us\PYGZus{}county.zip\PYGZsq{}}
+\PYG{n}{geo\PYGZus{}dir} \PYG{o}{=} \PYG{n}{Path}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}data/geographical\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{geo\PYGZus{}dir}\PYG{o}{.}\PYG{n}{mkdir}\PYG{p}{(}\PYG{n}{parents}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{,} \PYG{n}{exist\PYGZus{}ok}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{n}{shapes\PYGZus{}path} \PYG{o}{=} \PYG{n}{geo\PYGZus{}dir} \PYG{o}{/} \PYG{l+s+s2}{\PYGZdq{}tl\PYGZus{}2025\PYGZus{}us\PYGZus{}county.zip\PYGZdq{}}
+\PYG{k}{if} \PYG{o+ow}{not} \PYG{n}{shapes\PYGZus{}path}\PYG{o}{.}\PYG{n}{exists}\PYG{p}{():}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Downloading county shapefiles from }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{shapes\PYGZus{}url}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{...\PYGZdq{}}\PYG{p}{)}
+    \PYG{n}{r} \PYG{o}{=} \PYG{n}{requests}\PYG{o}{.}\PYG{n}{get}\PYG{p}{(}\PYG{n}{shapes\PYGZus{}url}\PYG{p}{)}
+    \PYG{k}{with} \PYG{n+nb}{open}\PYG{p}{(}\PYG{n}{shapes\PYGZus{}path}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}wb\PYGZsq{}}\PYG{p}{)} \PYG{k}{as} \PYG{n}{f}\PYG{p}{:}
+        \PYG{n}{f}\PYG{o}{.}\PYG{n}{write}\PYG{p}{(}\PYG{n}{r}\PYG{o}{.}\PYG{n}{content}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Downloaded to }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{shapes\PYGZus{}path}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{k}{else}\PYG{p}{:}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Shapefiles already exist at }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{shapes\PYGZus{}path}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+\end{MintedVerbatim}

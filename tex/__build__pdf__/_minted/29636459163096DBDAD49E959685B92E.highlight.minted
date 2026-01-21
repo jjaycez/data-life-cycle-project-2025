@@ -1,0 +1,32 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{TABLE}\PYG{+w}{ }\PYG{k}{IF}\PYG{+w}{ }\PYG{k}{NOT}\PYG{+w}{ }\PYG{k}{EXISTS}\PYG{+w}{ }\PYG{n}{asthma\PYGZus{}prevalence}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{    }\PYG{n}{id}\PYG{+w}{ }\PYG{n+nb}{INTEGER}\PYG{+w}{ }\PYG{k}{PRIMARY}\PYG{+w}{ }\PYG{k}{KEY}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{county\PYGZus{}id}\PYG{+w}{ }\PYG{n+nb}{INTEGER}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{year\PYGZus{}from}\PYG{+w}{ }\PYG{n+nb}{INTEGER}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{year\PYGZus{}to}\PYG{+w}{ }\PYG{n+nb}{INTEGER}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{demographic\PYGZus{}group\PYGZus{}id}\PYG{+w}{ }\PYG{n+nb}{INTEGER}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{current\PYGZus{}prevalence}\PYG{+w}{ }\PYG{n+nb}{FLOAT}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{ci\PYGZus{}95\PYGZus{}lower}\PYG{+w}{ }\PYG{n+nb}{FLOAT}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{ci\PYGZus{}95\PYGZus{}upper}\PYG{+w}{ }\PYG{n+nb}{FLOAT}\PYG{p}{,}
+\PYG{+w}{    }\PYG{k}{comment}\PYG{+w}{ }\PYG{n+nb}{TEXT}\PYG{p}{,}
+\PYG{+w}{    }\PYG{k}{FOREIGN}\PYG{+w}{ }\PYG{k}{KEY}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{county\PYGZus{}id}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{REFERENCES}\PYG{+w}{ }\PYG{n}{counties}\PYG{p}{(}\PYG{n}{county\PYGZus{}id}\PYG{p}{),}
+\PYG{+w}{    }\PYG{k}{FOREIGN}\PYG{+w}{ }\PYG{k}{KEY}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{demographic\PYGZus{}group\PYGZus{}id}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{REFERENCES}\PYG{+w}{ }\PYG{n}{demographic\PYGZus{}group}\PYG{p}{(}\PYG{n}{id}\PYG{p}{)}
+\PYG{p}{);}
+
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{TABLE}\PYG{+w}{ }\PYG{k}{IF}\PYG{+w}{ }\PYG{k}{NOT}\PYG{+w}{ }\PYG{k}{EXISTS}\PYG{+w}{ }\PYG{n}{grouped\PYGZus{}counties}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Though it\PYGZsq{}s a 1:N relationship, we create a separate table to allow for easier querying and future expansion}
+\PYG{+w}{    }\PYG{n}{county\PYGZus{}id}\PYG{+w}{ }\PYG{n+nb}{INTEGER}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{asthma\PYGZus{}prevalence\PYGZus{}id}\PYG{+w}{ }\PYG{n+nb}{INTEGER}\PYG{p}{,}
+\PYG{+w}{    }\PYG{k}{FOREIGN}\PYG{+w}{ }\PYG{k}{KEY}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{county\PYGZus{}id}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{REFERENCES}\PYG{+w}{ }\PYG{n}{counties}\PYG{p}{(}\PYG{n}{county\PYGZus{}id}\PYG{p}{),}
+\PYG{+w}{    }\PYG{k}{FOREIGN}\PYG{+w}{ }\PYG{k}{KEY}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{asthma\PYGZus{}prevalence\PYGZus{}id}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{REFERENCES}\PYG{+w}{ }\PYG{n}{asthma\PYGZus{}prevalence}\PYG{p}{(}\PYG{n}{id}\PYG{p}{),}
+\PYG{+w}{    }\PYG{k}{PRIMARY}\PYG{+w}{ }\PYG{k}{KEY}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{county\PYGZus{}id}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{asthma\PYGZus{}prevalence\PYGZus{}id}\PYG{p}{)}
+\PYG{p}{);}
+
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{TABLE}\PYG{+w}{ }\PYG{k}{IF}\PYG{+w}{ }\PYG{k}{NOT}\PYG{+w}{ }\PYG{k}{EXISTS}\PYG{+w}{ }\PYG{n}{demographic\PYGZus{}group}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{    }\PYG{n}{id}\PYG{+w}{ }\PYG{n+nb}{INTEGER}\PYG{+w}{ }\PYG{k}{PRIMARY}\PYG{+w}{ }\PYG{k}{KEY}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{strata}\PYG{+w}{ }\PYG{n+nb}{TEXT}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{age\PYGZus{}group}\PYG{+w}{ }\PYG{n+nb}{TEXT}\PYG{p}{,}\PYG{+w}{ }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} as is from the data}
+\PYG{+w}{    }\PYG{n}{age\PYGZus{}min}\PYG{+w}{ }\PYG{n+nb}{INTEGER}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{age\PYGZus{}max}\PYG{+w}{ }\PYG{n+nb}{INTEGER}
+\PYG{p}{);}
+\end{MintedVerbatim}

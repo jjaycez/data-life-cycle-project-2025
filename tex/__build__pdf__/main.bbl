@@ -1,0 +1,78 @@
+\begin{thebibliography}{1}
+
+\bibitem{cdph_asthma_prevalence_datagov}
+{California Department of Public Health}.
+\newblock Asthma prevalence.
+\newblock \url{https://catalog.data.gov/dataset/asthma-prevalence-6908c}, 2025.
+\newblock Data last modified: 2025-12-05. Metadata updated: 2025-12-23.
+  Accessed: 2026-01-01.
+
+\bibitem{githubrepo}
+jjaycez.
+\newblock Repository for the project.
+\newblock GitHub repository, 2026.
+\newblock URL: \url{https://github.com/jjaycez/data-life-cycle-project-2025}.
+
+\bibitem{Khreis2017TRAPchildhoodAsthma}
+Haneen Khreis, Charlotte Kelly, James Tate, Roger Parslow, Karen Lucas, and
+  Mark Nieuwenhuijsen.
+\newblock Exposure to traffic-related air pollution and risk of development of
+  childhood asthma: A systematic review and meta-analysis.
+\newblock {\em Environment International}, 100:1--31, March 2017.
+\newblock URL:
+  \url{https://www.sciencedirect.com/science/article/pii/S0160412016307838},
+  \href {https://doi.org/10.1016/j.envint.2016.11.012}
+  {\path{doi:10.1016/j.envint.2016.11.012}}.
+
+\bibitem{Naidoo2019NO2asthma}
+Rajen~N. Naidoo.
+\newblock {NO2} increases the risk for childhood asthma: a global concern.
+\newblock {\em The Lancet Planetary Health}, 3(4):e155--e156, April 2019.
+\newblock URL:
+  \url{https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(19)30059-2/fulltext},
+  \href {https://doi.org/10.1016/S2542-5196(19)30059-2}
+  {\path{doi:10.1016/S2542-5196(19)30059-2}}.
+
+\bibitem{Ni2024PM25Asthma}
+Ruijing Ni, Hang Su, Richard~T. Burnett, Yuming Guo, and Yafang Cheng.
+\newblock Long-term exposure to {PM2.5} has significant adverse effects on
+  childhood and adult asthma: A global meta-analysis and health impact
+  assessment.
+\newblock {\em One Earth}, 7(11):1953--1969, 2024.
+\newblock URL:
+  \url{https://www.sciencedirect.com/science/article/pii/S2590332224004871},
+  \href {https://doi.org/10.1016/j.oneear.2024.09.022}
+  {\path{doi:10.1016/j.oneear.2024.09.022}}.
+
+\bibitem{openaq_api_docs}
+{OpenAQ}.
+\newblock {OpenAQ} documentation.
+\newblock \url{https://docs.openaq.org}.
+\newblock Accessed: 2026-01-01.
+
+\bibitem{census_tiger2025_us_county}
+{U.S. Census Bureau}.
+\newblock {TIGER/Line} shapefiles: Counties
+  (\nolinkurl{tl_2025_us_county.zip}), 2025.
+\newblock Accessed: 2026-01-01.
+\newblock URL:
+  \url{https://www2.census.gov/geo/tiger/TIGER2025/COUNTY/tl_2025_us_county.zip}.
+
+\bibitem{epa2025_ozone_asthma_health_effects}
+{U.S. Environmental Protection Agency}.
+\newblock Health effects of ozone in patients with asthma and other chronic
+  respiratory disease, June 2025.
+\newblock Last updated June 6, 2025. Accessed 2026-01-11.
+\newblock URL:
+  \url{https://www.epa.gov/ozone-pollution-and-your-patients-health/health-effects-ozone-patients-asthma-and-other-chronic}.
+
+\bibitem{who2021_global_aqg}
+{World Health Organization}.
+\newblock {WHO} global air quality guidelines: particulate matter ({PM2.5} and
+  {PM10}), ozone, nitrogen dioxide, sulfur dioxide and carbon monoxide,
+  September 2021.
+\newblock Guideline. Published 22 September 2021. ISBN 978-92-4-003422-8.
+  Accessed 2026-01-01.
+\newblock URL: \url{https://www.who.int/publications/i/item/9789240034228}.
+
+\end{thebibliography}

@@ -1,0 +1,43 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{\numberline {1}Aspectos generales del proyecto}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Problemática y objetivos}{3}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Problemática}{3}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Objetivos}{4}{subsection.1.1.2}%
+\contentsline {subsubsection}{Objetivos específicos}{5}{section*.2}%
+\contentsline {section}{\numberline {1.2}Resultados esperados}{6}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Requisitos generales y técnicos}{7}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Estructura de Desglose del Trabajo (WBS)}{9}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Definición y planificación del proyecto}{9}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Recopilación y curación de datos}{10}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Análisis de datos}{10}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Modelo predictivo}{10}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Evaluación de la cobertura de sensores}{11}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Publicación de resultados y cierre del proyecto}{11}{section.2.6}%
+\contentsline {chapter}{\numberline {3}Fuentes de datos}{12}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Datos de calidad del aire}{12}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Geografía de California}{13}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Descarga de datos históricos}{17}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Procesamiento de los datos descargados}{19}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}Datos de prevalencia de asma en California}{22}{section.3.2}%
+\contentsline {chapter}{\numberline {4}Plan de Preservación}{25}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Almacenamiento}{25}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Almacenamiento físico}{25}{subsection.4.1.1}%
+\contentsline {section}{\numberline {4.2}Gestión de los datos}{26}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Limpieza y curación}{26}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Metadatos}{27}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Acceso y reutilización}{27}{subsection.4.2.3}%
+\contentsline {section}{\numberline {4.3}Seguridad}{27}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Estrategia de preservación a largo plazo}{28}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Backup}{29}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Almacenamiento en la nube}{30}{subsection.4.4.2}%
+\contentsline {chapter}{\numberline {5}Estructura de Desglose del Trabajo (WBS)}{31}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Definición y planificación del proyecto}{31}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Recopilación y curación de datos}{32}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Análisis de datos}{32}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Modelo predictivo}{32}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Evaluación de la cobertura de sensores}{33}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Publicación de resultados y cierre del proyecto}{33}{section.5.6}%
+\contentsline {chapter}{\numberline {A}Código para la fase ETL}{34}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Extracción de datos de OpenAQ}{35}{section.Alph1.1}%
+\contentsline {section}{\numberline {A.2}Esquema de primera fuente de datos}{36}{section.Alph1.2}%
+\contentsline {section}{\numberline {A.3}Esquema de segunda fuente de datos}{38}{section.Alph1.3}%

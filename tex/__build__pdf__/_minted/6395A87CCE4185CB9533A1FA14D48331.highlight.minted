@@ -1,0 +1,37 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} define bounding box for California}
+\PYG{n}{x\PYGZus{}range} \PYG{o}{=} \PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{125}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{113}\PYG{p}{)}
+\PYG{n}{y\PYGZus{}range} \PYG{o}{=} \PYG{p}{(}\PYG{l+m+mi}{32}\PYG{p}{,} \PYG{l+m+mf}{42.5}\PYG{p}{)}
+\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{requests}
+\PYG{n}{BASE} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}https://api.openaq.org/v3\PYGZdq{}}
+\PYG{n}{headers} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+s+s2}{\PYGZdq{}X\PYGZhy{}API\PYGZhy{}Key\PYGZdq{}}\PYG{p}{:} \PYG{n}{API\PYGZus{}KEY}\PYG{p}{\PYGZcb{}}
+\PYG{n}{all\PYGZus{}results} \PYG{o}{=} \PYG{p}{[]}
+\PYG{n}{page} \PYG{o}{=} \PYG{l+m+mi}{1}
+\PYG{n}{limit} \PYG{o}{=} \PYG{l+m+mi}{1000}   \PYG{c+c1}{\PYGZsh{} OpenAQ v3 maximum}
+\PYG{k}{while} \PYG{k+kc}{True}\PYG{p}{:}
+    \PYG{n}{r} \PYG{o}{=} \PYG{n}{requests}\PYG{o}{.}\PYG{n}{get}\PYG{p}{(}
+        \PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{BASE}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{/locations\PYGZdq{}}\PYG{p}{,}
+        \PYG{n}{headers}\PYG{o}{=}\PYG{n}{headers}\PYG{p}{,}
+        \PYG{n}{params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+            \PYG{l+s+s2}{\PYGZdq{}bbox\PYGZdq{}}\PYG{p}{:} \PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{x\PYGZus{}range}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{,}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{y\PYGZus{}range}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{,}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{x\PYGZus{}range}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{,}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{y\PYGZus{}range}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,}
+            \PYG{l+s+s2}{\PYGZdq{}limit\PYGZdq{}}\PYG{p}{:} \PYG{n}{limit}\PYG{p}{,}
+            \PYG{l+s+s2}{\PYGZdq{}page\PYGZdq{}}\PYG{p}{:} \PYG{n}{page}\PYG{p}{,}
+            \PYG{l+s+s2}{\PYGZdq{}country\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}US\PYGZdq{}}\PYG{p}{,}   \PYG{c+c1}{\PYGZsh{} optional but helps validation}
+        \PYG{p}{\PYGZcb{},}
+        \PYG{n}{timeout}\PYG{o}{=}\PYG{l+m+mi}{60}\PYG{p}{,}
+    \PYG{p}{)}
+    \PYG{n}{r}\PYG{o}{.}\PYG{n}{raise\PYGZus{}for\PYGZus{}status}\PYG{p}{()}
+    \PYG{n}{data} \PYG{o}{=} \PYG{n}{r}\PYG{o}{.}\PYG{n}{json}\PYG{p}{()}
+
+    \PYG{n}{results} \PYG{o}{=} \PYG{n}{data}\PYG{o}{.}\PYG{n}{get}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}results\PYGZdq{}}\PYG{p}{,} \PYG{p}{[])}
+    \PYG{k}{if} \PYG{o+ow}{not} \PYG{n}{results}\PYG{p}{:}
+        \PYG{k}{break}
+
+    \PYG{n}{all\PYGZus{}results}\PYG{o}{.}\PYG{n}{extend}\PYG{p}{(}\PYG{n}{results}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}page }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{page}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{: }\PYG{l+s+si}{\PYGZob{}}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{results}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+    \PYG{n}{page} \PYG{o}{+=} \PYG{l+m+mi}{1}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}TOTAL returned:\PYGZdq{}}\PYG{p}{,} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{all\PYGZus{}results}\PYG{p}{))}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}first name:\PYGZdq{}}\PYG{p}{,} \PYG{n}{all\PYGZus{}results}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{get}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}name\PYGZdq{}}\PYG{p}{))}
+\end{MintedVerbatim}
