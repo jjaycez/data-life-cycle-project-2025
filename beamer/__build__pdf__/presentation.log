@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.10.21)  21 JAN 2026 13:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.10.21)  21 JAN 2026 15:20
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -931,58 +931,30 @@ Package pdftex.def Info: ../management/gantt-focus-5-6.png  used on input line
 [26
 
  <../management/gantt-focus-5-6.png>]
-<../management/dc-metadata.png, id=798, 606.76688pt x 526.96875pt>
-File: ../management/dc-metadata.png Graphic file (type png)
-<use ../management/dc-metadata.png>
-Package pdftex.def Info: ../management/dc-metadata.png  used on input line 116.
-
-(pdftex.def)             Requested size: 256.34949pt x 222.63736pt.
-
-
-[27
-
- <../management/dc-metadata.png>]
-<figures/openaq_icon.png, id=828, 269.50688pt x 243.15843pt>
-File: figures/openaq_icon.png Graphic file (type png)
-<use figures/openaq_icon.png>
-Package pdftex.def Info: figures/openaq_icon.png  used on input line 129.
-(pdftex.def)             Requested size: 50.0pt x 45.10974pt.
-<figures/openaq_leaflet_usa.png, id=829, 1123.19624pt x 783.92876pt>
-File: figures/openaq_leaflet_usa.png Graphic file (type png)
-<use figures/openaq_leaflet_usa.png>
-Package pdftex.def Info: figures/openaq_leaflet_usa.png  used on input line 129
+LaTeX Font Info:    Trying to load font information for U+msa on input line 141
 .
-(pdftex.def)             Requested size: 200.0pt x 139.58194pt.
 
-
-[28
-
- <./figures/openaq_icon.png> <./figures/openaq_leaflet_usa.png>]
-File: figures/openaq_icon.png Graphic file (type png)
-<use figures/openaq_icon.png>
-Package pdftex.def Info: figures/openaq_icon.png  used on input line 129.
-(pdftex.def)             Requested size: 50.0pt x 45.10974pt.
-File: figures/openaq_leaflet_usa.png Graphic file (type png)
-<use figures/openaq_leaflet_usa.png>
-Package pdftex.def Info: figures/openaq_leaflet_usa.png  used on input line 129
-.
-(pdftex.def)             Requested size: 200.0pt x 139.58194pt.
-
-
-[29
-
-]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 143
-.
- (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+(c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 143
+LaTeX Font Info:    Trying to load font information for U+msb on input line 141
 .
 
 (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+
+[27
+
+]
+
+[28
+
+]
+
+[29
+
+]
 
 [30
 
@@ -991,51 +963,70 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [31
 
 ]
+<figures/image_20b5c9.png, id=975, 1124.2pt x 885.3075pt>
+File: figures/image_20b5c9.png Graphic file (type png)
+<use figures/image_20b5c9.png>
+Package pdftex.def Info: figures/image_20b5c9.png  used on input line 213.
+(pdftex.def)             Requested size: 172.09766pt x 135.51915pt.
+<figures/image_20b604.png, id=976, 1106.1325pt x 837.1275pt>
+File: figures/image_20b604.png Graphic file (type png)
+<use figures/image_20b604.png>
+Package pdftex.def Info: figures/image_20b604.png  used on input line 213.
+(pdftex.def)             Requested size: 172.09766pt x 130.23882pt.
+
 
 [32
 
-]
+ <./figures/image_20b5c9.png> <./figures/image_20b604.png>]
+<../management/dc-metadata.png, id=1003, 606.76688pt x 526.96875pt>
+File: ../management/dc-metadata.png Graphic file (type png)
+<use ../management/dc-metadata.png>
+Package pdftex.def Info: ../management/dc-metadata.png  used on input line 220.
+
+(pdftex.def)             Requested size: 256.34949pt x 222.63736pt.
+
 
 [33
 
-]
+ <../management/dc-metadata.png>]
+<figures/openaq_icon.png, id=1031, 269.50688pt x 243.15843pt>
+File: figures/openaq_icon.png Graphic file (type png)
+<use figures/openaq_icon.png>
+Package pdftex.def Info: figures/openaq_icon.png  used on input line 233.
+(pdftex.def)             Requested size: 50.0pt x 45.10974pt.
+<figures/openaq_leaflet_usa.png, id=1032, 1123.19624pt x 783.92876pt>
+File: figures/openaq_leaflet_usa.png Graphic file (type png)
+<use figures/openaq_leaflet_usa.png>
+Package pdftex.def Info: figures/openaq_leaflet_usa.png  used on input line 233
+.
+(pdftex.def)             Requested size: 200.0pt x 139.58194pt.
+
 
 [34
 
-]
-<../tex/figures/us_counties_qgis.png, id=1056, 923.45pt x 798.985pt>
-File: ../tex/figures/us_counties_qgis.png Graphic file (type png)
-<use ../tex/figures/us_counties_qgis.png>
-Package pdftex.def Info: ../tex/figures/us_counties_qgis.png  used on input lin
-e 152.
-(pdftex.def)             Requested size: 200.0pt x 173.03415pt.
+ <./figures/openaq_icon.png> <./figures/openaq_leaflet_usa.png>]
+File: figures/openaq_icon.png Graphic file (type png)
+<use figures/openaq_icon.png>
+Package pdftex.def Info: figures/openaq_icon.png  used on input line 233.
+(pdftex.def)             Requested size: 50.0pt x 45.10974pt.
+File: figures/openaq_leaflet_usa.png Graphic file (type png)
+<use figures/openaq_leaflet_usa.png>
+Package pdftex.def Info: figures/openaq_leaflet_usa.png  used on input line 233
+.
+(pdftex.def)             Requested size: 200.0pt x 139.58194pt.
 
 
 [35
 
- <../tex/figures/us_counties_qgis.png>]
-File: ../tex/figures/us_counties_qgis.png Graphic file (type png)
-<use ../tex/figures/us_counties_qgis.png>
-Package pdftex.def Info: ../tex/figures/us_counties_qgis.png  used on input lin
-e 152.
-(pdftex.def)             Requested size: 200.0pt x 173.03415pt.
-
+]
 
 [36
 
 ]
-<../tex/figures/california_counties_qgis.png, id=1113, 269.50688pt x 368.1253pt
->
-File: ../tex/figures/california_counties_qgis.png Graphic file (type png)
-<use ../tex/figures/california_counties_qgis.png>
-Package pdftex.def Info: ../tex/figures/california_counties_qgis.png  used on i
-nput line 159.
-(pdftex.def)             Requested size: 150.0pt x 204.89052pt.
-
 
 [37
 
- <../tex/figures/california_counties_qgis.png>]
+]
 
 [38
 
@@ -1048,102 +1039,147 @@ nput line 159.
 [40
 
 ]
+<../tex/figures/us_counties_qgis.png, id=1259, 923.45pt x 798.985pt>
+File: ../tex/figures/us_counties_qgis.png Graphic file (type png)
+<use ../tex/figures/us_counties_qgis.png>
+Package pdftex.def Info: ../tex/figures/us_counties_qgis.png  used on input lin
+e 256.
+(pdftex.def)             Requested size: 200.0pt x 173.03415pt.
+
 
 [41
 
-]
+ <../tex/figures/us_counties_qgis.png>]
+File: ../tex/figures/us_counties_qgis.png Graphic file (type png)
+<use ../tex/figures/us_counties_qgis.png>
+Package pdftex.def Info: ../tex/figures/us_counties_qgis.png  used on input lin
+e 256.
+(pdftex.def)             Requested size: 200.0pt x 173.03415pt.
+
 
 [42
 
 ]
+<../tex/figures/california_counties_qgis.png, id=1317, 269.50688pt x 368.1253pt
+>
+File: ../tex/figures/california_counties_qgis.png Graphic file (type png)
+<use ../tex/figures/california_counties_qgis.png>
+Package pdftex.def Info: ../tex/figures/california_counties_qgis.png  used on i
+nput line 263.
+(pdftex.def)             Requested size: 150.0pt x 204.89052pt.
+
 
 [43
 
+ <../tex/figures/california_counties_qgis.png>]
+
+[44
+
 ]
-<../data/openaq_data/sensors/unified phase 2.png, id=1307, 856.19875pt x 749.80
+
+[45
+
+]
+
+[46
+
+]
+
+[47
+
+]
+
+[48
+
+]
+
+[49
+
+]
+<../data/openaq_data/sensors/unified phase 2.png, id=1510, 856.19875pt x 749.80
 125pt>
 File: ../data/openaq_data/sensors/unified phase 2.png Graphic file (type png)
 <use ../data/openaq_data/sensors/unified phase 2.png>
 Package pdftex.def Info: ../data/openaq_data/sensors/unified phase 2.png  used 
-on input line 206.
+on input line 310.
 (pdftex.def)             Requested size: 200.0pt x 175.1393pt.
 
 
-[44
+[50
 
  <../data/openaq_data/sensors/unified phase 2.png (PNG copy)>]
 <../code/figures/ranked_counties_2016__NO__2___Child_vs__adult__0_17_years.png,
- id=1335, 1002.8667pt x 493.845pt>
+ id=1538, 1002.8667pt x 493.845pt>
 File: ../code/figures/ranked_counties_2016__NO__2___Child_vs__adult__0_17_years
 .png Graphic file (type png)
 <use ../code/figures/ranked_counties_2016__NO__2___Child_vs__adult__0_17_years.
 png>
 Package pdftex.def Info: ../code/figures/ranked_counties_2016__NO__2___Child_vs
-__adult__0_17_years.png  used on input line 214.
+__adult__0_17_years.png  used on input line 318.
 (pdftex.def)             Requested size: 292.56812pt x 144.07042pt.
 
 
-[45
+[51
 
  <../code/figures/ranked_counties_2016__NO__2___Child_vs__adult__0_17_years.png
 >]
 <../code/figures/ranked_counties_2016__O__3___Child_vs__adult__0_17_years.png, 
-id=1367, 1002.6258pt x 493.845pt>
+id=1569, 1002.6258pt x 493.845pt>
 File: ../code/figures/ranked_counties_2016__O__3___Child_vs__adult__0_17_years.
 png Graphic file (type png)
 <use ../code/figures/ranked_counties_2016__O__3___Child_vs__adult__0_17_years.p
 ng>
 Package pdftex.def Info: ../code/figures/ranked_counties_2016__O__3___Child_vs_
-_adult__0_17_years.png  used on input line 221.
+_adult__0_17_years.png  used on input line 325.
 (pdftex.def)             Requested size: 292.56812pt x 144.1081pt.
 
 
-[46
+[52
 
  <../code/figures/ranked_counties_2016__O__3___Child_vs__adult__0_17_years.png>
 ]
 <../code/figures/ranked_counties_2016__PM___2_5____Child_vs__adult__0_17_years.
-png, id=1396, 1002.3849pt x 493.845pt>
+png, id=1599, 1002.3849pt x 493.845pt>
 File: ../code/figures/ranked_counties_2016__PM___2_5____Child_vs__adult__0_17_y
 ears.png Graphic file (type png)
 <use ../code/figures/ranked_counties_2016__PM___2_5____Child_vs__adult__0_17_ye
 ars.png>
 Package pdftex.def Info: ../code/figures/ranked_counties_2016__PM___2_5____Chil
-d_vs__adult__0_17_years.png  used on input line 228.
+d_vs__adult__0_17_years.png  used on input line 332.
 (pdftex.def)             Requested size: 292.56812pt x 144.13823pt.
 
 
-[47
+[53
 
  <../code/figures/ranked_counties_2016__PM___2_5____Child_vs__adult__0_17_years
 .png>]
 <../code/figures/ranked_counties_2016__PM___10____Child_vs__adult__0_17_years.p
-ng, id=1426, 1002.6258pt x 493.845pt>
+ng, id=1629, 1002.6258pt x 493.845pt>
 File: ../code/figures/ranked_counties_2016__PM___10____Child_vs__adult__0_17_ye
 ars.png Graphic file (type png)
 <use ../code/figures/ranked_counties_2016__PM___10____Child_vs__adult__0_17_yea
 rs.png>
 Package pdftex.def Info: ../code/figures/ranked_counties_2016__PM___10____Child
-_vs__adult__0_17_years.png  used on input line 235.
+_vs__adult__0_17_years.png  used on input line 339.
 (pdftex.def)             Requested size: 292.56812pt x 144.1081pt.
 
 
-[48
+[54
 
  <../code/figures/ranked_counties_2016__PM___10____Child_vs__adult__0_17_years.
 png>]
 <../code/figures/ranked_counties_2016__PM___2_5____Total_population__All_ages.p
-ng, id=1455, 1154.1519pt x 494.3268pt>
+ng, id=1658, 1154.1519pt x 494.3268pt>
 File: ../code/figures/ranked_counties_2016__PM___2_5____Total_population__All_a
 ges.png Graphic file (type png)
 <use ../code/figures/ranked_counties_2016__PM___2_5____Total_population__All_ag
 es.png>
 Package pdftex.def Info: ../code/figures/ranked_counties_2016__PM___2_5____Tota
-l_population__All_ages.png  used on input line 242.
+l_population__All_ages.png  used on input line 346.
 (pdftex.def)             Requested size: 292.56812pt x 125.30869pt.
 
 
-[49
+[55
 
  <../code/figures/ranked_counties_2016__PM___2_5____Total_population__All_ages.
 png>] (__build__pdf__/presentation.bbl
@@ -1151,16 +1187,16 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[50
+[56
 
  <c:/texlive/2025/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[51])
+[57])
 
-[52]
+[58]
 \tf@nav=\write6
 \openout6 = `presentation.nav'.
 
@@ -1176,14 +1212,14 @@ LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
  ***********
 Package rerunfilecheck Info: File `presentation.out' has not changed.
-(rerunfilecheck)             Checksum: 343B741FADBE05F45C80A1B3372DB91E;1161.
+(rerunfilecheck)             Checksum: 2D15C73FF670EA972A2C1FFA2CC86CB0;1161.
  ) 
 Here is how much of TeX's memory you used:
- 22106 strings out of 467748
- 431444 string characters out of 5431137
- 797791 words of memory out of 5000000
- 50231 multiletter control sequences out of 15000+600000
- 633770 words of font info for 64 fonts, out of 8000000 for 9000
+ 22238 strings out of 467748
+ 435057 string characters out of 5431137
+ 800845 words of memory out of 5000000
+ 50350 multiletter control sequences out of 15000+600000
+ 634077 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  101i,16n,107p,404b,784s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/tex
@@ -1197,10 +1233,10 @@ fb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><c:/
 texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb><c:/texlive/
 2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2025/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on __build__pdf__/presentation.pdf (52 pages, 5598280 bytes).
+Output written on __build__pdf__/presentation.pdf (58 pages, 5818192 bytes).
 PDF statistics:
- 1668 PDF objects out of 1728 (max. 8388607)
- 1503 compressed objects within 16 object streams
- 130 named destinations out of 1000 (max. 500000)
- 241 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1872 PDF objects out of 2073 (max. 8388607)
+ 1675 compressed objects within 17 object streams
+ 143 named destinations out of 1000 (max. 500000)
+ 365 words of extra memory for PDF output out of 10000 (max. 10000000)
 

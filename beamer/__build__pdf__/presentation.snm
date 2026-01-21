@@ -3,8 +3,9 @@
 \beamer@slide {sec:gestion-del-proyecto}{23}
 \beamer@slide {fig:wbs}{23}
 \beamer@slide {sec:plan-de-preservacion-de-datos}{27}
-\beamer@slide {sec:fuentes-de-datos}{28}
-\beamer@slide {subsec:openaq}{28}
-\beamer@slide {subsec:data-gov}{42}
-\beamer@slide {subsec:base-de-datos-integrada}{44}
-\beamer@slide {sec:analisis-de-datos}{45}
+\beamer@slide {tab:table}{30}
+\beamer@slide {sec:fuentes-de-datos}{34}
+\beamer@slide {subsec:openaq}{34}
+\beamer@slide {subsec:data-gov}{48}
+\beamer@slide {subsec:base-de-datos-integrada}{50}
+\beamer@slide {sec:analisis-de-datos}{51}

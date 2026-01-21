@@ -108,6 +108,110 @@
     \end{frame}
 
     \section{Plan de Preservación de Datos}\label{sec:plan-de-preservacion-de-datos}
+
+    % --- PARTE DE SAMUEL
+    % Diapositiva 1: Filosofía General
+    \begin{frame}
+        \frametitle{Estrategia de Preservación: Principios FAIR}
+        \begin{block}{Objetivo}
+            Garantizar la integridad, disponibilidad y reutilización de los activos digitales a largo plazo (10-20 años).
+        \end{block}
+
+        \vspace{0.5cm}
+
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
+                \textbf{Principios FAIR:}
+                \begin{itemize}
+                    \item \textbf{F}indable (Encontrable)
+                    \item \textbf{A}ccessible (Accesible)
+                    \item \textbf{I}nteroperable
+                    \item \textbf{R}eusable (Reutilizable)
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.5\textwidth}
+                \textbf{Acciones Clave:}
+                \begin{itemize}
+                    \item Documentación con \textit{Dublin Core}.
+                    \item Licencia abierta \textbf{CC-BY 4.0}.
+                    \item Uso de identificadores persistentes (\textbf{DOI}).
+                \end{itemize}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    % Diapositiva 2: Seguridad (La parte visualmente más importante)
+    \begin{frame}
+        \frametitle{Seguridad e Integridad de los Datos}
+
+        \begin{alertblock}{Política de Backup: Regla 3-2-1}
+            Mitigación de fallos de hardware y \textit{ransomware}.
+        \end{alertblock}
+
+        \vspace{0.3cm}
+
+        \begin{enumerate}
+            \item \textbf{3 Copias} de los datos en todo momento.
+            \item \textbf{2 Soportes} distintos (SSD local + HDD externo).
+            \item \textbf{1 Copia Remota} (\textit{Off-site} en Nube Institucional).
+        \end{enumerate}
+
+        \vspace{0.5cm}
+        \pause
+
+        \textbf{Mecanismos de Defensa:}
+        \begin{itemize}
+            \item \textbf{Air Gap:} Discos HDD desconectados físicamente cuando no se usan (Defensa anti-virus).
+            \item \textbf{Hashing:} Verificación de huella digital para detectar \textit{bit rot} (deterioro silencioso de datos).
+        \end{itemize}
+    \end{frame}
+
+    % Diapositiva 3: Transformación para el Futuro
+    \begin{frame}
+        \frametitle{Preservación a Largo Plazo}
+        \textit{Migración proactiva para evitar la obsolescencia tecnológica.}
+
+        \vspace{0.5cm}
+
+        \begin{table}
+            \centering
+            \begin{tabular}{l | l}
+                \textbf{Fase Activa (Propietario)} & \textbf{Archivo Definitivo (Abierto)} \\
+                \hline
+                \hline
+                Microsoft Excel (.xlsx) & \textbf{CSV (UTF-8)} \\
+                ArcGIS Pro (.aprx, .shp) & \textbf{GeoJSON} \\
+                Word / Docs & \textbf{PDF/A} (ISO 19005) \\
+                Google Drive & \textbf{Zenodo (CERN)} \\
+            \end{tabular}
+            \caption{Estrategia de migración de formatos}\label{tab:table}
+        \end{table}
+
+        \pause
+        \begin{itemize}
+            \item \textbf{Repositorio Final:} Zenodo.
+            \item \textbf{Garantía:} Inmutabilidad asegurada por el CERN durante +20 años.
+        \end{itemize}
+    \end{frame}
+
+
+    % -- PARTE DE JULIO
+
+    % --- VISTA GENERAL DEL PLAN ---
+    \begin{frame}{DMP: Horizon Europe Template}
+        \begin{columns}
+            \column{0.5\textwidth}
+            \centering
+            \vspace{0.2cm}
+            \includegraphics[width=\textwidth]{figures/image_20b5c9}
+
+            \column{0.5\textwidth}
+            \centering
+            \vspace{0.2cm}
+            \includegraphics[width=\textwidth]{figures/image_20b604}
+        \end{columns}
+    \end{frame}
+
     \begin{frame}
     	\frametitle{Metadatos: Estándar Dublin Core}
     	\begin{center}
@@ -192,7 +296,7 @@
                 \vfill
                 \item Condado
                 \vfill
-                \item Anual
+                \item Bianual
             \end{itemize}
         \end{itemize}
     \end{frame}

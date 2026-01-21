@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex __build__pdf__/presentation"] 1768996905.88581 "__build__pdf__/presentation.aux" "__build__pdf__/presentation.bbl" "__build__pdf__/presentation" 1768996914.65744 0
+["bibtex __build__pdf__/presentation"] 1769005078.55677 "__build__pdf__/presentation.aux" "__build__pdf__/presentation.bbl" "__build__pdf__/presentation" 1769005218.76952 0
   "./bibliography.bib" 1768844119 3928 9848c5002d13aa85e2a07000025baa82 ""
-  "__build__pdf__/presentation.aux" 1768996913 9427 0aecb2c258dd8af2857a7c28a406388d "pdflatex"
+  "__build__pdf__/presentation.aux" 1769005217 10062 aed3b2ce8e9e26c12b109c0cc7500cb3 "pdflatex"
   "c:/texlive/2025/texmf-dist/bibtex/bst/urlbst/plainurl.bst" 1761040791 33495 46cfb45e24a877059f9f7e142c7fc61c ""
   (generated)
   "__build__pdf__/presentation.bbl"
   "__build__pdf__/presentation.blg"
   (rewritten before read)
-["pdflatex"] 1768996906.30756 "presentation.tex" "__build__pdf__/presentation.pdf" "presentation" 1768996914.65826 0
+["pdflatex"] 1769005209.90565 "presentation.tex" "__build__pdf__/presentation.pdf" "presentation" 1769005218.77036 0
   "../code/figures/ranked_counties_2016__NO__2___Child_vs__adult__0_17_years.png" 1768915476 298443 d67fd6a29e707d7d00b91d66b56a5147 ""
   "../code/figures/ranked_counties_2016__O__3___Child_vs__adult__0_17_years.png" 1768915476 323504 278257a736ab240f27ec9ecaec22626a ""
   "../code/figures/ranked_counties_2016__PM___10____Child_vs__adult__0_17_years.png" 1768915475 286201 ea3980ab7ef9c649eb3171aba744915f ""
@@ -23,11 +23,11 @@
   "../tex/figures/california_counties_qgis.png" 1768834392 253220 4159bea98497ea3e34f8136b0a3b5d8c ""
   "../tex/figures/one_earth_poster.png" 1768844353 884269 f96e44e93ff42e4e3b154d2fee4daf27 ""
   "../tex/figures/us_counties_qgis.png" 1767539204 1289883 cb0aaef1e5c682415a35cceddac781c5 ""
-  "__build__pdf__/presentation.aux" 1768996913 9427 0aecb2c258dd8af2857a7c28a406388d "pdflatex"
-  "__build__pdf__/presentation.bbl" 1768996906 2858 b180c08556f1e00d38f7b8351255da2f "bibtex __build__pdf__/presentation"
-  "__build__pdf__/presentation.nav" 1768996913 3775 cc08ae3817c955dc90a7c0facf255bb8 "pdflatex"
-  "__build__pdf__/presentation.out" 1768996913 1161 343b741fadbe05f45c80a1b3372db91e "pdflatex"
-  "__build__pdf__/presentation.toc" 1768996913 496 8c470207ac88ec97ec9e803c85543044 "pdflatex"
+  "__build__pdf__/presentation.aux" 1769005217 10062 aed3b2ce8e9e26c12b109c0cc7500cb3 "pdflatex"
+  "__build__pdf__/presentation.bbl" 1769005078 2858 b180c08556f1e00d38f7b8351255da2f "bibtex __build__pdf__/presentation"
+  "__build__pdf__/presentation.nav" 1769005217 4143 0a0d4bf8b46086142b3b2b2038566d0f "pdflatex"
+  "__build__pdf__/presentation.out" 1769005217 1161 2d15c73ff670ea972a2c1ffa2cc86cb0 "pdflatex"
+  "__build__pdf__/presentation.toc" 1769005217 496 6efef73b95e6b1016f495209a4f4fe52 "pdflatex"
   "c:/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1761037570 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1761036057 1004 54797486969f23fa377b128694d548df ""
   "c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1761036057 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -221,9 +221,11 @@
   "c:/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1761041483 3629009 48579b6f260323acd8182f0a9c84cc4f ""
   "c:/texlive/2025/texmf.cnf" 1761041092 713 e69b156964470283e0530f5060668171 ""
   "commands.tex" 1768139615 364 022449f79440f5bd1b007a5dce1876b8 ""
+  "figures/image_20b5c9.png" 1769004600 114864 0989837ba81d6931e1051725ac57bcb0 ""
+  "figures/image_20b604.png" 1769004595 127512 74599f8fffef687be57189e07a9bbe3e ""
   "figures/openaq_icon.png" 1768596951 10990 c19ac2b1e64461c85b08bcfb8f46fa8b ""
   "figures/openaq_leaflet_usa.png" 1768831284 420322 e45f3d1acfaed50db9445100400fdc25 ""
-  "presentation.tex" 1768996861 8116 6b9140a7488637b7132b9415d068896f ""
+  "presentation.tex" 1769005209 11923 4e7770ff39822b771d8695d4631cea97 ""
   (generated)
   "__build__pdf__/presentation.aux"
   "__build__pdf__/presentation.log"
