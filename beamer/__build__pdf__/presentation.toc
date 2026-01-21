@@ -1,0 +1,8 @@
+\beamer@sectionintoc {1}{Descripción del Proyecto}{3}{0}{1}
+\beamer@sectionintoc {2}{Gestión del proyecto}{7}{0}{2}
+\beamer@sectionintoc {3}{Plan de Preservación de Datos}{8}{0}{3}
+\beamer@sectionintoc {4}{Fuentes de datos}{8}{0}{4}
+\beamer@subsectionintoc {4}{1}{\texttt {OpenAQ}\xspace }{8}{0}{4}
+\beamer@subsectionintoc {4}{2}{\texttt {data.gov}\xspace }{13}{0}{4}
+\beamer@subsectionintoc {4}{3}{Base de datos integrada}{14}{0}{4}
+\beamer@sectionintoc {5}{Análisis de datos}{15}{0}{5}

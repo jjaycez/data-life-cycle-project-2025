@@ -16,7 +16,7 @@ En este estudio se han empleado principalmente dos fuentes de datos:
 Para la extracción y filtrado de los datos, se han realizado una serie de tareas que se describirán en detalle en las
 secciones siguientes.
 
-Todo este proceso ha sido recogido en un cuaderno de Jupyter, que se puede localizar en el repositorio del proyecto,
+Todo este proceso ha sido recogido en un cuaderno de Jupyter, que se puede localizar en el repositorio del proyecto~\cite{githubrepo},
 en la ruta \texttt{code/ETL Source I.ipynb}.
 
 \bigskip
@@ -469,12 +469,3 @@ La clave primaria compuesta \texttt{(county\_id, asthma\_prevalence\_id)} evita 
 
 En conjunto, el esquema separa la \textbf{medición} (prevalencia e intervalos) de las dimensiones \textbf{geográfica} (condados) y \textbf{poblacional} (estratos y edades).
 Esto permite consultas flexibles tanto para registros por condado individual como para resultados agregados por grupos de condados.
-
-\newpage
-\section{Limitaciones de las fuentes de datos}\label{sec:limitaciones-fuentes-datos}
-
-\begin{comment}
-    - Explicar que ni Modoc ni Sierra tienen estaciones de medición
-    - Explicar que algunas estaciones/sensores han dejado de estar operativos
-    - Explicar que el período temporal no es muy extenso, si bien se puede ampliar en el futuro
-\end{comment}

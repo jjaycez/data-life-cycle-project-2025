@@ -1,0 +1,188 @@
+\documentclass[10pt,mathserif,handout]{beamer}
+\usetheme{Madrid}
+
+\title[Asma y AQ]{Impacto de la Contaminación Atmosférica en los Casos de Asma en California}
+\author{Grupo Morado}
+\date{Enero 2026}
+
+\usepackage{xspace}
+
+\input{commands}
+
+\begin{document}
+    \begin{frame}
+        \titlepage
+    \end{frame}
+    \begin{frame}
+        \frametitle{Contenido}
+        \tableofcontents[hideallsubsections]
+    \end{frame}
+
+    \section{Descripción del Proyecto}\label{sec:descripcion-del-proyecto}
+    \begin{frame}
+        \frametitle{Motivación}
+        \begin{figure}
+            \centering
+            \includegraphics[width=200pt]{../tex/figures/one_earth_poster}
+            \caption{Portada del artículo de One Earth~\cite{Ni2024PM25Asthma}}
+            \label{fig:one_earth_poster}
+        \end{figure}
+    \end{frame}
+    \begin{frame}
+        \frametitle{Motivación}
+        \pause
+        \begin{itemize}
+            \item Negligencia de repercusiones ambientales
+            \vfill\pause
+            \item Impacto sobre enfermedades respiratorias
+            \vfill\pause
+            \item Aumento de la prevalencia del asma
+            \vfill\pause
+            \item Intensificación de ataques de asma
+            \vfill\pause
+            \item Caso de estudio: California
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{Objetivos}
+        \pause
+        \begin{itemize}
+            \item Recopilar datos históricos
+            \vfill\pause
+            \item Evaluar estado actual (\textit{WHO guidelines}~\cite{who2021_global_aqg})
+            \vfill\pause
+            \item Evaluar cobertura de estaciones de monitoreo
+            \vfill\pause
+            \item Análisis en relación con la incidencia de asma
+            \vfill\pause
+            \item Proponer medidas
+            \vfill\pause
+            \item Modelo predictivo de ingresos hospitalarios
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{Requisitos}
+        \pause
+        \begin{itemize}
+            \item Datos
+            \vfill\pause
+            \item Herramientas y Software
+            \vfill\pause
+            \item Recursos humanos
+            \vfill\pause
+            \item Recursos materiales
+            \vfill\pause
+            \item Organización temporal
+        \end{itemize}
+    \end{frame}
+
+    \section{Gestión del proyecto}\label{sec:gestion-del-proyecto}
+    \begin{frame}
+        \frametitle{Paquetes de trabajo}
+        \begin{figure}
+            \centering
+            \includegraphics[width=1\linewidth]{../management/WBS}
+            \caption{Esquema de Paquetes de Trabajo (WBS)}
+            \label{fig:wbs}
+        \end{figure}
+    \end{frame}
+
+    \section{Plan de Preservación de Datos}\label{sec:plan-de-preservacion-de-datos}
+
+    \section{Fuentes de datos}\label{sec:fuentes-de-datos}
+    \subsection{\openaq}\label{subsec:openaq}
+    \begin{frame}
+        \frametitle{\openaq}
+        \begin{center}
+            \includegraphics[width=50pt]{figures/openaq_icon}
+        \end{center}
+            \pause
+        \begin{center}
+            \includegraphics[width=200pt]{figures/openaq_leaflet_usa}
+        \end{center}
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{Contaminantes}
+        \pause
+        \begin{itemize}
+            \item $\pmtwofive$~\cite{Khreis2017TRAPchildhoodAsthma}
+            \vfill\pause
+            \item $\pmten$~\cite{Khreis2017TRAPchildhoodAsthma}
+            \vfill\pause
+            \item $\notwo$~\cite{Khreis2017TRAPchildhoodAsthma,Naidoo2019NO2asthma}
+            \vfill\pause
+            \item $\ozone$~\cite{epa2025_ozone_asthma_health_effects}
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{Geometría de los condados}
+        Shapefiles de los condados de California~\cite{census_tiger2025_us_county}
+        \pause
+        \begin{center}
+            \includegraphics[width=200pt]{../tex/figures/us_counties_qgis}
+        \end{center}
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{Geometría de los condados}
+        \begin{center}
+            \includegraphics[width=150pt]{../tex/figures/california_counties_qgis}
+        \end{center}
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{API de \openaq}
+        \begin{itemize}
+            \item \textit{Bounding Box} de California
+            \vfill
+            \pause
+            \item Límite de peticiones por minuto: 60
+            \vfill
+            \item Límite de peticiones por hora: 2000
+            \vfill
+            \pause
+            \item Número de peticiones a realizar: 5333
+        \end{itemize}
+        
+        \bigskip\pause
+        
+        \begin{center}
+            \textbf{¡2 a 3 horas de ejecución!}
+        \end{center}
+    \end{frame}
+
+    \subsection{\datagov}\label{subsec:data-gov}
+    \begin{frame}
+        \frametitle{\datagov}
+        \begin{itemize}
+            \item Prevalencia de asma (CHIS, \textit{California Health Interview Survey}~\cite{cdph_asthma_prevalence_datagov})
+            \vfill\pause
+            \item Agregaciones
+            \begin{itemize}
+                \vfill
+                \item Grupo demográfico
+                \vfill
+                \item Condado
+                \vfill
+                \item Anual
+            \end{itemize}
+        \end{itemize}
+    \end{frame}
+    
+    \subsection{Base de datos integrada}\label{subsec:base-de-datos-integrada}
+    \begin{frame}
+        \frametitle{Base de datos integrada}
+        \begin{center}
+            \includegraphics[width=200pt]{../data/openaq_data/sensors/unified phase 2}
+        \end{center}
+    \end{frame}
+
+    \section{Análisis de datos}\label{sec:analisis-de-datos}
+
+    \bibliographystyle{plainurl}
+    \bibliography{bibliography}
+\end{document}
