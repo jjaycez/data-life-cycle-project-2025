@@ -1,197 +1,98 @@
 \chapter{Estructura de Desglose del Trabajo (WBS)}
 
-Este capítulo describe la \textit{Work Breakdown Structure} (WBS) del proyecto \textit{Impacto de la calidad del aire en la prevalencia de asma en California}.
-La WBS organiza el trabajo en fases y paquetes jerárquicos coherentes con el cronograma (Gantt) y con el flujo lógico del ciclo de vida de los datos: planificación, adquisición, curación, análisis, modelado, evaluación de cobertura, publicación y cierre.
-
-Cada paquete de trabajo se define en términos de objetivo, actividades principales y entregables, de modo que el avance del proyecto sea medible y verificable.
-
-\section{Fase 1. Definición y planificación del proyecto}
-
-La primera fase establece las bases conceptuales, metodológicas y organizativas del proyecto. Su objetivo es reducir la incertidumbre inicial y asegurar que el análisis posterior sea coherente, reproducible y alineado con los objetivos planteados.
-
-\subsection{1.1 Descripción de la problemática y definición de objetivos}
-
-Este paquete de trabajo se centra en formular el problema de investigación y concretar los objetivos generales y específicos del estudio.
-Se delimitan las preguntas analíticas relacionadas con la asociación entre contaminantes atmosféricos y la prevalencia de asma, así como la población de interés y el ámbito geográfico y temporal del análisis.
-
-El entregable principal es un documento de alcance que recoge las hipótesis de trabajo, los supuestos iniciales y los criterios de éxito del proyecto.
-
-\subsection{1.2 Definición del proceso de recopilación, curación y análisis de datos}
-
-En este paquete se diseña el flujo completo de tratamiento de los datos, desde la recopilación de fuentes primarias hasta la generación de resultados analíticos y modelos predictivos.
-Se definen las etapas del pipeline, las dependencias entre ellas y los mecanismos de control de calidad y trazabilidad.
-
-El resultado es una especificación formal del proceso de datos que sirve como referencia para las fases posteriores.
-
-\subsection{1.3 Definición del modelo predictivo}
-
-Este subcomponente establece el enfoque de modelado que se utilizará para estimar la relación entre la calidad del aire y los indicadores de asma.
-Incluye la definición de la variable objetivo, la selección de modelos base y modelos específicos, así como los criterios de evaluación y validación.
-
-El entregable es un diseño metodológico del modelo predictivo, alineado con los objetivos del estudio y las limitaciones de los datos disponibles.
-
-\subsection{1.4 Definición del proceso de evaluación de la cobertura de sensores}
-
-Este paquete describe cómo se evaluará la cobertura espacial y temporal de las estaciones de medición de contaminantes.
-Se definen métricas de cobertura, criterios para la identificación de puntos críticos y el impacto potencial de las deficiencias de medición en el análisis y el modelado.
-
-El resultado es un marco metodológico para analizar la adecuación de la infraestructura de sensores existente.
-
-\subsection{1.5 Definición de KPIs, hitos y cronograma}
-
-Aquí se establecen los indicadores clave de rendimiento (KPIs) del proyecto, los hitos principales y el cronograma de ejecución.
-Estos elementos permiten monitorizar el progreso y evaluar el grado de cumplimiento de los objetivos en cada fase.
-
-\subsection{1.6 Evaluación de recursos necesarios}
-
-Este subpaquete identifica los recursos técnicos y humanos requeridos, incluyendo herramientas de software, capacidad de almacenamiento y cómputo, así como esfuerzos de desarrollo y análisis.
-
-\subsection{1.7 Control y seguimiento del proyecto}
-
-De forma transversal a toda la fase de planificación, se definen mecanismos de seguimiento, gestión de riesgos y control de cambios.
-Este componente garantiza la coherencia del proyecto a lo largo del tiempo y facilita la toma de decisiones informadas.
-
-\section{Fase 2. Recopilación de datos}
-
-La segunda fase aborda la identificación, adquisición y almacenamiento inicial de los datos necesarios para el análisis.
-
-\subsection{2.1 Definición de fuentes de datos}
-
-Se identifican y documentan las fuentes de datos relevantes, incluyendo registros de prevalencia de asma, mediciones de contaminantes y variables demográficas complementarias.
-Se analizan su cobertura, granularidad y posibles limitaciones.
-
-\subsection{2.2 Generación de scripts para la recopilación automática}
-
-Este paquete se centra en el desarrollo de scripts automatizados para la descarga de datos, garantizando reproducibilidad y consistencia en la adquisición.
-
-\subsection{2.3 Almacenamiento y control de versiones de datos brutos}
-
-Los datos recopilados se almacenan en su forma original, manteniendo control de versiones e integridad, con el fin de preservar una referencia inmutable para las fases posteriores.
-
-\subsection{2.4 Análisis exploratorio inicial}
-
-Se realiza un análisis exploratorio preliminar para identificar problemas evidentes de calidad, cobertura o consistencia que puedan afectar al proceso de curación.
-
-\section{Fase 3. Curación de datos}
-
-Esta fase transforma los datos brutos en conjuntos de datos estructurados, consistentes y listos para el análisis.
-
-\subsection{3.1 Análisis de la estructura de los datos}
-
-Se examina la estructura interna de los datos, verificando tipos, claves, duplicados y coherencia entre fuentes.
-
-\subsection{3.2 Evaluación del formato de almacenamiento}
-
-Se selecciona el formato de almacenamiento más adecuado para los datos curados, considerando eficiencia, escalabilidad y compatibilidad con las herramientas analíticas.
-
-\subsection{3.3 Elaboración del esquema lógico}
-
-Se define el esquema lógico que organiza los datos curados y sus relaciones, sirviendo como base para el análisis y el modelado.
-
-\subsection{3.4 Inserción de datos en el formato definitivo}
-
-Los datos se cargan en el formato seleccionado, aplicando validaciones para asegurar la integridad del proceso.
-
-\subsection{3.5 Tratamiento de valores vacíos y extremos}
-
-Se aplican reglas de limpieza y normalización para gestionar valores faltantes y observaciones extremas.
-
-\subsection{3.6 Almacenamiento de datos curados y metadatos}
-
-Se documentan los datos curados mediante metadatos y descripciones que facilitan su reutilización y comprensión.
-
-\subsection{3.7 Automatización del proceso de curación}
-
-Se integran todas las etapas de curación en un pipeline automatizado y reproducible.
-
-\section{Fase 4. Análisis de datos}
-
-En esta fase se estudian las relaciones entre contaminantes y asma mediante análisis estadísticos y visualizaciones.
-
-\subsection{4.1 Análisis de correlación}
-
-Se evalúa la relación entre niveles de contaminantes y prevalencia de asma en un año base.
-
-\subsection{4.2 Análisis de tendencias temporales}
-
-Se analizan las tendencias a lo largo del tiempo para identificar patrones y cambios relevantes.
-
-\subsection{4.3 Evaluación preliminar de resultados}
-
-Se realiza una validación inicial de los resultados obtenidos, contrastándolos con la literatura y los supuestos del estudio.
-
-\subsection{4.4 Generación de visualizaciones e informes}
-
-Se elaboran visualizaciones y reportes que sintetizan los resultados del análisis.
-
-\subsection{4.5 Automatización del análisis}
-
-El proceso analítico se automatiza para permitir su ejecución repetida bajo distintos escenarios.
-
-\section{Fase 5. Modelo predictivo}
-
-Esta fase desarrolla y evalúa modelos predictivos basados en los datos analizados.
-
-\subsection{5.1 Modelos base}
-
-Se construyen modelos de referencia que establecen un punto de comparación mínimo.
-
-\subsection{5.2 Modelos específicos}
-
-Se implementan modelos más complejos que incorporan múltiples variables explicativas.
-
-\subsection{5.3 Evaluación de modelos}
-
-Se comparan los modelos específicos con los modelos base utilizando métricas definidas.
-
-\subsection{5.4 Interpretabilidad}
-
-Se analizan los factores que más influyen en las predicciones del modelo.
-
-\subsection{5.5 Publicación y almacenamiento de modelos}
-
-Los modelos finales se almacenan y documentan para su reutilización.
-
-\section{Fase 6. Evaluación de cobertura de sensores}
-
-Se analiza la adecuación de la red de sensores para soportar el análisis realizado.
-
-\subsection{6.1 Análisis de cobertura actual}
-
-Se evalúa la cobertura espacial y temporal de las estaciones de medición.
-
-\subsection{6.2 Identificación de puntos críticos}
-
-Se detectan áreas con cobertura insuficiente.
-
-\subsection{6.3 Identificación de deficiencias por contaminante}
-
-Se analizan las carencias específicas para cada contaminante considerado.
-
-\section{Fase 7. Publicación de resultados}
-
-Esta fase consolida y difunde los resultados del proyecto.
-
-\subsection{7.1 Recopilación y discusión de resultados}
-
-Se integran los resultados del análisis, modelado y evaluación de cobertura.
-
-\subsection{7.2 Redacción del artículo}
-
-Se redacta el documento científico o técnico que presenta el estudio.
-
-\subsection{7.3 Publicación de datos y código}
-
-Se publican los datasets y el código en un repositorio accesible.
-
-\section{Fase 8. Evaluación final y propuesta de medidas}
-
-La fase final cierra el proyecto y propone acciones futuras.
-
-\subsection{8.1 Evaluación final del rendimiento del proyecto}
-
-Se evalúa el grado de cumplimiento de los objetivos y la calidad del proceso seguido.
-
-\subsection{8.2 Elaboración del informe final}
-
-Se entrega un informe final que resume resultados, conclusiones y recomendaciones.
+Este capítulo describe la \textit{Work Breakdown Structure} (WBS) del proyecto
+\textit{Impacto de la calidad del aire en la prevalencia de asma en California}.
+La WBS organiza el trabajo en un conjunto de fases secuenciales y coherentes con
+el cronograma del proyecto, reflejando el ciclo completo de los datos: desde la
+planificación inicial hasta la evaluación final y la propuesta de medidas.
+
+La estructura adoptada permite asegurar trazabilidad entre objetivos, datos,
+análisis y resultados, así como facilitar el control del avance y la evaluación
+del rendimiento del proyecto.
+
+\section{Definición y planificación del proyecto}
+
+La fase de planificación establece el marco conceptual, metodológico y organizativo
+del estudio. En esta etapa se define la problemática de investigación, se concretan
+los objetivos generales y específicos, y se delimitan el ámbito geográfico,
+temporal y poblacional del análisis.
+
+Asimismo, se diseña el proceso completo de recopilación, curación y análisis de
+datos históricos, garantizando coherencia metodológica y reproducibilidad. En este
+contexto se definen los indicadores clave de rendimiento (KPIs), los hitos del
+proyecto y el cronograma de ejecución, así como los recursos técnicos y humanos
+necesarios.
+
+De forma transversal, se establecen mecanismos de control y seguimiento que permiten
+gestionar riesgos, documentar decisiones y asegurar la continuidad del proyecto a
+lo largo de todas sus fases.
+
+\section{Recopilación y curación de datos}
+
+Esta fase comprende la identificación y adquisición de las fuentes de datos
+relevantes, incluyendo información sobre prevalencia de asma, contaminantes
+atmosféricos y variables complementarias de carácter demográfico o contextual.
+Se evalúa la cobertura, granularidad y calidad inicial de cada fuente, y se
+desarrollan scripts automatizados para la recopilación sistemática de los datos.
+
+Los datos brutos se almacenan con control de versiones y preservación de la
+integridad, constituyendo una referencia inmutable para el resto del proyecto.
+Posteriormente, se lleva a cabo un proceso de curación que incluye el análisis de
+la estructura de los datos, la selección del formato de almacenamiento, la
+definición de un esquema lógico y la aplicación de reglas de limpieza y
+normalización.
+
+El resultado de esta fase es un conjunto de datos curados, documentados mediante
+metadatos y preparados para su uso analítico y modelado, junto con un pipeline
+automatizado que garantiza la reproducibilidad del proceso.
+
+\section{Análisis de datos}
+
+En la fase de análisis se estudia la relación entre la calidad del aire y la
+prevalencia de asma mediante técnicas estadísticas y exploratorias. Se analizan
+correlaciones entre contaminantes y variables de salud, así como tendencias
+temporales que permitan identificar patrones relevantes y posibles cambios a lo
+largo del tiempo.
+
+Los resultados obtenidos se someten a una evaluación preliminar para verificar su
+coherencia interna y su consistencia con la literatura existente. A partir de este
+análisis se generan visualizaciones y reportes que sintetizan los hallazgos de
+forma clara y reproducible. Todo el proceso analítico se automatiza para facilitar
+su ejecución bajo distintos escenarios y configuraciones.
+
+\section{Modelo predictivo}
+
+Sobre la base de los datos curados y los resultados del análisis exploratorio, se
+desarrolla un modelo predictivo orientado a estimar indicadores de asma a partir de
+variables relacionadas con la calidad del aire. Se construyen modelos base que
+sirven como referencia y modelos específicos que incorporan información adicional
+y relaciones más complejas.
+
+Los modelos se evalúan mediante métricas previamente definidas y se analizan desde
+el punto de vista de su interpretabilidad, con el fin de identificar los factores
+más influyentes en las predicciones. Los modelos finales y sus artefactos asociados
+se almacenan y documentan para su reutilización y validación futura.
+
+\section{Evaluación de la cobertura de sensores}
+
+Esta fase analiza la adecuación de la red de estaciones de medición de contaminantes
+para soportar el análisis y el modelado realizados. Se evalúa la cobertura espacial
+y temporal de los sensores, identificando puntos críticos y deficiencias específicas
+para cada contaminante considerado.
+
+Los resultados de esta evaluación permiten contextualizar las conclusiones del
+estudio y fundamentar recomendaciones sobre mejoras en la infraestructura de
+medición o sobre la interpretación de los resultados en áreas con cobertura
+limitada.
+
+\section{Publicación de resultados y cierre del proyecto}
+
+La fase final integra y difunde los resultados del proyecto. Se recopilan y discuten
+los hallazgos derivados del análisis de datos, el modelado predictivo y la
+evaluación de cobertura, y se redacta el documento final que presenta el estudio de
+forma estructurada.
+
+Finalmente, se publican los conjuntos de datos y el código utilizado en un
+repositorio accesible, y se elabora un informe final que evalúa el rendimiento del
+proyecto, resume las conclusiones principales y propone posibles líneas de actuación
+o investigación futura.

@@ -1,23 +1,26 @@
 # Fdb version 4
-["bibtex __build__pdf__/presentation"] 1768943509.19547 "__build__pdf__/presentation.aux" "__build__pdf__/presentation.bbl" "__build__pdf__/presentation" 1768943569.98862 0
+["bibtex __build__pdf__/presentation"] 1768984122.58551 "__build__pdf__/presentation.aux" "__build__pdf__/presentation.bbl" "__build__pdf__/presentation" 1768984151.72158 0
   "./bibliography.bib" 1768844119 3928 9848c5002d13aa85e2a07000025baa82 ""
-  "__build__pdf__/presentation.aux" 1768943569 7159 8dd4dfa364c69fbbb8fb16c745d14132 "pdflatex"
+  "__build__pdf__/presentation.aux" 1768984150 7432 14fa45ed16506a526c4397eee64e9446 "pdflatex"
   "c:/texlive/2025/texmf-dist/bibtex/bst/urlbst/plainurl.bst" 1761040791 33495 46cfb45e24a877059f9f7e142c7fc61c ""
   (generated)
   "__build__pdf__/presentation.bbl"
   "__build__pdf__/presentation.blg"
   (rewritten before read)
-["pdflatex"] 1768943566.88264 "presentation.tex" "__build__pdf__/presentation.pdf" "presentation" 1768943569.98968 0
+["pdflatex"] 1768984146.27969 "presentation.tex" "__build__pdf__/presentation.pdf" "presentation" 1768984151.72239 0
   "../data/openaq_data/sensors/unified phase 2.png" 1767729893 30362 24d7cc969c224fabeff75e5eece62952 ""
+  "../management/Gantt.png" 1768983459 1800905 ec4e868038883381fb32e767d6cc38ab ""
   "../management/WBS.png" 1768943564 95571 ff3926860606ad0dd718570fe466ec1d ""
+  "../management/gantt" 1768945394 1368 e4a4c5a4692f997a3c30a3f7ebfbe7e7 ""
+  "../management/gantt-focus-5-6.png" 1768983988 206780 8b1c4a3c3231d5b4fdc9b1d59bf90855 ""
   "../tex/figures/california_counties_qgis.png" 1768834392 253220 4159bea98497ea3e34f8136b0a3b5d8c ""
   "../tex/figures/one_earth_poster.png" 1768844353 884269 f96e44e93ff42e4e3b154d2fee4daf27 ""
   "../tex/figures/us_counties_qgis.png" 1767539204 1289883 cb0aaef1e5c682415a35cceddac781c5 ""
-  "__build__pdf__/presentation.aux" 1768943569 7159 8dd4dfa364c69fbbb8fb16c745d14132 "pdflatex"
-  "__build__pdf__/presentation.bbl" 1768943509 2858 b180c08556f1e00d38f7b8351255da2f "bibtex __build__pdf__/presentation"
-  "__build__pdf__/presentation.nav" 1768943569 2909 f7fe53b33537868321c96ffab2fd30c9 "pdflatex"
-  "__build__pdf__/presentation.out" 1768943569 1160 da21bccc0a15e9ade7926e00e3eb3981 "pdflatex"
-  "__build__pdf__/presentation.toc" 1768943569 492 c71860c8509fee5ccea993e8a1aa264f "pdflatex"
+  "__build__pdf__/presentation.aux" 1768984150 7432 14fa45ed16506a526c4397eee64e9446 "pdflatex"
+  "__build__pdf__/presentation.bbl" 1768984122 2858 b180c08556f1e00d38f7b8351255da2f "bibtex __build__pdf__/presentation"
+  "__build__pdf__/presentation.nav" 1768984150 3101 6660535457388cace104919e5a4e7376 "pdflatex"
+  "__build__pdf__/presentation.out" 1768984150 1161 8a6175c38c55668817217b2315ab2595 "pdflatex"
+  "__build__pdf__/presentation.toc" 1768984150 495 c8284e056ff748ba2097237f4ee70de0 "pdflatex"
   "c:/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1761037570 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1761036057 1004 54797486969f23fa377b128694d548df ""
   "c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1761036057 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -207,7 +210,7 @@
   "commands.tex" 1768139615 364 022449f79440f5bd1b007a5dce1876b8 ""
   "figures/openaq_icon.png" 1768596951 10990 c19ac2b1e64461c85b08bcfb8f46fa8b ""
   "figures/openaq_leaflet_usa.png" 1768831284 420322 e45f3d1acfaed50db9445100400fdc25 ""
-  "presentation.tex" 1768943366 5974 996f54ba5c9fb06b36fe120c7c86b868 ""
+  "presentation.tex" 1768984145 6364 37dfde7fe892a8fe8f0a2fa30a793240 ""
   (generated)
   "__build__pdf__/presentation.aux"
   "__build__pdf__/presentation.log"
