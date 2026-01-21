@@ -1,17 +1,197 @@
-\chapter{Gestión del proyecto}\label{ch:gestion-del-proyecto}
+\chapter{Estructura de Desglose del Trabajo (WBS)}
 
+Este capítulo describe la \textit{Work Breakdown Structure} (WBS) del proyecto \textit{Impacto de la calidad del aire en la prevalencia de asma en California}.
+La WBS organiza el trabajo en fases y paquetes jerárquicos coherentes con el cronograma (Gantt) y con el flujo lógico del ciclo de vida de los datos: planificación, adquisición, curación, análisis, modelado, evaluación de cobertura, publicación y cierre.
 
-\section{Planificación y Paquetes de Trabajo}\label{sec:planificacion-y-paquetes-de-trabajo}
+Cada paquete de trabajo se define en términos de objetivo, actividades principales y entregables, de modo que el avance del proyecto sea medible y verificable.
 
-Siguiendo la metodología de división lógica de actividades, el proyecto se organiza en 5 paquetes de trabajo (WP)[cite: 150, 156]:
-\begin{itemize}
-    \item \textbf{WP1:} Concepción y desarrollo del proyecto[cite: 158].
-    \item \textbf{WP2:} Gestión y redacción del informe[cite: 161, 174].
-    \item \textbf{WP3:} Obtención y procesado de datos clínicos y ambientales[cite: 163].
-    \item \textbf{WP4:} Análisis estadístico y conclusiones[cite: 164, 179].
-    \item \textbf{WP5:} Promoción y presentación[cite: 166].
-\end{itemize}
+\section{Fase 1. Definición y planificación del proyecto}
 
-\section{Plan de gestión de datos (DMP)}\label{sec:plan-de-gestion-de-datos-(dmp)}
+La primera fase establece las bases conceptuales, metodológicas y organizativas del proyecto. Su objetivo es reducir la incertidumbre inicial y asegurar que el análisis posterior sea coherente, reproducible y alineado con los objetivos planteados.
 
-Se aplican los principios FAIR (Findable, Accessible, Interoperable, Reusable) para asegurar una gestión efectiva y transparente de la información[cite: 187, 191]. El cumplimiento de HIPAA asegura que no se utilice material sensible que identifique pacientes[cite: 212].
+\subsection{1.1 Descripción de la problemática y definición de objetivos}
+
+Este paquete de trabajo se centra en formular el problema de investigación y concretar los objetivos generales y específicos del estudio.
+Se delimitan las preguntas analíticas relacionadas con la asociación entre contaminantes atmosféricos y la prevalencia de asma, así como la población de interés y el ámbito geográfico y temporal del análisis.
+
+El entregable principal es un documento de alcance que recoge las hipótesis de trabajo, los supuestos iniciales y los criterios de éxito del proyecto.
+
+\subsection{1.2 Definición del proceso de recopilación, curación y análisis de datos}
+
+En este paquete se diseña el flujo completo de tratamiento de los datos, desde la recopilación de fuentes primarias hasta la generación de resultados analíticos y modelos predictivos.
+Se definen las etapas del pipeline, las dependencias entre ellas y los mecanismos de control de calidad y trazabilidad.
+
+El resultado es una especificación formal del proceso de datos que sirve como referencia para las fases posteriores.
+
+\subsection{1.3 Definición del modelo predictivo}
+
+Este subcomponente establece el enfoque de modelado que se utilizará para estimar la relación entre la calidad del aire y los indicadores de asma.
+Incluye la definición de la variable objetivo, la selección de modelos base y modelos específicos, así como los criterios de evaluación y validación.
+
+El entregable es un diseño metodológico del modelo predictivo, alineado con los objetivos del estudio y las limitaciones de los datos disponibles.
+
+\subsection{1.4 Definición del proceso de evaluación de la cobertura de sensores}
+
+Este paquete describe cómo se evaluará la cobertura espacial y temporal de las estaciones de medición de contaminantes.
+Se definen métricas de cobertura, criterios para la identificación de puntos críticos y el impacto potencial de las deficiencias de medición en el análisis y el modelado.
+
+El resultado es un marco metodológico para analizar la adecuación de la infraestructura de sensores existente.
+
+\subsection{1.5 Definición de KPIs, hitos y cronograma}
+
+Aquí se establecen los indicadores clave de rendimiento (KPIs) del proyecto, los hitos principales y el cronograma de ejecución.
+Estos elementos permiten monitorizar el progreso y evaluar el grado de cumplimiento de los objetivos en cada fase.
+
+\subsection{1.6 Evaluación de recursos necesarios}
+
+Este subpaquete identifica los recursos técnicos y humanos requeridos, incluyendo herramientas de software, capacidad de almacenamiento y cómputo, así como esfuerzos de desarrollo y análisis.
+
+\subsection{1.7 Control y seguimiento del proyecto}
+
+De forma transversal a toda la fase de planificación, se definen mecanismos de seguimiento, gestión de riesgos y control de cambios.
+Este componente garantiza la coherencia del proyecto a lo largo del tiempo y facilita la toma de decisiones informadas.
+
+\section{Fase 2. Recopilación de datos}
+
+La segunda fase aborda la identificación, adquisición y almacenamiento inicial de los datos necesarios para el análisis.
+
+\subsection{2.1 Definición de fuentes de datos}
+
+Se identifican y documentan las fuentes de datos relevantes, incluyendo registros de prevalencia de asma, mediciones de contaminantes y variables demográficas complementarias.
+Se analizan su cobertura, granularidad y posibles limitaciones.
+
+\subsection{2.2 Generación de scripts para la recopilación automática}
+
+Este paquete se centra en el desarrollo de scripts automatizados para la descarga de datos, garantizando reproducibilidad y consistencia en la adquisición.
+
+\subsection{2.3 Almacenamiento y control de versiones de datos brutos}
+
+Los datos recopilados se almacenan en su forma original, manteniendo control de versiones e integridad, con el fin de preservar una referencia inmutable para las fases posteriores.
+
+\subsection{2.4 Análisis exploratorio inicial}
+
+Se realiza un análisis exploratorio preliminar para identificar problemas evidentes de calidad, cobertura o consistencia que puedan afectar al proceso de curación.
+
+\section{Fase 3. Curación de datos}
+
+Esta fase transforma los datos brutos en conjuntos de datos estructurados, consistentes y listos para el análisis.
+
+\subsection{3.1 Análisis de la estructura de los datos}
+
+Se examina la estructura interna de los datos, verificando tipos, claves, duplicados y coherencia entre fuentes.
+
+\subsection{3.2 Evaluación del formato de almacenamiento}
+
+Se selecciona el formato de almacenamiento más adecuado para los datos curados, considerando eficiencia, escalabilidad y compatibilidad con las herramientas analíticas.
+
+\subsection{3.3 Elaboración del esquema lógico}
+
+Se define el esquema lógico que organiza los datos curados y sus relaciones, sirviendo como base para el análisis y el modelado.
+
+\subsection{3.4 Inserción de datos en el formato definitivo}
+
+Los datos se cargan en el formato seleccionado, aplicando validaciones para asegurar la integridad del proceso.
+
+\subsection{3.5 Tratamiento de valores vacíos y extremos}
+
+Se aplican reglas de limpieza y normalización para gestionar valores faltantes y observaciones extremas.
+
+\subsection{3.6 Almacenamiento de datos curados y metadatos}
+
+Se documentan los datos curados mediante metadatos y descripciones que facilitan su reutilización y comprensión.
+
+\subsection{3.7 Automatización del proceso de curación}
+
+Se integran todas las etapas de curación en un pipeline automatizado y reproducible.
+
+\section{Fase 4. Análisis de datos}
+
+En esta fase se estudian las relaciones entre contaminantes y asma mediante análisis estadísticos y visualizaciones.
+
+\subsection{4.1 Análisis de correlación}
+
+Se evalúa la relación entre niveles de contaminantes y prevalencia de asma en un año base.
+
+\subsection{4.2 Análisis de tendencias temporales}
+
+Se analizan las tendencias a lo largo del tiempo para identificar patrones y cambios relevantes.
+
+\subsection{4.3 Evaluación preliminar de resultados}
+
+Se realiza una validación inicial de los resultados obtenidos, contrastándolos con la literatura y los supuestos del estudio.
+
+\subsection{4.4 Generación de visualizaciones e informes}
+
+Se elaboran visualizaciones y reportes que sintetizan los resultados del análisis.
+
+\subsection{4.5 Automatización del análisis}
+
+El proceso analítico se automatiza para permitir su ejecución repetida bajo distintos escenarios.
+
+\section{Fase 5. Modelo predictivo}
+
+Esta fase desarrolla y evalúa modelos predictivos basados en los datos analizados.
+
+\subsection{5.1 Modelos base}
+
+Se construyen modelos de referencia que establecen un punto de comparación mínimo.
+
+\subsection{5.2 Modelos específicos}
+
+Se implementan modelos más complejos que incorporan múltiples variables explicativas.
+
+\subsection{5.3 Evaluación de modelos}
+
+Se comparan los modelos específicos con los modelos base utilizando métricas definidas.
+
+\subsection{5.4 Interpretabilidad}
+
+Se analizan los factores que más influyen en las predicciones del modelo.
+
+\subsection{5.5 Publicación y almacenamiento de modelos}
+
+Los modelos finales se almacenan y documentan para su reutilización.
+
+\section{Fase 6. Evaluación de cobertura de sensores}
+
+Se analiza la adecuación de la red de sensores para soportar el análisis realizado.
+
+\subsection{6.1 Análisis de cobertura actual}
+
+Se evalúa la cobertura espacial y temporal de las estaciones de medición.
+
+\subsection{6.2 Identificación de puntos críticos}
+
+Se detectan áreas con cobertura insuficiente.
+
+\subsection{6.3 Identificación de deficiencias por contaminante}
+
+Se analizan las carencias específicas para cada contaminante considerado.
+
+\section{Fase 7. Publicación de resultados}
+
+Esta fase consolida y difunde los resultados del proyecto.
+
+\subsection{7.1 Recopilación y discusión de resultados}
+
+Se integran los resultados del análisis, modelado y evaluación de cobertura.
+
+\subsection{7.2 Redacción del artículo}
+
+Se redacta el documento científico o técnico que presenta el estudio.
+
+\subsection{7.3 Publicación de datos y código}
+
+Se publican los datasets y el código en un repositorio accesible.
+
+\section{Fase 8. Evaluación final y propuesta de medidas}
+
+La fase final cierra el proyecto y propone acciones futuras.
+
+\subsection{8.1 Evaluación final del rendimiento del proyecto}
+
+Se evalúa el grado de cumplimiento de los objetivos y la calidad del proceso seguido.
+
+\subsection{8.2 Elaboración del informe final}
+
+Se entrega un informe final que resume resultados, conclusiones y recomendaciones.
