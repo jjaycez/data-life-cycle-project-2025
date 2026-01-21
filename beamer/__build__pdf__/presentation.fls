@@ -367,6 +367,12 @@ INPUT ./figures/openaq_leaflet_usa.png
 INPUT ./figures/openaq_leaflet_usa.png
 INPUT ./figures/openaq_leaflet_usa.png
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
+INPUT ./figures/openaq_icon.png
+INPUT ./figures/openaq_icon.png
+INPUT ./figures/openaq_icon.png
+INPUT ./figures/openaq_leaflet_usa.png
+INPUT ./figures/openaq_leaflet_usa.png
+INPUT ./figures/openaq_leaflet_usa.png
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -381,6 +387,9 @@ INPUT c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT ../tex/figures/us_counties_qgis.png
+INPUT ../tex/figures/us_counties_qgis.png
+INPUT ../tex/figures/us_counties_qgis.png
 INPUT ../tex/figures/us_counties_qgis.png
 INPUT ../tex/figures/us_counties_qgis.png
 INPUT ../tex/figures/us_counties_qgis.png
