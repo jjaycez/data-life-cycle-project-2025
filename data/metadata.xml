@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+  <dc:title>Dataset de Calidad del Aire y Prevalencia de Asma en California (2015-2021)</dc:title>
+
+  <dc:creator>Agüero Encinas, Julio</dc:creator>
+  <dc:creator>Camargo, Fabián</dc:creator>
+  <dc:creator>Corvo Domosti, Miguel</dc:creator>
+  <dc:creator>Martín Martínez, Samuel</dc:creator>
+  <dc:creator>Zhang, Jiaze</dc:creator>
+  <dc:creator>Universidad de California</dc:creator>
+
+  <dc:subject>Calidad del aire</dc:subject>
+  <dc:subject>Asma</dc:subject>
+  <dc:subject>Salud pública</dc:subject>
+  <dc:subject>Epidemiología ambiental</dc:subject>
+  <dc:subject>California</dc:subject>
+  <dc:subject>NO2</dc:subject>
+  <dc:subject>PM2.5</dc:subject>
+  <dc:subject>Ozono</dc:subject>
+
+  <dc:description>
+    Dataset que consolida series históricas de contaminantes atmosféricos (materia particulada fina, ozono y dióxido de nitrógeno) 
+    con la idea de integrar los datos de calidad del aire con los datos de asma.
+    Datos extraídos de estaciones de
+    medición, para el análisis de la relación entre la exposición a contaminantes y la incidencia de enfermedades
+    respiratorias, desagregada por edad y condado. Incluye datos geoespaciales de estaciones de monitoreo y zonas censales.
+  </dc:description>
+
+  <dc:publisher>Universidad de California</dc:publisher>
+  <dc:publisher>Universidad de Cantabria</dc:publisher>
+
+  <dc:source>OpenAQ (Air Quality Data)</dc:source>
+  <dc:source>California Health Interview Survey (CHIS) - data.gov</dc:source>
+  <dc:source>U.S. Census Bureau (Shapefiles)</dc:source>
+
+  <dc:date>2026-01</dc:date>
+
+  <dc:type>Dataset</dc:type>
+
+  <dc:format>application/x-sqlite3</dc:format>
+  <dc:format>text/csv</dc:format>
+  <dc:format>application/geo+json</dc:format>
+
+  <dc:coverage>California, Estados Unidos</dc:coverage>
+  <dc:coverage>2015-01-01/2024-12-31</dc:coverage>
+
+  <dc:language>es</dc:language>
+
+  <dc:rights>Creative Commons Attribution 4.0 International (CC-BY 4.0)</dc:rights>
+
+  <dc:relation>Impacto de la Contaminación Atmosférica en los Casos de Asma en California (Memoria técnica)</dc:relation>
+
+</metadata>
