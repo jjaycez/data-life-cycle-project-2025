@@ -1,4 +1,120 @@
-\chapter{Conclusiones}\label{ch:conclusiones}
+\chapter{Conclusiones y líneas de trabajo futuro}
+\label{ch:conclusiones}
 
-Se discutirán los resultados obtenidos, reconociendo limitaciones como el número de estaciones de medida o variables socioeconómicas no consideradas[cite: 550, 560].
-Se propondrán recomendaciones para futuras estrategias de salud pública[cite: 577].
+\section{Síntesis del proyecto}
+El objetivo principal del proyecto ha sido estudiar, a escala de condado en California, la relación entre
+la calidad del aire (a través de contaminantes atmosféricos relevantes) y la prevalencia de asma, con una
+orientación clara hacia la reproducibilidad, la trazabilidad y la preservación a largo plazo de los activos
+digitales generados.
+
+Para alcanzar este objetivo se ha abordado el ciclo completo de los datos: planificación y definición de
+requisitos, adquisición automatizada, curación e integración en una base de datos, análisis exploratorio e
+identificación de limitaciones, evaluación complementaria (cobertura/representatividad), y finalmente
+publicación y preservación.
+
+\section{Cumplimiento de objetivos y entregables}
+A nivel de ejecución, el proyecto deja como resultado un conjunto de activos reutilizables que permiten
+repetir y ampliar el estudio sin rehacer trabajo previo:
+\begin{itemize}
+  \item Un flujo de trabajo reproducible para la obtención y tratamiento de datos, evitando correcciones manuales
+  y facilitando auditoría de cambios.
+  \item Un esquema de integración (base de datos) que separa medición, dimensión geográfica y dimensión poblacional,
+  habilitando consultas flexibles por condado, periodo y estrato demográfico.
+  \item Un conjunto de visualizaciones y resultados exploratorios orientados a detectar patrones y guiar iteraciones
+  posteriores (en particular, multianuales y multivariantes).
+  \item Un plan de preservación alineado con principios FAIR, con estrategias explícitas de almacenamiento, control
+  de versiones y migración a formatos abiertos.
+\end{itemize}
+
+En conjunto, estos entregables satisfacen el requisito de construir una base técnica sólida para análisis
+posteriores y para la comunicación transparente de los resultados.
+
+\section{Conclusiones del análisis exploratorio}
+Los resultados obtenidos en el análisis bivariante (contaminantes vs.\ prevalencia) no muestran una asociación
+lineal clara y consistente en el año base considerado. Esta observación no es la esperada si se parte de la
+hipótesis intuitiva de que a mayor exposición media a contaminantes debería corresponder mayor prevalencia de asma.
+Sin embargo, la ausencia de un patrón fuerte en este corte no invalida la relación entre contaminación y salud
+respiratoria; más bien indica que, con el diseño actual, el efecto puede estar siendo amortiguado por limitaciones
+del dato o por factores no controlados.
+
+Por tanto, la principal conclusión sustantiva de este informe es que el análisis ecológico y puntual (un solo año,
+agregación por condado) resulta insuficiente para capturar con robustez una relación que, por su naturaleza, puede
+ser acumulativa, no lineal, dependiente del contexto y afectada por múltiples confusores.
+
+\section{Limitaciones principales}
+Las limitaciones que probablemente explican la discrepancia entre lo esperado y lo observado pueden agruparse en
+cuatro bloques:
+
+\subsection{Limitaciones temporales}
+Trabajar con un único año reduce la potencia para identificar señales y no permite modelar dinámicas con rezago
+(\textit{lag}) ni efectos de exposición acumulada. Además, cuando la variable de asma se reporta con periodicidad
+bianual o por periodos, el emparejamiento con un año concreto introduce suavizado temporal y puede ocultar
+variaciones relevantes.
+
+\subsection{Incertidumbre y naturaleza del dato epidemiológico}
+La prevalencia de asma suele ser una estimación (encuestas, inferencia poblacional) y puede incorporar incertidumbre
+no despreciable. Si el análisis utiliza únicamente valores puntuales sin incorporar intervalos de confianza, se
+subestima la variabilidad y se reduce la interpretabilidad de diferencias pequeñas entre condados.
+
+\subsection{Agregación espacial y heterogeneidad intrarregional}
+La agregación por condado puede ocultar contrastes importantes (zonas urbanas vs.\ rurales) y conlleva riesgo de
+falacia ecológica: relaciones a nivel individual pueden no reflejarse en promedios agregados. Esto es especialmente
+relevante si existen subpoblaciones más vulnerables (infancia) cuyo patrón podría quedar diluido en \textit{all ages}.
+
+\subsection{Factores externos y confusión}
+La prevalencia de asma depende de determinantes adicionales a la calidad del aire: nivel socioeconómico, acceso y
+uso del sistema sanitario, hábitos, condiciones de vivienda, alérgenos, clima, movilidad, y otros factores
+contextuales. Si estos factores varían espacialmente y se correlacionan con los contaminantes, el análisis bivariante
+puede no recuperar el efecto neto de la contaminación (o incluso producir asociaciones espurias).
+
+\section{Recomendaciones y trabajo futuro}
+A partir de lo anterior, se proponen líneas de trabajo que maximizan el valor científico del sistema construido:
+
+\subsection{Extensión multianual y análisis de series temporales}
+Dado que los datos abarcan varios años, la recomendación principal es ampliar el rango temporal y analizar tendencias.
+Algunas direcciones concretas:
+\begin{itemize}
+  \item Modelos con desfases (\textit{lags}) y medias móviles para capturar exposición acumulada.
+  \item Comparación interanual por condado y detección de cambios estructurales (por ejemplo, periodos con incendios).
+  \item Estimación de asociación dentro de cada condado a lo largo del tiempo, reduciendo parte de la confusión espacial.
+\end{itemize}
+
+\subsection{Modelos multivariantes y control de confusores}
+Para acercarse a conclusiones causales (o al menos más interpretables) es necesario incorporar covariables
+socio-demográficas y contextuales. En particular:
+\begin{itemize}
+  \item Ajuste por variables de estructura poblacional y determinantes sociales.
+  \item Evaluación de interacciones (p.\,ej., contaminación $\times$ vulnerabilidad socioeconómica).
+  \item Alternativas robustas ante outliers y distribuciones no gaussianas (correlación de Spearman, regresión robusta).
+\end{itemize}
+
+\subsection{Estructura espacial y representatividad}
+Se recomienda integrar explícitamente componentes espaciales:
+\begin{itemize}
+  \item Diagnóstico de autocorrelación espacial y patrones regionales.
+  \item Modelos con efectos regionales o suavizado espacial, cuando proceda.
+  \item Uso conjunto con la evaluación de cobertura de sensores para ponderar incertidumbre o excluir áreas con baja
+  representatividad.
+\end{itemize}
+
+\subsection{Estratificación y análisis por subpoblación}
+Aunque el análisis global es útil por estabilidad, una extensión natural es analizar estratos:
+\begin{itemize}
+  \item Grupos de edad (infancia vs.\ adultos) para evaluar si la señal aparece en subpoblaciones más sensibles.
+  \item Comparación de resultados entre estratos para detectar heterogeneidad de efectos.
+\end{itemize}
+
+\section{Reproducibilidad, publicación y preservación}
+Más allá de los resultados numéricos, una contribución central del proyecto es haber construido un entorno
+reproducible y preservable: datos brutos diferenciados de datos curados, automatización de procesos, y una
+estrategia de preservación alineada con estándares abiertos y buenas prácticas (copias de seguridad, documentación,
+metadatos). Esto garantiza que el trabajo puede ser verificado, reutilizado y extendido, y reduce el coste marginal
+de incorporar nuevos años, nuevas variables o nuevas hipótesis.
+
+\section{Cierre}
+En conclusión, el proyecto ha cumplido con el objetivo de sentar una base técnica y metodológica sólida para estudiar
+la relación entre contaminación y asma en California, integrando fuentes heterogéneas y priorizando trazabilidad y
+reproducibilidad. El análisis exploratorio inicial sugiere que, con las restricciones actuales (corte temporal y
+agregación), no emerge una relación lineal fuerte; esta evidencia debe interpretarse como un punto de partida que
+justifica y orienta una segunda fase de análisis multianual, multivariante y espacial, más adecuada para reflejar la
+complejidad real del fenómeno.

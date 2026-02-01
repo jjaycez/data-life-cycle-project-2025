@@ -15,7 +15,7 @@
 \date{Enero 2026}
 
 \newif\ifdraft
-\drafttrue % Cambia a \draftfalse para compilar el documento completo
+\draftfalse % Cambia a \draftfalse para compilar el documento completo
 
 \begin{document}
 	
@@ -48,16 +48,22 @@
         \input{chapters/project_management}
         \input{chapters/data_sources}
         \input{chapters/conservacion}
+        \input{chapters/data_analysis}
+
     \else
 	% --- INTRODUCCIÓN ---
         \input{chapters/introduction}
         
         % --- GESTIÓN DEL PROYECTO ---
         \input{chapters/project_management}
+
+        % --- CONSERVACIÓN DE ACTIVOS DIGITALES ---
+        \input{chapters/conservacion}
         
         % --- FUENTES DE DATOS ---
         \input{chapters/data_sources}
-    
+
+
         % ---ANÁLISIS DE DATOS ---
         \input{chapters/data_analysis}
         

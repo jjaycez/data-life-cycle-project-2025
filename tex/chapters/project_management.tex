@@ -1,98 +1,243 @@
-\chapter{Estructura de Desglose del Trabajo (WBS)}
+\chapter{Gestión del proyecto}\label{ch:gestion_proyecto}
 
-Este capítulo describe la \textit{Work Breakdown Structure} (WBS) del proyecto
-\textit{Impacto de la calidad del aire en la prevalencia de asma en California}.
-La WBS organiza el trabajo en un conjunto de fases secuenciales y coherentes con
-el cronograma del proyecto, reflejando el ciclo completo de los datos: desde la
-planificación inicial hasta la evaluación final y la propuesta de medidas.
+\section{Propósito y enfoque de gestión}\label{sec:proposito-y-enfoque-de-gestion}
 
-La estructura adoptada permite asegurar trazabilidad entre objetivos, datos,
-análisis y resultados, así como facilitar el control del avance y la evaluación
-del rendimiento del proyecto.
+El proyecto \textit{Impacto de la calidad del aire en la prevalencia de asma en California}
+combina adquisición masiva de datos por API, curación, análisis estadístico/espacial, modelado
+predictivo e interpretación de resultados con posibles implicaciones para salud pública.
+Este tipo de iniciativas presenta dos retos de gestión típicos: (i) \textbf{heterogeneidad} de fuentes
+y formatos (tabular, geoespacial, series temporales), y (ii) \textbf{iteración} inevitable en la
+construcción de \emph{pipelines} reproducibles.
 
-\section{Definición y planificación del proyecto}
+Para responder a estos retos, la gestión se apoya en:
+\begin{itemize}
+    \item \textbf{Estructura de desglose del trabajo (WBS)}: define el alcance mediante fases y paquetes de trabajo.
+    \item \textbf{Cronograma (Gantt)}: convierte la WBS en un plan temporal con dependencias e hitos.
+    \item \textbf{Control y seguimiento transversal}: mecanismos de coordinación, trazabilidad, calidad y mitigación de riesgos.
+\end{itemize}
 
-La fase de planificación establece el marco conceptual, metodológico y organizativo
-del estudio. En esta etapa se define la problemática de investigación, se concretan
-los objetivos generales y específicos, y se delimitan el ámbito geográfico,
-temporal y poblacional del análisis.
+El enfoque adoptado es \textbf{secuencial por fases}, pero con \textbf{iteración controlada} dentro de cada fase.
+En particular, la adquisición y curación de datos se ejecutan de manera incremental (descarga parcial,
+almacenamiento intermedio, re-ejecución de procesos) para evitar pérdidas de progreso y para facilitar
+la depuración del flujo de trabajo.
 
-Asimismo, se diseña el proceso completo de recopilación, curación y análisis de
-datos históricos, garantizando coherencia metodológica y reproducibilidad. En este
-contexto se definen los indicadores clave de rendimiento (KPIs), los hitos del
-proyecto y el cronograma de ejecución, así como los recursos técnicos y humanos
-necesarios.
+\section{Gestión del alcance}\label{sec:gestion-del-alcance}
 
-De forma transversal, se establecen mecanismos de control y seguimiento que permiten
-gestionar riesgos, documentar decisiones y asegurar la continuidad del proyecto a
-lo largo de todas sus fases.
+\subsection{WBS como instrumento de definición del trabajo}\label{subsec:wbs-como-instrumento-de-definicion-del-trabajo}
 
-\section{Recopilación y curación de datos}
+La WBS organiza el proyecto en fases que recorren el ciclo completo de los datos, desde la
+planificación hasta el cierre.
+Su objetivo principal es:
+\begin{itemize}
+    \item \textbf{Delimitar el alcance} (qué se hace y qué queda fuera).
+    \item \textbf{Asegurar trazabilidad} entre objetivos, datos, análisis y resultados.
+    \item \textbf{Facilitar el control} del avance y la evaluación del rendimiento.
+\end{itemize}
 
-Esta fase comprende la identificación y adquisición de las fuentes de datos
-relevantes, incluyendo información sobre prevalencia de asma, contaminantes
-atmosféricos y variables complementarias de carácter demográfico o contextual.
-Se evalúa la cobertura, granularidad y calidad inicial de cada fuente, y se
-desarrollan scripts automatizados para la recopilación sistemática de los datos.
+La Figura~\ref{fig:wbs} presenta la WBS del proyecto, estructurada en fases y paquetes de trabajo.
 
-Los datos brutos se almacenan con control de versiones y preservación de la
-integridad, constituyendo una referencia inmutable para el resto del proyecto.
-Posteriormente, se lleva a cabo un proceso de curación que incluye el análisis de
-la estructura de los datos, la selección del formato de almacenamiento, la
-definición de un esquema lógico y la aplicación de reglas de limpieza y
-normalización.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../management/WBS}
+    \caption{Work Breakdown Structure (WBS) del proyecto por fases y paquetes de trabajo.}
+    \label{fig:wbs}
+\end{figure}
 
-El resultado de esta fase es un conjunto de datos curados, documentados mediante
-metadatos y preparados para su uso analítico y modelado, junto con un pipeline
-automatizado que garantiza la reproducibilidad del proceso.
+\subsection{Entregables y criterios de aceptación}\label{subsec:entregables-y-criterios-de-aceptacion}
 
-\section{Análisis de datos}
+Para asegurar una entrega verificable, se definen entregables alineados con las fases principales:
 
-En la fase de análisis se estudia la relación entre la calidad del aire y la
-prevalencia de asma mediante técnicas estadísticas y exploratorias. Se analizan
-correlaciones entre contaminantes y variables de salud, así como tendencias
-temporales que permitan identificar patrones relevantes y posibles cambios a lo
-largo del tiempo.
+\begin{itemize}
+    \item \textbf{E1. Documento de objetivos y requisitos}: objetivos generales/específicos, alcance geográfico/temporal y criterios de calidad.
+    \item \textbf{E2. \emph{Pipeline} de adquisición}: scripts para descarga automática, control de versiones de datos brutos y registro de ejecución.
+    \item \textbf{E3. Base de datos integrada}: esquema lógico y base de datos que permita consultas conjuntas (calidad del aire + asma).
+    \item \textbf{E4. Dataset curado + metadatos}: normalización, control de faltantes, tratamiento de valores atípicos y documentación.
+    \item \textbf{E5. Análisis y visualizaciones}: resultados de correlación/tendencias y paneles/gráficas reproducibles.
+    \item \textbf{E6. Modelo predictivo}: modelos base y específicos, evaluación comparativa e interpretabilidad.
+    \item \textbf{E7. Evaluación de cobertura}: diagnóstico de estaciones/sensores, puntos críticos y deficiencias por contaminante.
+    \item \textbf{E8. Publicación y cierre}: informe final, repositorio público con código/datos, y evaluación final del proyecto.
+\end{itemize}
 
-Los resultados obtenidos se someten a una evaluación preliminar para verificar su
-coherencia interna y su consistencia con la literatura existente. A partir de este
-análisis se generan visualizaciones y reportes que sintetizan los hallazgos de
-forma clara y reproducible. Todo el proceso analítico se automatiza para facilitar
-su ejecución bajo distintos escenarios y configuraciones.
+Los criterios de aceptación se basan en:
+\begin{itemize}
+    \item \textbf{Reproducibilidad}: ejecución de scripts/cuadernos con resultados coherentes (mismas entradas $\rightarrow$ mismas salidas).
+    \item \textbf{Trazabilidad}: cada figura/tabla relevante vinculada a un procedimiento de generación (script o notebook).
+    \item \textbf{Calidad de datos}: reglas explícitas (completitud mínima, coherencia temporal, consistencia geográfica, etc.).
+\end{itemize}
 
-\section{Modelo predictivo}
+\section{Gestión temporal}\label{sec:gestion-temporal}
 
-Sobre la base de los datos curados y los resultados del análisis exploratorio, se
-desarrolla un modelo predictivo orientado a estimar indicadores de asma a partir de
-variables relacionadas con la calidad del aire. Se construyen modelos base que
-sirven como referencia y modelos específicos que incorporan información adicional
-y relaciones más complejas.
+\subsection{Cronograma mediante diagrama de Gantt}\label{subsec:cronograma-mediante-diagrama-de-gantt}
 
-Los modelos se evalúan mediante métricas previamente definidas y se analizan desde
-el punto de vista de su interpretabilidad, con el fin de identificar los factores
-más influyentes en las predicciones. Los modelos finales y sus artefactos asociados
-se almacenan y documentan para su reutilización y validación futura.
+El cronograma traduce la WBS a tareas calendarizadas, incorporando dependencias y hitos
+(\emph{milestones}). Este instrumento permite:
+\begin{itemize}
+    \item visualizar \textbf{solapes} y \textbf{dependencias} entre fases (p. ej., curación y análisis),
+    \item identificar \textbf{camino crítico} (tareas cuya demora desplaza el fin del proyecto),
+    \item y programar \textbf{revisiones} de avance orientadas a entregables.
+\end{itemize}
 
-\section{Evaluación de la cobertura de sensores}
+La Figura~\ref{fig:gantt} muestra el diagrama de Gantt del proyecto.
 
-Esta fase analiza la adecuación de la red de estaciones de medición de contaminantes
-para soportar el análisis y el modelado realizados. Se evalúa la cobertura espacial
-y temporal de los sensores, identificando puntos críticos y deficiencias específicas
-para cada contaminante considerado.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../management/Gantt}
+    \caption{Cronograma del proyecto (diagrama de Gantt) con fases, tareas e hitos principales.}
+    \label{fig:gantt}
+\end{figure}
 
-Los resultados de esta evaluación permiten contextualizar las conclusiones del
-estudio y fundamentar recomendaciones sobre mejoras en la infraestructura de
-medición o sobre la interpretación de los resultados en áreas con cobertura
-limitada.
+\subsection{Hitos y dependencias principales}\label{subsec:hitos-y-dependencias-principales}
 
-\section{Publicación de resultados y cierre del proyecto}
+A nivel de gestión, se establecen hitos de control que marcan ``puntos de no retorno'' del proyecto:
+\begin{itemize}
+    \item \textbf{Hito de planificación}: requisitos, KPIs y alcance validados.
+    \item \textbf{Hito de \emph{pipeline} de datos}: adquisición y curación automatizadas con almacenamiento estable.
+    \item \textbf{Hito de modelado}: modelos evaluados y seleccionados, con interpretación documentada.
+    \item \textbf{Hito de publicación}: resultados consolidados, repositorio público y memoria final.
+\end{itemize}
 
-La fase final integra y difunde los resultados del proyecto. Se recopilan y discuten
-los hallazgos derivados del análisis de datos, el modelado predictivo y la
-evaluación de cobertura, y se redacta el documento final que presenta el estudio de
-forma estructurada.
+Las dependencias clave suelen ser:
+\begin{itemize}
+    \item La \textbf{curación} depende de una adquisición estable (datos brutos disponibles y versionados).
+    \item El \textbf{análisis} depende de la curación (sin reglas de limpieza, los hallazgos no son defendibles).
+    \item El \textbf{modelado} depende de la integración (base de datos o dataset final con variables consistentes).
+    \item La \textbf{evaluación de cobertura} depende de disponer de estaciones/sensores georreferenciados por condado.
+\end{itemize}
 
-Finalmente, se publican los conjuntos de datos y el código utilizado en un
-repositorio accesible, y se elabora un informe final que evalúa el rendimiento del
-proyecto, resume las conclusiones principales y propone posibles líneas de actuación
-o investigación futura.
+\section{Gestión de recursos}\label{sec:gestion-de-recursos}
+
+\subsection{Roles y responsabilidades}\label{subsec:roles-y-responsabilidades}
+
+El proyecto requiere perfiles complementarios para cubrir la cadena completa
+(adquisición, curación, análisis, GIS, comunicación y coordinación).
+Se adopta una organización con responsabilidades explícitas y revisión por pares en los componentes críticos.
+
+A modo de síntesis, la Tabla~\ref{tab:raci} presenta una matriz RACI (Responsible, Accountable,
+Consulted, Informed) para las actividades principales.
+
+\begin{table}[htbp]
+\centering
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{p{0.38\linewidth} p{0.13\linewidth} p{0.13\linewidth} p{0.13\linewidth} p{0.13\linewidth}}
+\hline
+\textbf{Actividad} & \textbf{CD} & \textbf{SP} & \textbf{VD} & \textbf{GIS} \\
+\hline
+Definición de requisitos y KPIs & A/R & C & C & C \\
+Adquisición de datos (scripts/API) & A/R & C & I & C \\
+Curación e integración (BD/datasets) & A/R & C & I & C \\
+Análisis estadístico y temporal & A/R & C & C & C \\
+Análisis geoespacial y cobertura & R & C & I & A/R \\
+Modelado predictivo e interpretabilidad & A/R & C & C & I \\
+Redacción, visualizaciones y publicación & C & C & A/R & C \\
+Seguimiento de plazos y coordinación & A/R\footnotemark & I & I & I \\
+\hline
+\end{tabular}
+\caption{Matriz RACI simplificada. CD: Científico de datos; SP: Especialista en salud pública;
+VD: Visualizador de datos; GIS: Técnico GIS.}
+\label{tab:raci}
+\end{table}
+
+\footnotetext{El rol de gestor de proyectos puede recaer en el propio científico de datos o estar separado,
+según disponibilidad. En ambos casos, la coordinación y control de plazos debe tener un responsable único.}
+
+\subsection{Herramientas de gestión y colaboración}\label{subsec:herramientas-de-gestion-y-colaboracion}
+
+Para garantizar coordinación y trazabilidad se emplean:
+\begin{itemize}
+    \item \textbf{Control de versiones}: repositorio para código, documentación y cambios relevantes.
+    \item \textbf{Seguimiento de tareas}: incidencias (\emph{issues}), tablero Kanban o lista de hitos por fase.
+    \item \textbf{Ejecución reproducible}: cuadernos y scripts versionados con entornos documentados.
+    \item \textbf{Almacenamiento}: separación entre datos brutos, intermedios y curados; copias de seguridad.
+\end{itemize}
+
+\section{Control, calidad y gestión de cambios}\label{sec:control-calidad-y-gestion-de-cambios}
+
+\subsection{Control y seguimiento}\label{subsec:control-y-seguimiento}
+
+El control se realiza mediante revisiones periódicas centradas en hitos y entregables. En cada revisión:
+\begin{itemize}
+    \item se verifica el \textbf{estado} de tareas críticas,
+    \item se registran \textbf{bloqueos} (técnicos o de datos),
+    \item y se acuerdan \textbf{acciones} con responsables y fecha objetivo.
+\end{itemize}
+
+Como soporte cuantitativo, se definen KPIs de gestión simples, por ejemplo:
+\begin{itemize}
+    \item \textbf{Cumplimiento de hitos}: porcentaje de hitos logrados en fecha.
+    \item \textbf{Automatización}: proporción de tareas de adquisición/curación ejecutables sin intervención manual.
+    \item \textbf{Calidad de datos}: métricas de completitud, consistencia y porcentaje de registros válidos tras curación.
+\end{itemize}
+
+\subsection{Gestión de calidad}\label{subsec:gestion-de-calidad}
+
+La calidad se aborda desde dos perspectivas:
+\begin{itemize}
+    \item \textbf{Calidad de datos}: reglas explícitas (validación de rangos, tratamiento de faltantes, detección de atípicos).
+    \item \textbf{Calidad del proceso}: revisión por pares, trazabilidad de cambios y reproducibilidad (misma entrada $\rightarrow$ misma salida).
+\end{itemize}
+
+\subsection{Gestión de cambios}\label{subsec:gestion-de-cambios}
+
+Dado que los proyectos de datos evolucionan con el descubrimiento de problemas (p. ej., sesgos,
+faltantes, cambios en endpoints), los cambios se gestionan con un flujo sencillo:
+\begin{enumerate}
+    \item \textbf{Registro}: descripción del cambio y motivación.
+    \item \textbf{Impacto}: evaluación del efecto en alcance/tiempo/calidad.
+    \item \textbf{Aprobación}: validación por el responsable del proyecto.
+    \item \textbf{Implementación}: ejecución y documentación; actualización de scripts y metadatos.
+\end{enumerate}
+
+\section{Gestión de riesgos}\label{sec:gestion-de-riesgos}
+
+La Tabla~\ref{tab:riesgos} resume riesgos habituales del proyecto y su tratamiento.
+
+\begin{table}[htbp]
+\centering
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{p{0.26\linewidth} p{0.12\linewidth} p{0.12\linewidth} p{0.42\linewidth}}
+\hline
+\textbf{Riesgo} & \textbf{Prob.} & \textbf{Impacto} & \textbf{Mitigación / contingencia} \\
+\hline
+Límites de la API y cuellos de botella en descarga & Media & Alto &
+Descarga incremental, pausas automáticas, almacenamiento intermedio; reintentos y registro de fallos. \\
+Calidad insuficiente (faltantes/atípicos) & Media & Alto &
+Reglas de curación documentadas; validación por etapas; informes de calidad; sensibilidad de resultados. \\
+Incompatibilidad temporal/geográfica entre fuentes & Media & Alto &
+Estandarización de granularidad; claves de integración; comprobaciones de consistencia; trazabilidad de transformaciones. \\
+Sesgos por cobertura de estaciones/sensores & Alta & Medio &
+Evaluación de cobertura por condado/contaminante; análisis de robustez; explicitar limitaciones en discusión. \\
+Pérdida o corrupción de datos/código & Baja & Muy alto &
+Copias de seguridad, control de versiones, hashes de integridad, y repositorio remoto para recuperación. \\
+Retrasos por complejidad del modelado & Media & Medio &
+Modelos base tempranos; iteración incremental; priorizar interpretabilidad y valor analítico sobre complejidad innecesaria. \\
+\hline
+\end{tabular}
+\caption{Registro de riesgos: probabilidad, impacto y medidas de mitigación/contingencia.}
+\label{tab:riesgos}
+\end{table}
+
+\section{Presupuesto y estimación de esfuerzo (opcional)}\label{sec:presupuesto-y-estimacion-de-esfuerzo-(opcional)}
+
+Si se requiere una estimación económica, puede derivarse del esfuerzo por paquete de trabajo:
+\[
+C \;=\; H \cdot r \;+\; C_{\mathrm{infra}},
+\]
+donde $H$ son horas totales estimadas, $r$ una tarifa media por hora, y $C_{\mathrm{infra}}$ recoge
+costes de infraestructura (almacenamiento, licencias si aplican, etc.). Para mantener coherencia con
+la gestión temporal, es recomendable estimar $H$ por fase/hito (según WBS/Gantt) y revisar la
+estimación tras completar los primeros entregables (planificación y \emph{pipeline} inicial).
+
+\section{Cierre del proyecto}\label{sec:cierre-del-proyecto}
+
+El cierre contempla:
+\begin{itemize}
+    \item \textbf{Verificación de entregables}: informe final, anexos técnicos y repositorio reproducible.
+    \item \textbf{Publicación}: datos curados y código con licencia adecuada, y archivado en repositorio de larga duración.
+    \item \textbf{Lecciones aprendidas}: incidencias principales, decisiones metodológicas y mejoras para iteraciones futuras.
+\end{itemize}
+
+Este conjunto de prácticas asegura que el proyecto no solo concluya con resultados analíticos,
+sino también con activos reutilizables (datos, código, documentación) y una base sólida para
+extensiones o replicaciones posteriores.

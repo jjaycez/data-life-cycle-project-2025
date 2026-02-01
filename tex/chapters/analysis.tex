@@ -33,8 +33,6 @@ Para facilitar la interpretación se representan los condados ordenados de mayor
 (barras) y, sobre el mismo eje de condados, se superpone la prevalencia de asma (línea). Esta visualización
 permite comprobar si, al incrementar $x$ (de izquierda a derecha), se observa un incremento sistemático de $y$.
 
-\newpage
-
 \section{Resultados}
 \subsection{Material particulado fino (PM$_{2.5}$)}
 La Figura~\ref{fig:pm25_allages} muestra la comparación entre PM$_{2.5}$ y prevalencia de asma en el año base.
@@ -42,9 +40,9 @@ A simple vista, no se observa un gradiente monotónico: condados con niveles rel
 no presentan necesariamente mayores prevalencias, y algunos máximos de prevalencia aparecen en posiciones
 intermedias o incluso con contaminación moderada.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.95\textwidth]{../code/figures/ranked_counties_2016__PM___2_5____Total_population__All_ages}
+  \includegraphics[width=0.95\textwidth]{figures/ranked_counties_2016__PM___2_5____Total_population__All_ages.png}
   \caption{PM$_{2.5}$ por condado (año base) y prevalencia de asma (\textit{All ages}). Los condados se ordenan
   de mayor a menor nivel del contaminante. La ausencia de un patrón creciente claro sugiere que, en este corte
   temporal, la asociación lineal condal es débil o está enmascarada por otros factores.}
@@ -56,9 +54,9 @@ La Figura~\ref{fig:pm10_allages} repite el análisis para PM$_{10}$. De nuevo, l
 de forma sistemática con la contaminación. Además, se aprecia que ciertos condados pueden actuar como puntos
 de alta influencia (p.\,ej., valores extremos de contaminación) que condicionan cualquier medida lineal global.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.95\textwidth]{../code/figures/ranked_counties_2016__PM___10____Total_population__All_ages}
+  \includegraphics[width=0.95\textwidth]{figures/ranked_counties_2016__PM___10____Total_population__All_ages.png}
   \caption{PM$_{10}$ por condado (año base) y prevalencia de asma (\textit{All ages}). Al igual que con PM$_{2.5}$,
   no se observa un gradiente claro de prevalencia al aumentar el contaminante. La presencia de valores extremos
   sugiere sensibilidad a outliers y refuerza la necesidad de análisis robustos y multivariantes.}
